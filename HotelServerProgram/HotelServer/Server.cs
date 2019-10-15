@@ -13,7 +13,6 @@ namespace HotelServer
 {
     public partial class Server : Form
     {
-        //(예전 커넥션 스트링)"User ID=sa;Password=9d8a7v7i8d2-@;Initial Catalog=HotelDB;Data Source=27.117.199.42,1433;";
         //DB 커넥션 스트링
         private const string strConn = "Data Source = 27.117.199.42,1433; database = HotelDB; uid = sa; pwd = 9d8a7v7i8d2-@";
         //private const string strConn = "Data Source = David-PC,1433; database = HotelDB; uid = sa; pwd = 9d8a7v7i8d2-@";
