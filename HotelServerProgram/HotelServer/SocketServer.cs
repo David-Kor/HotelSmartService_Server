@@ -177,17 +177,6 @@ namespace HotelServer
 
             bool isSuccess = false;     //명령 처리 성공여부
 
-            LinkedListNode<MySocket> ms_node = clientLList.First;
-            while (ms_node != null)
-            {
-                if (ms_node.Value.nid == mySocket.nid && ms_node.Value != mySocket)
-                {
-                    ms_node.Value.socket.Close();
-                    clientLList.Remove(ms_node);
-                }
-                ms_node = ms_node.Next;
-            }
-
             //연결 알림 로그
             PrintMessage("Client IP : " + mySocket.ip);
 
@@ -227,7 +216,16 @@ namespace HotelServer
                                 }
                                 node = node.Next;
                             }
-                            CallChatting(mySocket);
+                            LinkedListNode<MySocket> ms_node = clientLList.First;
+                            while (ms_node != null)
+                            {
+                                if (ms_node.Value.ip == mySocket.ip && ms_node.Value != mySocket)
+                                {
+                                    ms_node.Value.socket.Close();
+                                    clientLList.Remove(ms_node);
+                                }
+                                ms_node = ms_node.Next;
+                            }
                             //////////
                             mySocket.type = 1;
                             PrintMessage("(" + mySocket.ip.ToString() + ")  " + rcvMsg + " ->  ClientType : Application");
@@ -512,7 +510,7 @@ namespace HotelServer
                         {
                             /* 여기도 나중에 다시 구현할 것 */
                             if (front == null) { continue; }
-
+                            CallChatting(mySocket);
                             sndMsg = "CHATFROM" + mySocket.ip.ToString() + "\n";
                             sndMsg += rcvMsg.Split('\n')[1];
                             SendMessage(front, sndMsg);    //채팅 내용 전송
