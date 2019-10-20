@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -17,7 +18,7 @@ namespace HotelServer
     public partial class Server : Form
     {
         private Socket mv_sockServer;       //서버 메인 소켓
-        private IPAddress mv_addrFront;    //호텔 프런트와의 통신 소켓
+        private IPAddress mv_addrFront;    //호텔 프런트 IP주소객체
         private Dictionary<string, Socket> mv_dicClients;      //클라이언트 소켓들(key: ip주소, value: 소켓)
         private Dictionary<int, string> mv_dicRooms;          //객실 ip들(key: 객실번호[rid], value: ip주소)
         private DBManager mv_db;           //데이터베이스 클래스
@@ -31,6 +32,7 @@ namespace HotelServer
         public Server()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
             mv_dicClients = new Dictionary<string, Socket>();
             mv_dicRooms = new Dictionary<int, string>();
             mv_db = new DBManager();
@@ -137,8 +139,9 @@ namespace HotelServer
                 mv_dicClients.Add(strClientIP, sockClient);
                 PrintMessage($"Client Count : {mv_dicClients.Count}");
                 //통신 시작
-                while (sockClient.Connected)
+                while (true)
                 {
+                    if (sockClient == null || sockClient.Connected == false) { break; }
                     //클라이언트 메시지 수신
                     nRcvSize = sockClient.Receive(bBuffer);
 
@@ -146,7 +149,10 @@ namespace HotelServer
                     //사이즈가 0이하인 경우 무시
                     if (nRcvSize <= 0)
                     {
-                        continue;
+                        sockClient.Close();
+                        mv_dicClients.Remove(strClientIP);
+                        PrintMessage($"Closed socket : {sockClient.RemoteEndPoint.ToString()}");
+                        break;
                     }
                     //버퍼의 내용을 string으로 변환
                     strRcv = ConvertStringBytes(bBuffer) as string;
@@ -296,19 +302,26 @@ namespace HotelServer
             catch (Exception e)
             {
                 //예외발생 메시지 출력
-                PrintMessage($"Exception occurred in CommunicationToClient() : {e.Message}");
+                PrintMessage($"Exception occurred in CommunicationToClient() [{strClientIP}] : {e.Message}");
                 //아직 연결되어 있으면 FAIL전송
                 if (sockClient != null && sockClient.Connected)
                 {
-                    sockClient.Send(ConvertStringBytes(STR_FAIL) as byte[], SocketFlags.None);
-                    PrintMessage($"Send To {strClientIP} : FAIL");
+                    try
+                    {
+                        sockClient.Send(ConvertStringBytes(STR_FAIL) as byte[], SocketFlags.None);
+                        PrintMessage($"Send To {strClientIP} : FAIL");
+                    }
+                    catch (Exception ex)
+                    {
+                        PrintMessage($"Exception occurred in CommunicationToClient() : {ex.Message}");
+                    }
                 }
             }
             finally
             {
                 if (sockClient != null)
                 {
-                    PrintMessage($"Close Socket : {sockClient.RemoteEndPoint.ToString()}");
+                    PrintMessage($"Close Socket : {strClientIP}");
                     sockClient.Close();
                     mv_dicClients.Remove(strClientIP);      //클라이언트 Dictionary에서 제거
                 }
@@ -319,22 +332,29 @@ namespace HotelServer
         //프로그램의 창이 닫힐 때 호출
         private void Server_FormClosing(object sender, FormClosingEventArgs e)
         {
-            mv_isProgramClose = true;
-            //서버 메인 소켓 닫기
-            if (mv_sockServer != null)
+            try
             {
-                //3초 대기 후 소켓 닫음
-                mv_sockServer.Close(3000);
+                mv_isProgramClose = true;
+                //서버 메인 소켓 닫기
+                if (mv_sockServer != null)
+                {
+                    //3초 대기 후 소켓 닫음
+                    mv_sockServer.Close(3000);
+                }
+                //모든 클라이언트 소켓 닫기
+                string[] strKeys = mv_dicClients.Keys.ToArray();
+                PrintMessage("All client closing.");
+                for (int i = 0; i < strKeys.Length; i++)
+                {
+                    mv_dicClients[strKeys[i]].Close();
+                }
+                PrintMessage("Server Closing.");
+                mv_listenThread.Join();
             }
-            //모든 클라이언트 소켓 닫기
-            string[] strKeys = mv_dicClients.Keys.ToArray();
-            PrintMessage("All client closing.");
-            for (int i = 0; i < strKeys.Length; i++)
+            catch(Exception except)
             {
-                mv_dicClients[strKeys[i]].Close();
+                MessageBox.Show($"Exception in FormClosing : {except.Message}");
             }
-            PrintMessage("Server Closing.");
-            mv_listenThread.Join();
         }
 
         //텍스트 변경 이벤트 발생 시 호출
@@ -357,6 +377,10 @@ namespace HotelServer
         {
             str = "[" + DateTime.Now.ToString() + "]  \t" + str + Environment.NewLine;
             display1.AppendText(str);
+            using (StreamWriter file = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\공부자료\log.txt", true))
+            {
+                file.WriteLine(str);
+            }
         }
     }
 }

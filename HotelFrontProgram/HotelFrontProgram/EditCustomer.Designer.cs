@@ -74,14 +74,14 @@
             this.txt_name.Location = new System.Drawing.Point(26, 83);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(251, 21);
-            this.txt_name.TabIndex = 0;
+            this.txt_name.TabIndex = 1;
             // 
             // txt_phone
             // 
             this.txt_phone.Location = new System.Drawing.Point(26, 151);
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(251, 21);
-            this.txt_phone.TabIndex = 0;
+            this.txt_phone.TabIndex = 2;
             // 
             // lb_phone
             // 
@@ -97,7 +97,7 @@
             this.txt_age.Location = new System.Drawing.Point(26, 215);
             this.txt_age.Name = "txt_age";
             this.txt_age.Size = new System.Drawing.Size(251, 21);
-            this.txt_age.TabIndex = 0;
+            this.txt_age.TabIndex = 3;
             // 
             // lb_age
             // 
@@ -113,7 +113,7 @@
             this.txt_adress.Location = new System.Drawing.Point(26, 283);
             this.txt_adress.Name = "txt_adress";
             this.txt_adress.Size = new System.Drawing.Size(251, 21);
-            this.txt_adress.TabIndex = 0;
+            this.txt_adress.TabIndex = 4;
             // 
             // lb_adress
             // 
@@ -129,7 +129,7 @@
             this.txt_room.Location = new System.Drawing.Point(26, 349);
             this.txt_room.Name = "txt_room";
             this.txt_room.Size = new System.Drawing.Size(251, 21);
-            this.txt_room.TabIndex = 0;
+            this.txt_room.TabIndex = 5;
             // 
             // lb_room
             // 
@@ -145,7 +145,7 @@
             this.btn_positive.Location = new System.Drawing.Point(324, 30);
             this.btn_positive.Name = "btn_positive";
             this.btn_positive.Size = new System.Drawing.Size(108, 48);
-            this.btn_positive.TabIndex = 2;
+            this.btn_positive.TabIndex = 6;
             this.btn_positive.Text = "확인";
             this.btn_positive.UseVisualStyleBackColor = true;
             this.btn_positive.Click += new System.EventHandler(this.btn_positive_Click);
@@ -155,7 +155,7 @@
             this.btn_nagative.Location = new System.Drawing.Point(324, 100);
             this.btn_nagative.Name = "btn_nagative";
             this.btn_nagative.Size = new System.Drawing.Size(108, 48);
-            this.btn_nagative.TabIndex = 2;
+            this.btn_nagative.TabIndex = 7;
             this.btn_nagative.Text = "취소";
             this.btn_nagative.UseVisualStyleBackColor = true;
             this.btn_nagative.Click += new System.EventHandler(this.btn_nagative_Click);

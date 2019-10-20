@@ -126,105 +126,143 @@ namespace HotelFrontProgram
         //수신 메시지 별 행동
         private void CommandAction(string cmd)
         {
-            try
-            {
-                if (cmd.StartsWith("CallChat"))
-                {
-                    cmd = cmd.Remove(0, "CallChat".Length);
-                    ChattingForm form = FindByIP(cmd);
-                    if (form == null)
-                    {
-                        form = new ChattingForm(cmd, this);
-                        Application.Run(chatFromList.AddLast(form).Value);
-                        //chatFromList.AddLast(form).Value.Show();
-                    }
-                    else
-                    {
-                        form.Reconnected();
-                    }
-                }
-                else if (cmd.StartsWith("CHATFROM"))
-                {
-                    string ip = cmd.Split('\n')[0].Remove(0, "CHATFROM".Length);
-                    cmd = cmd.Split('\n')[1];
+            if (cmd == null || cmd.Length == 0) { return; }
 
-                    ChattingForm form = FindByIP(ip);
-                    if (form != null)
-                    {
-                        form.ReceiveChat(cmd);
-                    }
-                    else
-                    {
-                        form = new ChattingForm(cmd, this);
-                        Application.Run(chatFromList.AddLast(form).Value);
-                        form.ReceiveChat(cmd);
-                    }
-                }
-                else if (cmd.StartsWith("CLOSECHAT"))
-                {
-                    string ip = cmd.Remove(0, "CLOSECHAT".Length);
-                    ChattingForm form = FindByIP(ip);
-                    if (form != null)
-                    {
-                        form.Disconnected();
-                    }
-                }
-                else if (false && cmd.StartsWith("CUSTOMERINFO"))
-                {
-                    string[] info = cmd.Remove(0, "CUSTOMERINFO".Length + 1).Split('\n');
-                    grid_customer_table.Rows.Add(info);
-                }
-                else if (cmd.StartsWith("ROOMINFO"))
-                {
-                    string[] info = cmd.Remove(0, "ROOMINFO".Length + 1).Split('\n');
-                    roomFrom.AddRows(info);
-                }
-                else if (cmd.EndsWith("FAIL"))
-                {
-                    if (cmd.StartsWith("UPDATE"))
-                    {
-                        MessageBox.Show("고객 정보 수정에 실패하였습니다.\n정확한 형식에 맞게 입력했는 지 확인하여주십시오.",
-                            "UPDATE ERROR");
-                    }
-                    else if (cmd.StartsWith("INSERT"))
-                    {
-                        MessageBox.Show("고객 정보 추가에 실패하였습니다.\n정확한 형식에 맞게 입력했는 지 확인하여주십시오.",
-                            "INSERT ERROR");
-                    }
-                    else if (cmd.StartsWith("DELETE"))
-                    {
-                        MessageBox.Show("고객 정보 삭제에 실패하였습니다.\n잘못된 정보이거나 이미 삭제된 정보입니다. 새로고침을 눌러보십시오.",
-                               "DELETE ERROR");
-                    }
-                }
-                else if (cmd.EndsWith("SUCCESS"))
-                {
-                    if (cmd.StartsWith("UPDATE"))
-                    {
-                        MessageBox.Show("고객 정보를 성공적으로 수정하였습니다.",
-                            "UPDATE COMPLETE");
-                        SendToServer("GET_CUSTOMER");
-                        SelectAllCustomers();
-                    }
-                    else if (cmd.StartsWith("INSERT"))
-                    {
-                        MessageBox.Show("고객 정보를 성공적으로 추가하였습니다.",
-                            "INSERT COMPLETE");
-                        SendToServer("GET_CUSTOMER");
-                        SelectAllCustomers();
-                    }
-                    else if (cmd.StartsWith("DELETE"))
-                    {
-                        MessageBox.Show("고객 정보를 성공적으로 삭제하였습니다.",
-                               "DELETE COMPLETE");
-                        SendToServer("GET_CUSTOMER");
-                        SelectAllCustomers();
-                    }
-                }
-            }
-            catch (Exception e)
+            string[] strSplit = cmd.Split(':');
+
+            switch (strSplit[0])
             {
-                MessageBox.Show(e.Message, "MethodError_CommandAction");
+                case "CHAT":
+                    {
+                        //args 부족
+                        if (strSplit.Length <= 2)
+                        {
+                            return;
+                        }
+
+                        ChattingForm chattingForm = FindByIP(strSplit[1]);
+                        if (chattingForm == null)
+                        {
+                            chattingForm = new ChattingForm(strSplit[1], this);
+                            Application.Run(chatFromList.AddLast(chattingForm).Value);
+                        }
+                        else
+                        {
+                            chattingForm.Reconnected();
+                        }
+
+                        for (int i = 3; i < strSplit.Length; i++)
+                        {
+                            strSplit[2] += $":{strSplit[i]}";
+                        }
+                        chattingForm.ReceiveChat(strSplit[2]);
+                        break;
+                    }
+            }
+
+            return;
+            if (true)
+            {
+                try
+                {
+                    if (cmd.StartsWith("CallChat"))
+                    {
+                        cmd = cmd.Remove(0, "CallChat".Length);
+                        ChattingForm chatForm = FindByIP(cmd);
+                        if (chatForm == null)
+                        {
+                            chatForm = new ChattingForm(cmd, this);
+                            Application.Run(chatFromList.AddLast(chatForm).Value);
+                            //chatFromList.AddLast(form).Value.Show();
+                        }
+                        else
+                        {
+                            chatForm.Reconnected();
+                        }
+                    }
+                    else if (cmd.StartsWith("CHATFROM"))
+                    {
+                        string ip = cmd.Split('\n')[0].Remove(0, "CHATFROM".Length);
+                        cmd = cmd.Split('\n')[1];
+
+                        ChattingForm form = FindByIP(ip);
+                        if (form != null)
+                        {
+                            form.ReceiveChat(cmd);
+                        }
+                        else
+                        {
+                            form = new ChattingForm(cmd, this);
+                            Application.Run(chatFromList.AddLast(form).Value);
+                            form.ReceiveChat(cmd);
+                        }
+                    }
+                    else if (cmd.StartsWith("CLOSECHAT"))
+                    {
+                        string ip = cmd.Remove(0, "CLOSECHAT".Length);
+                        ChattingForm form = FindByIP(ip);
+                        if (form != null)
+                        {
+                            form.Disconnected();
+                        }
+                    }
+                    else if (false && cmd.StartsWith("CUSTOMERINFO"))
+                    {
+                        string[] info = cmd.Remove(0, "CUSTOMERINFO".Length + 1).Split('\n');
+                        grid_customer_table.Rows.Add(info);
+                    }
+                    else if (cmd.StartsWith("ROOMINFO"))
+                    {
+                        string[] info = cmd.Remove(0, "ROOMINFO".Length + 1).Split('\n');
+                        roomFrom.AddRows(info);
+                    }
+                    else if (cmd.EndsWith("FAIL"))
+                    {
+                        if (cmd.StartsWith("UPDATE"))
+                        {
+                            MessageBox.Show("고객 정보 수정에 실패하였습니다.\n정확한 형식에 맞게 입력했는 지 확인하여주십시오.",
+                                "UPDATE ERROR");
+                        }
+                        else if (cmd.StartsWith("INSERT"))
+                        {
+                            MessageBox.Show("고객 정보 추가에 실패하였습니다.\n정확한 형식에 맞게 입력했는 지 확인하여주십시오.",
+                                "INSERT ERROR");
+                        }
+                        else if (cmd.StartsWith("DELETE"))
+                        {
+                            MessageBox.Show("고객 정보 삭제에 실패하였습니다.\n잘못된 정보이거나 이미 삭제된 정보입니다. 새로고침을 눌러보십시오.",
+                                   "DELETE ERROR");
+                        }
+                    }
+                    else if (cmd.EndsWith("SUCCESS"))
+                    {
+                        if (cmd.StartsWith("UPDATE"))
+                        {
+                            MessageBox.Show("고객 정보를 성공적으로 수정하였습니다.",
+                                "UPDATE COMPLETE");
+                            SendToServer("GET_CUSTOMER");
+                            SelectAllCustomers();
+                        }
+                        else if (cmd.StartsWith("INSERT"))
+                        {
+                            MessageBox.Show("고객 정보를 성공적으로 추가하였습니다.",
+                                "INSERT COMPLETE");
+                            SendToServer("GET_CUSTOMER");
+                            SelectAllCustomers();
+                        }
+                        else if (cmd.StartsWith("DELETE"))
+                        {
+                            MessageBox.Show("고객 정보를 성공적으로 삭제하였습니다.",
+                                   "DELETE COMPLETE");
+                            SendToServer("GET_CUSTOMER");
+                            SelectAllCustomers();
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "MethodError_CommandAction");
+                }
             }
         }
 

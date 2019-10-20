@@ -24,3 +24,16 @@ C:\Users\dkdlt\OneDrive\문서\공부자료\Projcects\repos\HotelFrontProgram\Ho
 C:\Users\dkdlt\OneDrive\문서\공부자료\Projcects\repos\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.csproj.CoreCompileInputs.cache
 C:\Users\dkdlt\OneDrive\문서\공부자료\Projcects\repos\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.exe
 C:\Users\dkdlt\OneDrive\문서\공부자료\Projcects\repos\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.pdb
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\bin\Debug\HotelFrontProgram.exe.config
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\bin\Debug\HotelFrontProgram.exe
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\bin\Debug\HotelFrontProgram.pdb
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.csprojAssemblyReference.cache
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.ChattingForm.resources
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.EditCustomer.resources
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.HotelFront.resources
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.Properties.Resources.resources
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.RoomsForm.resources
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.csproj.GenerateResource.cache
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.csproj.CoreCompileInputs.cache
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.exe
+C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelFrontProgram\HotelFrontProgram\obj\Debug\HotelFrontProgram.pdb
