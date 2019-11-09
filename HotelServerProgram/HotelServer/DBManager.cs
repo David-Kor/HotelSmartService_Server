@@ -33,6 +33,38 @@ namespace HotelServer
             }
         }
 
+        //전화번호로 nid를 검색
+        public string SelectNIDByPhone(string strPhnNmbr)
+        {
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand($"SELECT nid FROM Customer WHERE PhoneNumber = '{strPhnNmbr}'", con);
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                //검색 결과가 없으면 null반환
+                if (rd.HasRows == false)
+                {
+                    //DB닫기
+                    con.Close();
+                    return null;
+                }
+
+                //데이터를 읽어들임
+                rd.Read();
+                string nid = rd.GetString(0);
+
+                con.Close();
+                return nid;
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.Message);
+                return null;
+            }
+        }
+
         //nid로 고객 검색
         public Customer SelectCustomerByNID(string nid)
         {
@@ -69,6 +101,7 @@ namespace HotelServer
                 return null;
             }
         }
+
 
         //전체 고객 목록
         public List<Customer> SelectAllCustomers()
@@ -195,7 +228,7 @@ namespace HotelServer
         }
 
         //rid, nid로 예약 검색 [rid, nid]
-        public Reservation SelectReservations(int rid, string nid)
+        public Reservation SelectReservation(int rid, string nid)
         {
             try
             {
@@ -618,7 +651,7 @@ namespace HotelServer
                 {
                     cmd.CommandText += "humidset = " + room.humidSet + ",";
                 }
-                if (room.temp >= 0)
+                if (room.temp >= -273)
                 {
                     cmd.CommandText += "temp = " + room.temp + ",";
                 }

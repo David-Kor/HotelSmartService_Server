@@ -73,7 +73,7 @@ namespace HotelFrontProgram
                 //비동기 수신 시작
                 sock_sv.BeginReceive(r_buff, 0, BUFF_SIZE, SocketFlags.None, new AsyncCallback(ReceiveMessage), r_buff);
             }
-            catch (Exception except)
+            catch (Exception)
             {
                 //MessageBox.Show(except.Message, "Connect");
                 sock_sv.Close();
@@ -87,7 +87,6 @@ namespace HotelFrontProgram
         {
             try
             {
-                Thread.Sleep(50);
                 if (sock_sv.Connected)
                 {
                     byte[] buffer = (byte[])ar.AsyncState;
@@ -140,13 +139,17 @@ namespace HotelFrontProgram
                             return;
                         }
 
-                        ChattingForm chattingForm = FindByIP(strSplit[1]);
+                        //현재 열려있는 chattingForm 중에서 ID가 같은 폼을 탐색
+                        ChattingForm chattingForm = FindByID(strSplit[1]);
+
+                        //ID가 존재하지 않으면 새로운 폼 생성
                         if (chattingForm == null)
                         {
                             chattingForm = new ChattingForm(strSplit[1], this);
                             Application.Run(chatFromList.AddLast(chattingForm).Value);
                         }
-                        else
+                        //ID가 존재하고 연결 상태가 끊김이면 상태를 변경
+                        else if(chattingForm.IsConnected() == false)
                         {
                             chattingForm.Reconnected();
                         }
@@ -168,7 +171,7 @@ namespace HotelFrontProgram
                     if (cmd.StartsWith("CallChat"))
                     {
                         cmd = cmd.Remove(0, "CallChat".Length);
-                        ChattingForm chatForm = FindByIP(cmd);
+                        ChattingForm chatForm = FindByID(cmd);
                         if (chatForm == null)
                         {
                             chatForm = new ChattingForm(cmd, this);
@@ -185,7 +188,7 @@ namespace HotelFrontProgram
                         string ip = cmd.Split('\n')[0].Remove(0, "CHATFROM".Length);
                         cmd = cmd.Split('\n')[1];
 
-                        ChattingForm form = FindByIP(ip);
+                        ChattingForm form = FindByID(ip);
                         if (form != null)
                         {
                             form.ReceiveChat(cmd);
@@ -200,7 +203,7 @@ namespace HotelFrontProgram
                     else if (cmd.StartsWith("CLOSECHAT"))
                     {
                         string ip = cmd.Remove(0, "CLOSECHAT".Length);
-                        ChattingForm form = FindByIP(ip);
+                        ChattingForm form = FindByID(ip);
                         if (form != null)
                         {
                             form.Disconnected();
@@ -266,15 +269,14 @@ namespace HotelFrontProgram
             }
         }
 
-
-        private ChattingForm FindByIP(string ip)
+        private ChattingForm FindByID(string id)
         {
             LinkedListNode<ChattingForm> node = chatFromList.First;
             if (node == null) { return null; }
 
             while (node != null)
             {
-                if (node.Value.GetStringIP() == ip) { return node.Value; }
+                if (node.Value.GetStringID() == id) { return node.Value; }
                 node = node.Next;
             }
             return null;
@@ -403,7 +405,6 @@ namespace HotelFrontProgram
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        
         private void SelectAllCustomers()
         {
             SqlConnection con = null;

@@ -12,18 +12,21 @@ namespace HotelFrontProgram
 {
     public partial class ChattingForm : Form
     {
-        private string ipMsg;
-        private HotelFront mainForm;
+        private string mv_strID;
+        private HotelFront mv_mainForm;
+        private bool mv_isConnected;
 
-        public ChattingForm(string strIP, HotelFront form)
+        public ChattingForm(string strID, HotelFront form)
         {
             InitializeComponent();
-            ipMsg = "CHATTO";
-            ipMsg += strIP;
-            mainForm = form;
+            mv_strID = strID;
+            mv_mainForm = form;
+            mv_isConnected = true;
         }
 
-        public string GetStringIP() { return ipMsg.Remove(0, "CHATTO".Length); }
+        public bool IsConnected() { return mv_isConnected; }
+
+        public string GetStringID() { return mv_strID; }
 
         public void Disconnected()
         {
@@ -31,6 +34,7 @@ namespace HotelFrontProgram
             txtbx_input.Enabled = false;
             txtbx_input.ReadOnly = true;
             btn_send.Enabled = false;
+            mv_isConnected = false;
         }
         public void Reconnected()
         {
@@ -38,6 +42,7 @@ namespace HotelFrontProgram
             txtbx_input.Enabled = true;
             btn_send.Enabled = true;
             txtbx_input.ReadOnly = false;
+            mv_isConnected = true;
         }
 
         public void ReceiveChat(string txt)
@@ -69,7 +74,7 @@ namespace HotelFrontProgram
                 string input = txtbx_input.Text;
                 txtbx_input.Clear();
                 //입력한 채팅 전송
-                mainForm.SendToServer(ipMsg + "\n" + input);
+                mv_mainForm.SendToServer($"CHATTO:{mv_strID}:{input}");
                 PrintMessage("[보냄]  " + input);
             }
         }
@@ -81,7 +86,7 @@ namespace HotelFrontProgram
 
         private void ChattingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            mainForm.CloseForm(this);
+            mv_mainForm.CloseForm(this);
         }
 
         private void ChattingForm_Load(object sender, EventArgs e)

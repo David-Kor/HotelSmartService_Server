@@ -1,0 +1,668 @@
+[2019-11-08 오후 11:11:13]  	Server Program Start.
+
+[2019-11-08 오후 11:11:13]  	Create New Socket.
+
+[2019-11-08 오후 11:11:13]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-08 오후 11:11:13]  	Bind Socket.
+
+[2019-11-08 오후 11:11:13]  	Listen and Loop Start.
+
+[2019-11-08 오후 11:11:21]  	Accept Client : 127.0.0.1:13103
+
+[2019-11-08 오후 11:11:21]  	Add Client List
+
+[2019-11-08 오후 11:11:21]  	Client Count : 1
+
+[2019-11-08 오후 11:11:21]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-08 오후 11:11:21]  	Receive From 127.0.0.1 : ARDUINP102
+
+[2019-11-08 오후 11:11:33]  	Receive 11 Byte From 127.0.0.1
+
+[2019-11-08 오후 11:11:33]  	Receive From 127.0.0.1 : ARDUINO:102
+
+[2019-11-08 오후 11:11:33]  	Add new Room : 102
+
+[2019-11-08 오후 11:11:33]  	Send To 127.0.0.1 : OK
+
+[2019-11-08 오후 11:11:44]  	Receive 11 Byte From 127.0.0.1
+
+[2019-11-08 오후 11:11:44]  	Receive From 127.0.0.1 : NFCID:54321
+
+[2019-11-08 오후 11:11:44]  	Not enough Args.
+
+[2019-11-08 오후 11:11:44]  	Send To 127.0.0.1 : FAIL
+
+[2019-11-08 오후 11:12:22]  	Receive 16 Byte From 127.0.0.1
+
+[2019-11-08 오후 11:12:22]  	Receive From 127.0.0.1 : NFCID:54321:asdf
+
+[2019-11-08 오후 11:12:22]  	Search NID : 54321
+
+[2019-11-08 오후 11:12:29]  	Receive 17 Byte From 127.0.0.1
+
+[2019-11-08 오후 11:12:29]  	Receive From 127.0.0.1 : NFCID:543210:asdf
+
+[2019-11-08 오후 11:12:29]  	Search NID : 543210
+
+[2019-11-08 오후 11:12:29]  	Not allowed NID
+
+[2019-11-08 오후 11:12:36]  	All client closing.
+
+[2019-11-08 오후 11:12:36]  	Server Closing.
+
+[2019-11-08 오후 11:12:36]  	Exception occurred in CommunicationToClient() [127.0.0.1] : 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+
+[2019-11-08 오후 11:12:36]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-08 오후 11:12:36]  	Close Socket : 127.0.0.1
+
+[2019-11-08 오후 11:12:36]  	Loop End
+
+[2019-11-08 오후 11:12:36]  	Client Count : 0
+
+[2019-11-09 오후 7:17:29]  	Server Program Start.
+
+[2019-11-09 오후 7:17:29]  	Create New Socket.
+
+[2019-11-09 오후 7:17:29]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-09 오후 7:17:29]  	Bind Socket.
+
+[2019-11-09 오후 7:17:29]  	Listen and Loop Start.
+
+[2019-11-09 오후 7:17:29]  	Accept Client : 127.0.0.1:7866
+
+[2019-11-09 오후 7:17:29]  	Add Client List
+
+[2019-11-09 오후 7:17:29]  	Client Count : 1
+
+[2019-11-09 오후 7:17:29]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:17:29]  	Receive From 127.0.0.1 : ARDUINP102
+
+[2019-11-09 오후 7:17:50]  	Receive 17 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:17:50]  	Receive From 127.0.0.1 : SensorValues:asdf
+
+[2019-11-09 오후 7:17:50]  	Not enough Args.
+
+[2019-11-09 오후 7:17:50]  	Send To 127.0.0.1 : FAIL
+
+[2019-11-09 오후 7:18:01]  	Receive 20 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:18:01]  	Receive From 127.0.0.1 : SensorValues:a:a:a:a
+
+[2019-11-09 오후 7:18:01]  	Failed parse : Temperature
+
+[2019-11-09 오후 7:18:01]  	Failed parse : Humidity
+
+[2019-11-09 오후 7:18:01]  	Failed parse : Dust Concentration
+
+[2019-11-09 오후 7:18:01]  	Failed update room 0 information
+
+[2019-11-09 오후 7:18:01]  	Send To 127.0.0.1 : FAIL
+
+[2019-11-09 오후 7:18:01]  	Send To 127.0.0.1 : FAIL
+
+[2019-11-09 오후 7:18:40]  	All client closing.
+
+[2019-11-09 오후 7:18:40]  	Server Closing.
+
+[2019-11-09 오후 7:18:40]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-09 오후 7:18:40]  	Exception occurred in CommunicationToClient() [127.0.0.1] : 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+
+[2019-11-09 오후 7:18:40]  	Loop End
+
+[2019-11-09 오후 7:18:40]  	Close Socket : 127.0.0.1
+
+[2019-11-09 오후 7:18:40]  	Client Count : 0
+
+[2019-11-09 오후 7:18:45]  	Server Program Start.
+
+[2019-11-09 오후 7:18:45]  	Create New Socket.
+
+[2019-11-09 오후 7:18:45]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-09 오후 7:18:45]  	Bind Socket.
+
+[2019-11-09 오후 7:18:45]  	Listen and Loop Start.
+
+[2019-11-09 오후 7:18:47]  	Accept Client : 127.0.0.1:7879
+
+[2019-11-09 오후 7:18:47]  	Add Client List
+
+[2019-11-09 오후 7:18:47]  	Client Count : 1
+
+[2019-11-09 오후 7:18:47]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:18:47]  	Receive From 127.0.0.1 : ARDUINP102
+
+[2019-11-09 오후 7:19:25]  	Receive 21 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:19:25]  	Receive From 127.0.0.1 : SensorValues:27:50:88
+
+[2019-11-09 오후 7:19:25]  	Failed update room 0 information
+
+[2019-11-09 오후 7:19:25]  	Send To 127.0.0.1 : FAIL
+
+[2019-11-09 오후 7:19:41]  	Receive 22 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:19:41]  	Receive From 127.0.0.1 : SensorValues:27:50:88\
+
+[2019-11-09 오후 7:19:41]  	Failed parse : Dust Concentration
+
+[2019-11-09 오후 7:19:41]  	Failed update room 0 information
+
+[2019-11-09 오후 7:19:41]  	Send To 127.0.0.1 : FAIL
+
+[2019-11-09 오후 7:19:49]  	Receive 11 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:19:49]  	Receive From 127.0.0.1 : ARDUINO:102
+
+[2019-11-09 오후 7:19:49]  	Add new Room : 102
+
+[2019-11-09 오후 7:19:49]  	Send To 127.0.0.1 : OK
+
+[2019-11-09 오후 7:20:24]  	Receive 21 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:20:24]  	Receive From 127.0.0.1 : SensorValues:27:50:88
+
+[2019-11-09 오후 7:20:24]  	Send To 127.0.0.1 : SUCCESS
+
+[2019-11-09 오후 7:21:22]  	Receive 21 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:21:22]  	Receive From 127.0.0.1 : SensorValues:26:51:78
+
+[2019-11-09 오후 7:21:22]  	Send To 127.0.0.1 : SUCCESS
+
+[2019-11-09 오후 7:21:37]  	Receive 11 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:21:37]  	Receive From 127.0.0.1 : NFCID:54321
+
+[2019-11-09 오후 7:21:37]  	Search NID : 54321
+
+[2019-11-09 오후 7:21:46]  	Receive 12 Byte From 127.0.0.1
+
+[2019-11-09 오후 7:21:46]  	Receive From 127.0.0.1 : NFCID:543210
+
+[2019-11-09 오후 7:21:46]  	Search NID : 543210
+
+[2019-11-09 오후 7:21:46]  	Not allowed NID
+
+[2019-11-09 오후 8:01:43]  	Exception occurred in CommunicationToClient() [127.0.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-09 오후 8:01:43]  	Close Socket : 127.0.0.1
+
+[2019-11-09 오후 8:01:43]  	Client Count : 0
+
+[2019-11-09 오후 8:01:47]  	All client closing.
+
+[2019-11-09 오후 8:01:47]  	Server Closing.
+
+[2019-11-09 오후 8:01:47]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-09 오후 8:01:47]  	Loop End
+
+[2019-11-09 오후 8:01:52]  	Server Program Start.
+
+[2019-11-09 오후 8:01:52]  	Create New Socket.
+
+[2019-11-09 오후 8:01:52]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-09 오후 8:01:52]  	Bind Socket.
+
+[2019-11-09 오후 8:01:52]  	Listen and Loop Start.
+
+[2019-11-09 오후 8:01:53]  	Accept Client : 127.0.0.1:8762
+
+[2019-11-09 오후 8:01:53]  	Add Client List
+
+[2019-11-09 오후 8:01:53]  	Client Count : 1
+
+[2019-11-09 오후 8:01:53]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-09 오후 8:01:53]  	Receive From 127.0.0.1 : ARDUINP102
+
+[2019-11-09 오후 8:02:27]  	Receive 14 Byte From 127.0.0.1
+
+[2019-11-09 오후 8:02:27]  	Receive From 127.0.0.1 : ID:01011110000
+
+[2019-11-09 오후 8:02:27]  	Remove same dictionary key(IP) : 127.0.0.1
+
+[2019-11-09 오후 8:02:27]  	Add new dictionary key : 01011110000
+
+[2019-11-09 오후 8:02:35]  	Receive 8 Byte From 01011110000
+
+[2019-11-09 오후 8:02:35]  	Receive From 01011110000 : RoomInfo
+
+[2019-11-09 오후 8:02:35]  	Send To 127.0.0.1 : 26
+51
+78
+
+[2019-11-09 오후 8:03:11]  	Exception occurred in CommunicationToClient() [01011110000] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-09 오후 8:03:11]  	Close Socket : 01011110000
+
+[2019-11-09 오후 8:03:11]  	Client Count : 0
+
+[2019-11-09 오후 8:03:17]  	Accept Client : 127.0.0.1:8800
+
+[2019-11-09 오후 8:03:17]  	Add Client List
+
+[2019-11-09 오후 8:03:17]  	Client Count : 1
+
+[2019-11-09 오후 8:03:17]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-09 오후 8:03:17]  	Receive From 127.0.0.1 : ARDUINP102
+
+[2019-11-09 오후 8:03:27]  	Receive 14 Byte From 127.0.0.1
+
+[2019-11-09 오후 8:03:27]  	Receive From 127.0.0.1 : ID:01011110000
+
+[2019-11-09 오후 8:03:27]  	Remove same dictionary key(IP) : 127.0.0.1
+
+[2019-11-09 오후 8:03:27]  	Add new dictionary key : 01011110000
+
+[2019-11-09 오후 8:03:32]  	Receive 14 Byte From 01011110000
+
+[2019-11-09 오후 8:03:32]  	Receive From 01011110000 : ID:01011110000
+
+[2019-11-09 오후 8:03:32]  	Remove same dictionary key(IP) : 01011110000
+
+[2019-11-09 오후 8:03:32]  	Add new dictionary key : 01011110000
+
+[2019-11-09 오후 8:03:34]  	Exception occurred in CommunicationToClient() [01011110000] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-09 오후 8:03:34]  	Close Socket : 01011110000
+
+[2019-11-09 오후 8:03:34]  	Client Count : 0
+
+[2019-11-09 오후 8:03:36]  	All client closing.
+
+[2019-11-09 오후 8:03:36]  	Server Closing.
+
+[2019-11-09 오후 8:03:36]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-09 오후 8:03:36]  	Loop End
+
+[2019-11-09 오후 8:07:38]  	Server Program Start.
+
+[2019-11-09 오후 8:07:38]  	Create New Socket.
+
+[2019-11-09 오후 8:07:38]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-09 오후 8:07:38]  	Bind Socket.
+
+[2019-11-09 오후 8:07:38]  	Listen and Loop Start.
+
+[2019-11-09 오후 8:07:39]  	Accept Client : 127.0.0.1:8900
+
+[2019-11-09 오후 8:07:39]  	Add Client List
+
+[2019-11-09 오후 8:07:39]  	Client Count : 1
+
+[2019-11-09 오후 8:07:39]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-09 오후 8:07:39]  	Receive From 127.0.0.1 : ARDUINP102
+
+[2019-11-09 오후 8:07:43]  	Receive 6 Byte From 127.0.0.1
+
+[2019-11-09 오후 8:07:43]  	Receive From 127.0.0.1 : ID:123
+
+[2019-11-09 오후 8:07:43]  	Remove same dictionary key(IP) : 127.0.0.1
+
+[2019-11-09 오후 8:07:43]  	Add new dictionary key : 123
+
+[2019-11-09 오후 8:07:47]  	Receive 6 Byte From 123
+
+[2019-11-09 오후 8:07:47]  	Receive From 123 : ID:123
+
+[2019-11-09 오후 8:07:47]  	Remove same dictionary key(IP) : 123
+
+[2019-11-09 오후 8:07:47]  	Add new dictionary key : 123
+
+[2019-11-09 오후 8:07:49]  	Exception occurred in CommunicationToClient() [123] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-09 오후 8:07:49]  	Close Socket ID : 123
+
+[2019-11-09 오후 8:07:49]  	Remove dictionary key : 123
+
+[2019-11-09 오후 8:07:49]  	Client Count : 0
+
+[2019-11-09 오후 8:07:55]  	Accept Client : 127.0.0.1:8903
+
+[2019-11-09 오후 8:07:55]  	Add Client List
+
+[2019-11-09 오후 8:07:55]  	Client Count : 1
+
+[2019-11-09 오후 8:07:55]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-09 오후 8:07:55]  	Receive From 127.0.0.1 : ARDUINP102
+
+[2019-11-09 오후 8:07:59]  	Receive 6 Byte From 127.0.0.1
+
+[2019-11-09 오후 8:07:59]  	Receive From 127.0.0.1 : ID:123
+
+[2019-11-09 오후 8:07:59]  	Remove same dictionary key(IP) : 127.0.0.1
+
+[2019-11-09 오후 8:07:59]  	Add new dictionary key : 123
+
+[2019-11-09 오후 8:08:27]  	Exception occurred in CommunicationToClient() [123] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-09 오후 8:08:27]  	Close Socket ID : 123
+
+[2019-11-09 오후 8:08:27]  	Remove dictionary key : 123
+
+[2019-11-09 오후 8:08:27]  	Client Count : 0
+
+[2019-11-09 오후 8:08:29]  	All client closing.
+
+[2019-11-09 오후 8:08:29]  	Server Closing.
+
+[2019-11-09 오후 8:08:29]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-09 오후 8:08:29]  	Loop End
+
+[2019-11-09 오후 9:06:01]  	Server Program Start.
+
+[2019-11-09 오후 9:06:01]  	Create New Socket.
+
+[2019-11-09 오후 9:06:01]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-09 오후 9:06:01]  	Bind Socket.
+
+[2019-11-09 오후 9:06:01]  	Listen and Loop Start.
+
+[2019-11-09 오후 9:06:05]  	Accept Client : 127.0.0.1:9848
+
+[2019-11-09 오후 9:06:05]  	Add Client List
+
+[2019-11-09 오후 9:06:05]  	Client Count : 1
+
+[2019-11-09 오후 9:06:05]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:06:05]  	Receive From 127.0.0.1 : ARDUINP102
+
+[2019-11-09 오후 9:06:11]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:06:11]  	Receive From 127.0.0.1 : ID:54321
+
+[2019-11-09 오후 9:06:11]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-09 오후 9:06:11]  	Add new dictionary key : 54321
+
+[2019-11-09 오후 9:06:24]  	Receive 11 Byte From 54321
+
+[2019-11-09 오후 9:06:24]  	Receive From 54321 : ARDUINO:102
+
+[2019-11-09 오후 9:06:24]  	Add new Room : 102
+
+[2019-11-09 오후 9:06:24]  	Send To 54321 : OK
+
+[2019-11-09 오후 9:06:52]  	Receive 8 Byte From 54321
+
+[2019-11-09 오후 9:06:52]  	Receive From 54321 : RoomInfo
+
+[2019-11-09 오후 9:06:52]  	Not found reserved room by nid:
+
+[2019-11-09 오후 9:07:49]  	Receive 11 Byte From 54321
+
+[2019-11-09 오후 9:07:49]  	Receive From 54321 : LampOn:Room
+
+[2019-11-09 오후 9:07:49]  	Exception occurred in CommunicationToClient() [54321] : 개체 참조가 개체의 인스턴스로 설정되지 않았습니다.
+
+[2019-11-09 오후 9:07:49]  	Send To 127.0.0.1 : FAIL
+
+[2019-11-09 오후 9:07:49]  	Close Socket ID : 54321
+
+[2019-11-09 오후 9:07:49]  	Remove dictionary key : 54321
+
+[2019-11-09 오후 9:07:49]  	Client Count : 0
+
+[2019-11-09 오후 9:08:38]  	All client closing.
+
+[2019-11-09 오후 9:08:38]  	Server Closing.
+
+[2019-11-09 오후 9:08:38]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-09 오후 9:08:38]  	Loop End
+
+[2019-11-09 오후 9:10:22]  	Server Program Start.
+
+[2019-11-09 오후 9:10:22]  	Create New Socket.
+
+[2019-11-09 오후 9:10:23]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-09 오후 9:10:23]  	Bind Socket.
+
+[2019-11-09 오후 9:10:23]  	Listen and Loop Start.
+
+[2019-11-09 오후 9:10:23]  	Accept Client : 127.0.0.1:9959
+
+[2019-11-09 오후 9:10:23]  	Add Client List
+
+[2019-11-09 오후 9:10:23]  	Client Count : 1
+
+[2019-11-09 오후 9:10:23]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:10:23]  	Receive From 127.0.0.1 : ARDUINP102
+
+[2019-11-09 오후 9:10:30]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:10:30]  	Receive From 127.0.0.1 : ID:54321
+
+[2019-11-09 오후 9:10:30]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-09 오후 9:10:30]  	Add new dictionary key : 54321
+
+[2019-11-09 오후 9:10:32]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:10:32]  	Receive From 54321 : RoomInfo
+
+[2019-11-09 오후 9:10:32]  	Not found reserved room by nid:
+
+[2019-11-09 오후 9:10:34]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:10:34]  	Receive From 54321 : RoomInfo
+
+[2019-11-09 오후 9:10:34]  	Not found reserved room by nid:
+
+[2019-11-09 오후 9:10:34]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:10:34]  	Receive From 54321 : RoomInfo
+
+[2019-11-09 오후 9:10:34]  	Not found reserved room by nid:
+
+[2019-11-09 오후 9:10:35]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:10:35]  	Receive From 54321 : RoomInfo
+
+[2019-11-09 오후 9:10:35]  	Not found reserved room by nid:
+
+[2019-11-09 오후 9:10:37]  	Exception occurred in CommunicationToClient() [54321] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-09 오후 9:10:37]  	Close Socket ID : 54321
+
+[2019-11-09 오후 9:10:37]  	Remove dictionary key : 54321
+
+[2019-11-09 오후 9:10:37]  	Client Count : 0
+
+[2019-11-09 오후 9:12:41]  	Accept Client : 127.0.0.1:10010
+
+[2019-11-09 오후 9:12:41]  	Add Client List
+
+[2019-11-09 오후 9:12:41]  	Client Count : 1
+
+[2019-11-09 오후 9:12:41]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:12:41]  	Receive From 127.0.0.1 : ARDUINP102
+
+[2019-11-09 오후 9:12:50]  	Receive 14 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:12:50]  	Receive From 127.0.0.1 : ID:01011110000
+
+[2019-11-09 오후 9:12:50]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-09 오후 9:12:50]  	Add new dictionary key : 01011110000
+
+[2019-11-09 오후 9:12:52]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:12:52]  	Receive From 01011110000 : RoomInfo
+
+[2019-11-09 오후 9:12:52]  	Send To 127.0.0.1 : 26
+51
+78
+
+[2019-11-09 오후 9:12:58]  	Receive 11 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:12:58]  	Receive From 01011110000 : ARDUINO:102
+
+[2019-11-09 오후 9:12:58]  	Add new Room : 102
+
+[2019-11-09 오후 9:12:58]  	Send To 01011110000 : OK
+
+[2019-11-09 오후 9:13:05]  	Receive 11 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:13:05]  	Receive From 01011110000 : LampOn:Room
+
+[2019-11-09 오후 9:13:10]  	Receive 13 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:13:10]  	Receive From 01011110000 : LampOn:Toilet
+
+[2019-11-09 오후 9:13:11]  	Receive 14 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:13:11]  	Receive From 01011110000 : LampOn:Toilett
+
+[2019-11-09 오후 9:13:11]  	Invalid command : LampOn(arg1)
+
+[2019-11-09 오후 9:13:15]  	Receive 13 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:13:15]  	Receive From 01011110000 : LampOn:Living
+
+[2019-11-09 오후 9:13:18]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:13:18]  	Receive From 01011110000 : EXIt
+
+[2019-11-09 오후 9:13:19]  	Receive 1 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:13:19]  	Receive From 01011110000 :  
+
+[2019-11-09 오후 9:13:22]  	Exception occurred in CommunicationToClient() [01011110000] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-09 오후 9:13:22]  	Close Socket ID : 01011110000
+
+[2019-11-09 오후 9:13:22]  	Remove dictionary key : 01011110000
+
+[2019-11-09 오후 9:13:22]  	Client Count : 0
+
+[2019-11-09 오후 9:13:42]  	All client closing.
+
+[2019-11-09 오후 9:13:42]  	Server Closing.
+
+[2019-11-09 오후 9:13:42]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-09 오후 9:13:42]  	Loop End
+
+[2019-11-09 오후 9:24:05]  	Server Program Start.
+
+[2019-11-09 오후 9:24:05]  	Create New Socket.
+
+[2019-11-09 오후 9:24:05]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-09 오후 9:24:05]  	Bind Socket.
+
+[2019-11-09 오후 9:24:05]  	Listen and Loop Start.
+
+[2019-11-09 오후 9:24:05]  	Accept Client : 127.0.0.1:10234
+
+[2019-11-09 오후 9:24:05]  	Add Client List
+
+[2019-11-09 오후 9:24:05]  	Client Count : 1
+
+[2019-11-09 오후 9:24:05]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:24:05]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-09 오후 9:24:21]  	Receive 14 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:24:21]  	Receive From ID[127.0.0.1]  : ID:01011110000
+
+[2019-11-09 오후 9:24:21]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-09 오후 9:24:21]  	Add new dictionary key : 01011110000
+
+[2019-11-09 오후 9:24:22]  	Receive 14 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:24:22]  	Receive From ID[01011110000]  : ID:01011110000
+
+[2019-11-09 오후 9:24:22]  	Remove dictionary key(IP) : 01011110000
+
+[2019-11-09 오후 9:24:22]  	Add new dictionary key : 01011110000
+
+[2019-11-09 오후 9:24:22]  	Receive 14 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:24:22]  	Receive From ID[01011110000]  : ID:01011110000
+
+[2019-11-09 오후 9:24:22]  	Remove dictionary key(IP) : 01011110000
+
+[2019-11-09 오후 9:24:22]  	Add new dictionary key : 01011110000
+
+[2019-11-09 오후 9:24:22]  	Receive 14 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:24:22]  	Receive From ID[01011110000]  : ID:01011110000
+
+[2019-11-09 오후 9:24:22]  	Remove dictionary key(IP) : 01011110000
+
+[2019-11-09 오후 9:24:22]  	Add new dictionary key : 01011110000
+
+[2019-11-09 오후 9:24:46]  	Receive 11 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:24:46]  	Receive From ID[01011110000]  : ARDUINO:102
+
+[2019-11-09 오후 9:24:46]  	Add new Room : 102
+
+[2019-11-09 오후 9:24:46]  	Send To 01011110000 : OK
+
+[2019-11-09 오후 9:24:49]  	Receive 5 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:24:49]  	Receive From ID[01011110000]  : ALLON
+
+[2019-11-09 오후 9:24:49]  	Send To 01011110000 : ALLON
+
+[2019-11-09 오후 9:24:50]  	Receive 6 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:24:50]  	Receive From ID[01011110000]  : ALLOFF
+
+[2019-11-09 오후 9:24:50]  	Send To 01011110000 : ALLOFF
+
+[2019-11-09 오후 9:24:58]  	Receive 11 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:24:58]  	Receive From ID[01011110000]  : LampOn:Room
+
+[2019-11-09 오후 9:24:58]  	Send To 01011110000 : LAMPON_ROOM
+
+[2019-11-09 오후 9:25:01]  	Receive 12 Byte From 127.0.0.1
+
+[2019-11-09 오후 9:25:01]  	Receive From ID[01011110000]  : LampOff:Room
+
+[2019-11-09 오후 9:25:01]  	Send To 01011110000 : LAMPOFF_ROOM
+
+[2019-11-09 오후 9:25:11]  	Exception occurred in CommunicationToClient() [01011110000] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-09 오후 9:25:11]  	Close Socket ID : 01011110000
+
+[2019-11-09 오후 9:25:11]  	Remove dictionary key : 01011110000
+
+[2019-11-09 오후 9:25:11]  	Client Count : 0
+
+[2019-11-09 오후 9:25:16]  	All client closing.
+
+[2019-11-09 오후 9:25:16]  	Server Closing.
+
+[2019-11-09 오후 9:25:16]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-09 오후 9:25:16]  	Loop End
+
