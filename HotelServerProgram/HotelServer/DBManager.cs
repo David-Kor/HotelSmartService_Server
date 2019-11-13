@@ -23,9 +23,8 @@ namespace HotelServer
                 con = new SqlConnection(strConn);
                 con.Open();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show(e.Message);
             }
             finally
             {
@@ -60,7 +59,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message);
                 return null;
             }
         }
@@ -97,7 +95,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message);
                 return null;
             }
         }
@@ -136,7 +133,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_SelectAllCustomers");
                 return null;
             }
         }
@@ -178,7 +174,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_SelectRoomByRID");
                 return null;
             }
         }
@@ -222,7 +217,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_SelectAllRooms");
                 return null;
             }
         }
@@ -257,7 +251,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_SelectReservation");
                 return null;
             }
         }
@@ -295,7 +288,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_SelectAllReservationsByRID");
                 return null;
             }
         }
@@ -333,7 +325,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_SelectAllReservationsByNID");
                 return null;
             }
         }
@@ -378,7 +369,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_SelectAllReservations");
                 return null;
             }
         }
@@ -447,7 +437,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_InsertCustomer");
                 return false;
             }
         }
@@ -539,7 +528,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_InsertRoom");
                 return false;
             }
         }
@@ -574,7 +562,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_InsertReservation");
                 return false;
             }
         }
@@ -621,7 +608,6 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_UpdateCustomer");
                 return false;
             }
         }
@@ -682,7 +668,35 @@ namespace HotelServer
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message, "Method_UpdateRoom");
+                return false;
+            }
+        }
+        //tempset만 수정
+        public bool UpdateRoom(int nRID, int nTempSet)
+        {
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Room SET ", con);
+                
+                if (nTempSet >= 0)
+                {
+                    cmd.CommandText += "tempset = " + nTempSet;
+                }
+
+                //WHERE절 추가
+                cmd.CommandText += "WHERE rid = " + nRID;
+                //쿼리문 실행
+                int count = cmd.ExecuteNonQuery();
+                //DB닫기
+                con.Close();
+
+                if (count > 0) { return true; } //성공(갱신된 레코드가 1개 이상
+                else { return false; }  //실패
+            }
+            catch (Exception e)
+            {
+                con.Close();
                 return false;
             }
         }
@@ -706,7 +720,6 @@ namespace HotelServer
                 catch (Exception e)
                 {
                     con.Close();
-                    MessageBox.Show(e.Message, "Method_UpdateCustomer");
                     return false;
                 }
             }

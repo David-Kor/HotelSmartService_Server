@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO.Ports;
 
 namespace HotelFrontProgram
 {
@@ -483,5 +484,6 @@ namespace HotelFrontProgram
                 return;
             }
         }
+
     }
 }

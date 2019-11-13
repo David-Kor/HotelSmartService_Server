@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Timer = System.Timers.Timer;
 
 namespace HotelServer
 {
@@ -24,6 +25,10 @@ namespace HotelServer
         private DBManager mv_db;           //데이터베이스 클래스
         private bool mv_isProgramClose;    //프로그램 종료버튼이 눌림을 알림
         private Thread mv_listenThread;     //소켓 리스너 스레드
+        private Timer timer;        //객실 환경 정보 갱신타이머
+
+        private const int MAX_TEXT_LINE = 512;      //최대 로그 출력 라인(RichTextBox 라인제한)
+        private const int INTERVAL_ROOM_UPDATE = 60000;    //객실 정보 갱신 주기(단위 : ms)
 
         private const string STR_OK = "OK";
         private const string STR_FAIL = "FAIL";
@@ -88,6 +93,13 @@ namespace HotelServer
                 mv_sockServer.Bind(ep);   //Bind 단계
                 PrintMessage("Listen and Loop Start.");
                 mv_sockServer.Listen(0);   //Listen 단계
+                //일정 시간이 지날 때마다 Timer_Elapsed함수를 호출
+                timer = new Timer(INTERVAL_ROOM_UPDATE);
+                timer.Elapsed += new System.Timers.ElapsedEventHandler(Timer_Elapsed);
+                timer.Start();
+                timer.AutoReset = true;
+                PrintMessage("Timer for update rooms start.");
+
                 Socket newSock = null;
                 Thread acceptThread = null;
 
@@ -134,6 +146,7 @@ namespace HotelServer
             byte[] bBuffer = new byte[1024];    //최대 버퍼크기 1024Byte
             int nRcvSize;       //수신 메시지 크기
             string strRcv, strSnd;    //송수신 메시지
+
 
             try
             {
@@ -215,11 +228,13 @@ namespace HotelServer
                                     PrintMessage($"Add new Room : {rid}");
                                     sockClient.Send(ConvertStringBytes(STR_OK) as byte[], SocketFlags.None);
                                     PrintMessage($"Send To {strClientID} : {STR_OK}");
+                                    sockClient.Send(ConvertStringBytes("ROOMINFO") as byte[], SocketFlags.None);
+                                    PrintMessage($"Send To {strClientID} : ROOMINFO");
                                 }
                                 //파싱 실패
                                 else
                                 {
-                                    PrintMessage("Parsing Failed.");
+                                    PrintMessage("RID Parsing failed.");
                                     sockClient.Send(ConvertStringBytes(STR_FAIL) as byte[], SocketFlags.None);
                                     PrintMessage($"Send To {strClientID} : {STR_FAIL}");
                                 }
@@ -359,7 +374,6 @@ namespace HotelServer
 
                                 //DB에서 nid로 Reservation테이블를 검색해 예약한 방을 알아냄
                                 List<Reservation> ReservList = mv_db.SelectAllReservationsByNID(strNID);
-
                                 //예약한 방이 없는 경우
                                 if (ReservList == null)
                                 {
@@ -425,6 +439,13 @@ namespace HotelServer
 
                                 string strNID = mv_db.SelectNIDByPhone(strClientID);
                                 List<Reservation> reservList = mv_db.SelectAllReservationsByNID(strNID);
+                                //nid를 통한 rid검색 실패
+                                if (reservList == null)
+                                {
+                                    PrintMessage($"Not found reserved room by nid:{strNID}");
+                                    break;
+                                }
+                                //객실에 명령어 전송
                                 mv_dicClients[mv_dicRooms[reservList[0].rid]].Send(ConvertStringBytes($"LAMPON_{strTarget}") as byte[], SocketFlags.None);
                                 PrintMessage($"Send To {strClientID} : LAMPON_{strTarget}");
                                 break;
@@ -473,6 +494,13 @@ namespace HotelServer
 
                                 string strNID = mv_db.SelectNIDByPhone(strClientID);
                                 List<Reservation> reservList = mv_db.SelectAllReservationsByNID(strNID);
+                                //nid를 통한 rid검색 실패
+                                if (reservList == null)
+                                {
+                                    PrintMessage($"Not found reserved room by nid:{strNID}");
+                                    break;
+                                }
+                                //객실에 명령어 전송
                                 mv_dicClients[mv_dicRooms[reservList[0].rid]].Send(ConvertStringBytes($"LAMPOFF_{strTarget}") as byte[], SocketFlags.None);
                                 PrintMessage($"Send To {strClientID} : LAMPOFF_{strTarget}");
                                 break;
@@ -482,6 +510,13 @@ namespace HotelServer
                             {
                                 string strNID = mv_db.SelectNIDByPhone(strClientID);
                                 List<Reservation> reservList = mv_db.SelectAllReservationsByNID(strNID);
+                                //nid를 통한 rid검색 실패
+                                if (reservList == null)
+                                {
+                                    PrintMessage($"Not found reserved room by nid:{strNID}");
+                                    break;
+                                }
+                                //객실에 명령어 전송
                                 mv_dicClients[mv_dicRooms[reservList[0].rid]].Send(ConvertStringBytes("ALLON") as byte[], SocketFlags.None);
                                 PrintMessage($"Send To {strClientID} : ALLON");
                                 break;
@@ -491,12 +526,76 @@ namespace HotelServer
                             {
                                 string strNID = mv_db.SelectNIDByPhone(strClientID);
                                 List<Reservation> reservList = mv_db.SelectAllReservationsByNID(strNID);
-                                mv_dicClients[mv_dicRooms[reservList[0].rid]].Send(ConvertStringBytes("ALLON") as byte[], SocketFlags.None);
+                                //nid를 통한 rid검색 실패
+                                if (reservList == null)
+                                {
+                                    PrintMessage($"Not found reserved room by nid:{strNID}");
+                                    break;
+                                }
+                                //객실에 명령어 전송
+                                mv_dicClients[mv_dicRooms[reservList[0].rid]].Send(ConvertStringBytes("ALLOFF") as byte[], SocketFlags.None);
                                 PrintMessage($"Send To {strClientID} : ALLOFF");
                                 break;
                             }
+                        //고객이 객실의 희망온도를 설정하는 명령어
                         case "Temp":
                             {
+                                if (strSplit.Length <= 1)
+                                {
+                                    PrintMessage("Not enough Args.");
+                                    sockClient.Send(ConvertStringBytes(STR_FAIL) as byte[], SocketFlags.None);
+                                    PrintMessage($"Send To {strClientID} : {STR_FAIL}");
+                                    break;
+                                }
+
+                                int tempSet;
+                                //정수형으로 파싱 시도
+                                if (int.TryParse(strSplit[1], out tempSet) == false)
+                                {
+                                    //파싱 실패
+                                    PrintMessage("Temp set Pasing failed");
+                                    break;
+                                }
+
+                                string strNID = mv_db.SelectNIDByPhone(strClientID);
+                                List<Reservation> reservList = mv_db.SelectAllReservationsByNID(strNID);
+                                //nid를 통한 rid검색 실패
+                                if (reservList == null)
+                                {
+                                    PrintMessage($"Not found reserved room by nid:{strNID}");
+                                    break;
+                                }
+                                //해당 객실의 온도 가져오기
+                                Room room = mv_db.SelectRoomByRID(reservList[0].rid);
+                                //rid를 통한 객실 검색 실패
+                                if (room == null)
+                                {
+                                    PrintMessage($"Not found room by rid:{reservList[0].rid}");
+                                    break;
+                                }
+
+                                if (mv_db.UpdateRoom(reservList[0].rid, tempSet) == false)
+                                {
+                                    PrintMessage($"Fail tempset update room {reservList[0].rid}");
+                                }
+
+                                //현재 온도 > 희망 온도
+                                if (room.temp > tempSet)
+                                {
+                                    strSnd = "COOL";
+                                }
+                                //현재 온도 < 희망 온도
+                                else if (room.temp < tempSet)
+                                {
+                                    strSnd = "HIT";
+                                }
+                                //현재 온도 == 희망 온도
+                                else { break; }
+
+                                //객실에 온도조절 명령어 전송
+                                mv_dicClients[mv_dicRooms[reservList[0].rid]].Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
+                                PrintMessage($"Send to {mv_dicRooms[reservList[0].rid]} : {strSnd}");
+
                                 break;
                             }
                         //해당 객실의 온도, 습도, 미세먼지농도 값을 각각 저장하는 명령어 (SensorValues:온도:습도:농도)
@@ -627,13 +726,47 @@ namespace HotelServer
                 {
                     PrintMessage($"Close Socket ID : {strClientID}");
                     sockClient.Close();
+                    //여러 스레드가 동시에 remove하면 공유메모리 충돌 가능성 있음. Queue를 이용하여 삭제할 key를 큐에 넣어 하나씩 삭제할 것
                     if (mv_dicClients.ContainsKey(strClientID))
                     {
                         mv_dicClients.Remove(strClientID);      //클라이언트 Dictionary에서 제거
                         PrintMessage($"Remove dictionary key : {strClientID}");
                     }
+
+                    int[] rids = mv_dicRooms.Keys.ToArray();
+                    for (int i = 0; i < rids.Length; i++)
+                    {
+                        if (mv_dicRooms[rids[i]] == strClientID)
+                        {
+                            mv_dicRooms.Remove(rids[i]);
+                            break;
+                        }
+                    }
                 }
                 PrintMessage($"Client Count : {mv_dicClients.Count}");
+            }
+        }
+
+        //객실의 환경 정보를 갱신함
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            if (mv_dicRooms.Count == 0) { return; }
+
+            try
+            {
+                int[] nRIDs = mv_dicRooms.Keys.ToArray();
+
+                if (nRIDs == null) { return; }
+                PrintMessage($"Update room information");
+
+                for (int i = 0; i < nRIDs.Length; i++)
+                {
+                    mv_dicClients[mv_dicRooms[nRIDs[i]]].Send(ConvertStringBytes("ROOMINFO") as byte[]);
+                }
+            }
+            catch (Exception except)
+            {
+                PrintMessage($"Exception in Timer_Elapsed messod : {except.Message}");
             }
         }
 
@@ -668,6 +801,10 @@ namespace HotelServer
         //텍스트 변경 이벤트 발생 시 호출
         private void display1_TextChanged(object sender, EventArgs e)
         {
+            if (display1.Lines.Length >= MAX_TEXT_LINE)
+            {
+                display1.Clear();
+            }
             //스크롤을 현재 커서 위치(가장 아래)까지 내림
             display1.ScrollToCaret();
         }

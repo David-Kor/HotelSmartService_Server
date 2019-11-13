@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_append_customer = new System.Windows.Forms.Button();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_delete_customer = new System.Windows.Forms.Button();
@@ -40,6 +41,8 @@
             this.cAdress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cRooms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_room_info = new System.Windows.Forms.Button();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grid_customer_table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,11 +161,20 @@
             this.btn_room_info.UseVisualStyleBackColor = true;
             this.btn_room_info.Click += new System.EventHandler(this.btn_room_info_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(506, 361);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(203, 20);
+            this.comboBox1.TabIndex = 7;
+            // 
             // HotelFront
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 407);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.grid_customer_table);
             this.Controls.Add(this.btn_room_info);
             this.Controls.Add(this.btn_edit);
@@ -191,6 +203,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cAge;
         private System.Windows.Forms.DataGridViewTextBoxColumn cAdress;
         private System.Windows.Forms.DataGridViewTextBoxColumn cRooms;
+        private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
