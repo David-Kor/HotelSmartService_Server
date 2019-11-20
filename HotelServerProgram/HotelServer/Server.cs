@@ -25,13 +25,16 @@ namespace HotelServer
         private DBManager mv_db;           //데이터베이스 클래스
         private bool mv_isProgramClose;    //프로그램 종료버튼이 눌림을 알림
         private Thread mv_listenThread;     //소켓 리스너 스레드
-        private Timer timer;        //객실 환경 정보 갱신타이머
+        private Timer mv_timer;        //객실 환경 정보 갱신타이머
+        private Mutex mv_mutex;     //스레드 공유자원 보호 (뮤텍스)
 
         private const int MAX_TEXT_LINE = 512;      //최대 로그 출력 라인(RichTextBox 라인제한)
         private const int INTERVAL_ROOM_UPDATE = 60000;    //객실 정보 갱신 주기(단위 : ms)
 
         private const string STR_OK = "OK";
         private const string STR_FAIL = "FAIL";
+
+        private enum ClientType { NONE, APP, ROOM, FRONT };
 
         //생성자
         public Server()
@@ -44,6 +47,7 @@ namespace HotelServer
             mv_addrFront = null;
             mv_sockServer = null;
             mv_isProgramClose = false;
+            mv_mutex = new Mutex();
         }
 
         //메인 윈도우 폼이 메모리에 적재될 때 호출
@@ -94,10 +98,10 @@ namespace HotelServer
                 PrintMessage("Listen and Loop Start.");
                 mv_sockServer.Listen(0);   //Listen 단계
                 //일정 시간이 지날 때마다 Timer_Elapsed함수를 호출
-                timer = new Timer(INTERVAL_ROOM_UPDATE);
-                timer.Elapsed += new System.Timers.ElapsedEventHandler(Timer_Elapsed);
-                timer.Start();
-                timer.AutoReset = true;
+                mv_timer = new Timer(INTERVAL_ROOM_UPDATE);
+                mv_timer.Elapsed += new System.Timers.ElapsedEventHandler(Timer_Elapsed);
+                mv_timer.Start();
+                mv_timer.AutoReset = true;
                 PrintMessage("Timer for update rooms start.");
 
                 Socket newSock = null;
@@ -146,7 +150,7 @@ namespace HotelServer
             byte[] bBuffer = new byte[1024];    //최대 버퍼크기 1024Byte
             int nRcvSize;       //수신 메시지 크기
             string strRcv, strSnd;    //송수신 메시지
-
+            ClientType clientType = ClientType.NONE;        //클라이언트 타입
 
             try
             {
@@ -155,10 +159,10 @@ namespace HotelServer
                 if (mv_dicClients.ContainsKey(strClientID))
                 {
                     mv_dicClients[strClientID].Close();
-                    mv_dicClients.Remove(strClientID);
+                    DictionaryClientRemove(strClientID);
                 }
                 //새로운 key,value를 추가
-                mv_dicClients.Add(strClientID, sockClient);
+                DictionaryClientAdd(strClientID, sockClient);
                 PrintMessage($"Client Count : {mv_dicClients.Count}");
                 //통신 시작
                 while (true)
@@ -172,7 +176,7 @@ namespace HotelServer
                     if (nRcvSize <= 0)
                     {
                         sockClient.Close();
-                        mv_dicClients.Remove(strClientID);
+                        DictionaryClientRemove(strClientID);
                         PrintMessage($"Closed socket : {sockClient.RemoteEndPoint.ToString()}");
                         break;
                     }
@@ -221,10 +225,12 @@ namespace HotelServer
                                     //중복된 rid면 이전 rid키 제거
                                     else if (mv_dicRooms.ContainsKey(rid))
                                     {
-                                        mv_dicRooms.Remove(rid);
+                                        DictionaryRoomRemove(rid);
                                     }
+                                    //소켓의 타입 저장
+                                    clientType = ClientType.ROOM;
                                     //Dictionary에 새 rid, ip 추가
-                                    mv_dicRooms.Add(rid, strClientID);
+                                    DictionaryRoomAdd(rid, strClientID);
                                     PrintMessage($"Add new Room : {rid}");
                                     sockClient.Send(ConvertStringBytes(STR_OK) as byte[], SocketFlags.None);
                                     PrintMessage($"Send To {strClientID} : {STR_OK}");
@@ -246,6 +252,8 @@ namespace HotelServer
                                 mv_addrFront = (sockClient.RemoteEndPoint as IPEndPoint).Address;
                                 sockClient.Send(ConvertStringBytes(STR_OK) as byte[], SocketFlags.None);
                                 PrintMessage($"Send To {strClientID} : {STR_OK}");
+                                //소켓의 타입 저장
+                                clientType = ClientType.FRONT;
                                 break;
                             }
                         //사용자 앱의 고유 ID를 등록하는 명령어 (ID:전화번호)
@@ -269,7 +277,7 @@ namespace HotelServer
                                 }
 
                                 //mv_dicClients의 키 중에서 현재 IP키를 제거
-                                mv_dicClients.Remove(strClientID);
+                                DictionaryClientRemove(strClientID);
                                 PrintMessage($"Remove dictionary key(IP) : {strClientID}");
                                 strClientID = strSplit[1];
 
@@ -280,12 +288,13 @@ namespace HotelServer
                                     {
                                         mv_dicClients[strClientID].Close();
                                     }
-                                    mv_dicClients.Remove(strClientID);
+                                    DictionaryClientRemove(strClientID);
                                     PrintMessage($"Remove same dictionary key(ID) : {strClientID}");
                                 }
-
+                                //소켓의 타입 저장
+                                clientType = ClientType.APP;
                                 //mv_dicClients에 ID를 새 키로 추가
-                                mv_dicClients.Add(strClientID, sockClient);
+                                DictionaryClientAdd(strClientID, sockClient);
                                 PrintMessage($"Add new dictionary key : {strClientID}");
                                 break;
                             }
@@ -311,6 +320,7 @@ namespace HotelServer
                                 string strFrontAddr = mv_addrFront.ToString();
                                 if (mv_addrFront != null && mv_dicClients.ContainsKey(strFrontAddr))
                                 {
+                                    mv_dicClients[strFrontAddr].Send(ConvertStringBytes($"CHTCALL:{strClientID}") as byte[], SocketFlags.None);
                                     mv_dicClients[strFrontAddr].Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
                                     PrintMessage($"Send To {strFrontAddr} : {strSnd}");
                                     //클라이언트에게 채팅 메시지의 전송에 성공을 알림
@@ -582,12 +592,12 @@ namespace HotelServer
                                 //현재 온도 > 희망 온도
                                 if (room.temp > tempSet)
                                 {
-                                    strSnd = "COOL";
+                                    strSnd = "COOLING";
                                 }
                                 //현재 온도 < 희망 온도
                                 else if (room.temp < tempSet)
                                 {
-                                    strSnd = "HIT";
+                                    strSnd = "HEATING";
                                 }
                                 //현재 온도 == 희망 온도
                                 else { break; }
@@ -649,6 +659,10 @@ namespace HotelServer
                                     PrintMessage($"Send To {strClientID} : {strSnd}");
                                     break;
                                 }
+
+                                /*
+                                 * 해당 객실에 설정된 희망온도를 현재 온도와 비교하여 COOLING / HEATING 결정
+                                 */
                                 strSnd = STR_OK;
                                 sockClient.Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
                                 PrintMessage($"Send To {strClientID} : {strSnd}");
@@ -724,27 +738,84 @@ namespace HotelServer
             {
                 if (sockClient != null)
                 {
+                    try
+                    {
+                        //APP타입의 통신이 끊기면 프런트에게 알려줌
+                        if (clientType == ClientType.APP && mv_addrFront != null)
+                        {
+                            strSnd = $"CCLOSE:{strClientID}";
+                            mv_dicClients[mv_addrFront.ToString()].Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
+                            PrintMessage($"Send to {mv_addrFront} : {strSnd}");
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        PrintMessage($"Fail send to {mv_addrFront} : CCLOSE command");
+                    }
                     PrintMessage($"Close Socket ID : {strClientID}");
                     sockClient.Close();
                     //여러 스레드가 동시에 remove하면 공유메모리 충돌 가능성 있음. Queue를 이용하여 삭제할 key를 큐에 넣어 하나씩 삭제할 것
                     if (mv_dicClients.ContainsKey(strClientID))
                     {
-                        mv_dicClients.Remove(strClientID);      //클라이언트 Dictionary에서 제거
+                        DictionaryClientRemove(strClientID);      //클라이언트 Dictionary에서 제거
                         PrintMessage($"Remove dictionary key : {strClientID}");
                     }
 
-                    int[] rids = mv_dicRooms.Keys.ToArray();
-                    for (int i = 0; i < rids.Length; i++)
+                    //Room타입의 통신이 끊기면 room딕셔너리에서 제거
+                    if (clientType == ClientType.ROOM)
                     {
-                        if (mv_dicRooms[rids[i]] == strClientID)
+                        int[] rids = mv_dicRooms.Keys.ToArray();
+                        for (int i = 0; i < rids.Length; i++)
                         {
-                            mv_dicRooms.Remove(rids[i]);
-                            break;
+                            if (mv_dicRooms[rids[i]] == strClientID)
+                            {
+                                DictionaryRoomRemove(rids[i]);
+                                break;
+                            }
                         }
                     }
                 }
+                //Front타입의 통신이 끊기면 현재 프론트를 null로 설정
+                if (clientType == ClientType.FRONT)
+                {
+                    mv_addrFront = null;
+                }
                 PrintMessage($"Client Count : {mv_dicClients.Count}");
             }
+        }
+
+        //mv_dicClient의 키를 제거하는 함수
+        private bool DictionaryClientRemove(string strKey)
+        {
+            mv_mutex.WaitOne();
+            bool rtn = mv_dicClients.Remove(strKey);
+            mv_mutex.ReleaseMutex();
+            return rtn;
+        }
+
+        //mv_dicRoom의 키를 제거하는 함수
+        private bool DictionaryRoomRemove(int nKey)
+        {
+            mv_mutex.WaitOne();
+            bool rtn = mv_dicRooms.Remove(nKey);
+            mv_mutex.ReleaseMutex();
+            return rtn;
+        }
+        
+        //mv_dicClient의 키를 제거하는 함수
+        private void DictionaryClientAdd(string strKey, Socket sockValue)
+        {
+            mv_mutex.WaitOne();
+            mv_dicClients.Add(strKey, sockValue);
+            mv_mutex.ReleaseMutex();
+        }
+
+        //mv_dicRoom의 키를 제거하는 함수
+        private void DictionaryRoomAdd(int nKey, string strValue)
+        {
+            mv_mutex.WaitOne();
+            mv_dicRooms.Add(nKey, strValue);
+            mv_mutex.ReleaseMutex();
         }
 
         //객실의 환경 정보를 갱신함
@@ -820,12 +891,14 @@ namespace HotelServer
         //텍스트 로그 출력
         private void PrintMessage(string str)
         {
+            mv_mutex.WaitOne();
             str = "[" + DateTime.Now.ToString() + "]  \t" + str + Environment.NewLine;
             display1.AppendText(str);
             using (StreamWriter file = new StreamWriter(Application.StartupPath + @"\log.txt", true))
             {
                 file.WriteLine(str);
             }
+            mv_mutex.ReleaseMutex();
         }
     }
 }

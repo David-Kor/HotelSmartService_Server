@@ -132,14 +132,13 @@ namespace HotelFrontProgram
 
             switch (strSplit[0])
             {
-                case "CHAT":
+                case "CHTCALL":
                     {
                         //args 부족
                         if (strSplit.Length <= 2)
                         {
-                            return;
+                            break;
                         }
-
                         //현재 열려있는 chattingForm 중에서 ID가 같은 폼을 탐색
                         ChattingForm chattingForm = FindByID(strSplit[1]);
 
@@ -150,16 +149,42 @@ namespace HotelFrontProgram
                             Application.Run(chatFromList.AddLast(chattingForm).Value);
                         }
                         //ID가 존재하고 연결 상태가 끊김이면 상태를 변경
-                        else if(chattingForm.IsConnected() == false)
+                        else if (chattingForm.IsConnected() == false)
                         {
                             chattingForm.Reconnected();
                         }
+                        break;
+                    }
+                case "CHAT":
+                    {
+                        //args 부족
+                        if (strSplit.Length <= 2)
+                        {
+                            break;
+                        }
 
+                        //현재 열려있는 chattingForm 중에서 ID가 같은 폼을 탐색
+                        ChattingForm chattingForm = FindByID(strSplit[1]);
+                        
                         for (int i = 3; i < strSplit.Length; i++)
                         {
                             strSplit[2] += $":{strSplit[i]}";
                         }
                         chattingForm.ReceiveChat(strSplit[2]);
+                        break;
+                    }
+                case "CCLOSE":
+                    {
+                        //args 부족
+                        if (strSplit.Length <= 2)
+                        {
+                            break;
+                        }
+                        ChattingForm chattingForm = FindByID(strSplit[1]);
+                        if (chattingForm != null)
+                        {
+                            chattingForm.Disconnected();
+                        }
                         break;
                     }
             }
