@@ -296,6 +296,13 @@ namespace HotelServer
                                 //mv_dicClients에 ID를 새 키로 추가
                                 DictionaryClientAdd(strClientID, sockClient);
                                 PrintMessage($"Add new dictionary key : {strClientID}");
+
+                                //프런트에게 연결을 알림
+                                if (mv_addrFront != null)
+                                {
+                                    mv_dicClients[mv_addrFront.ToString()].Send(ConvertStringBytes($"CCON:{strClientID}") as byte[], SocketFlags.None);
+                                    PrintMessage($"Sand to {mv_addrFront} : CCON:{strClientID}");
+                                }
                                 break;
                             }
                         //클라이언트가 호텔 프런트에 채팅을 전송하겠다는 명령어 (CHAT:내용)
@@ -321,11 +328,12 @@ namespace HotelServer
                                 if (mv_addrFront != null && mv_dicClients.ContainsKey(strFrontAddr))
                                 {
                                     mv_dicClients[strFrontAddr].Send(ConvertStringBytes($"CHTCALL:{strClientID}") as byte[], SocketFlags.None);
+                                    PrintMessage($"Send to {strFrontAddr} : CHTCALL:{strClientID}");
                                     mv_dicClients[strFrontAddr].Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
-                                    PrintMessage($"Send To {strFrontAddr} : {strSnd}");
+                                    PrintMessage($"Send to {strFrontAddr} : {strSnd}");
                                     //클라이언트에게 채팅 메시지의 전송에 성공을 알림
                                     sockClient.Send(ConvertStringBytes(STR_OK) as byte[], SocketFlags.None);
-                                    PrintMessage($"Send To {strClientID} : {STR_OK}");
+                                    PrintMessage($"Send to {strClientID} : {STR_OK}");
                                 }
                                 //프런트 ip정보가 없는 경우
                                 else

@@ -130,67 +130,99 @@ namespace HotelFrontProgram
 
             string[] strSplit = cmd.Split(':');
 
-            switch (strSplit[0])
+            try
             {
-                case "CHTCALL":
-                    {
-                        //args 부족
-                        if (strSplit.Length <= 2)
+                switch (strSplit[0])
+                {
+                    //채팅방 호출 명령어 (CHTCALL:id)
+                    case "CHTCALL":
                         {
+                            //args 부족
+                            if (strSplit.Length <= 1)
+                            {
+                                break;
+                            }
+                            //현재 열려있는 chattingForm 중에서 ID가 같은 폼을 탐색
+                            ChattingForm chattingForm = FindByID(strSplit[1]);
+                            //ID가 존재하지 않으면 새로운 폼 생성
+                            if (chattingForm == null)
+                            {
+                                chattingForm = new ChattingForm(strSplit[1], this);
+                                Application.Run(chatFromList.AddLast(chattingForm).Value);
+                            }
+                            //ID가 존재하고 연결 상태가 끊김이면 상태를 변경
+                            else if (chattingForm.IsConnected() == false)
+                            {
+                                chattingForm.Reconnected();
+                            }
                             break;
                         }
-                        //현재 열려있는 chattingForm 중에서 ID가 같은 폼을 탐색
-                        ChattingForm chattingForm = FindByID(strSplit[1]);
+                    //채팅 내용 전달 명령어 (CHAT:id:내용)
+                    case "CHAT":
+                        {
+                            //args 부족
+                            if (strSplit.Length <= 2)
+                            {
+                                break;
+                            }
 
-                        //ID가 존재하지 않으면 새로운 폼 생성
-                        if (chattingForm == null)
-                        {
-                            chattingForm = new ChattingForm(strSplit[1], this);
-                            Application.Run(chatFromList.AddLast(chattingForm).Value);
-                        }
-                        //ID가 존재하고 연결 상태가 끊김이면 상태를 변경
-                        else if (chattingForm.IsConnected() == false)
-                        {
-                            chattingForm.Reconnected();
-                        }
-                        break;
-                    }
-                case "CHAT":
-                    {
-                        //args 부족
-                        if (strSplit.Length <= 2)
-                        {
-                            break;
-                        }
+                            //현재 열려있는 chattingForm 중에서 ID가 같은 폼을 탐색
+                            ChattingForm chattingForm = FindByID(strSplit[1]);
 
-                        //현재 열려있는 chattingForm 중에서 ID가 같은 폼을 탐색
-                        ChattingForm chattingForm = FindByID(strSplit[1]);
-                        
-                        for (int i = 3; i < strSplit.Length; i++)
-                        {
-                            strSplit[2] += $":{strSplit[i]}";
+                            for (int i = 3; i < strSplit.Length; i++)
+                            {
+                                strSplit[2] += $":{strSplit[i]}";
+                            }
+                            chattingForm.ReceiveChat(strSplit[2]);
+                            break;
                         }
-                        chattingForm.ReceiveChat(strSplit[2]);
-                        break;
-                    }
-                case "CCLOSE":
-                    {
-                        //args 부족
-                        if (strSplit.Length <= 2)
+                    //어플의 연결이 끊겼음을 알리는 명령어
+                    case "CCLOSE":
+                        {
+                            //args 부족
+                            if (strSplit.Length <= 1)
+                            {
+                                break;
+                            }
+
+                            ChattingForm chattingForm = FindByID(strSplit[1]);
+                            if (chattingForm != null)
+                            {
+                                chattingForm.Disconnected();
+                            }
+                            break;
+                        }
+                    //어플이 재연결 됨을 알리는 명령어
+                    case "CCON":
+                        {
+                            //args 부족
+                            if (strSplit.Length <= 1)
+                            {
+                                break;
+                            }
+
+                            ChattingForm chattingForm = FindByID(strSplit[1]);
+                            if (chattingForm != null)
+                            {
+                                chattingForm.Reconnected();
+                            }
+                            break;
+                        }
+                    //고객 정보를 전송하는 명령어(CLIST:@ID:nid:@NM:name:@PN:phone:@AG:age:@AD:address:@RM:rid)
+                    case "CLIST":
                         {
                             break;
                         }
-                        ChattingForm chattingForm = FindByID(strSplit[1]);
-                        if (chattingForm != null)
-                        {
-                            chattingForm.Disconnected();
-                        }
-                        break;
-                    }
+                }
+
+                return;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
 
-            return;
-            if (true)
+            if (false)
             {
                 try
                 {

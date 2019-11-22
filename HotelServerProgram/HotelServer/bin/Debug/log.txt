@@ -7602,3 +7602,1894 @@ WHAT?
 
 [2019-11-20 오후 11:28:45]  	Loop End
 
+[2019-11-21 오전 2:35:07]  	Server Program Start.
+
+[2019-11-21 오전 2:35:07]  	Create New Socket.
+
+[2019-11-21 오전 2:35:07]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-21 오전 2:35:07]  	Bind Socket.
+
+[2019-11-21 오전 2:35:07]  	Listen and Loop Start.
+
+[2019-11-21 오전 2:35:07]  	Timer for update rooms start.
+
+[2019-11-21 오전 2:35:08]  	Accept Client : 192.168.0.1:4853
+
+[2019-11-21 오전 2:35:08]  	Add Client List
+
+[2019-11-21 오전 2:35:08]  	Client Count : 1
+
+[2019-11-21 오전 2:35:08]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-21 오전 2:35:08]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-21 오전 2:35:08]  	Send To 192.168.0.1 : OK
+
+[2019-11-21 오전 2:35:08]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-21 오전 2:35:08]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-21 오전 2:35:53]  	All client closing.
+
+[2019-11-21 오전 2:35:53]  	Server Closing.
+
+[2019-11-21 오전 2:35:53]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+
+[2019-11-21 오전 2:35:53]  	Close Socket ID : 192.168.0.1
+
+[2019-11-21 오전 2:35:53]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-21 오전 2:35:53]  	Exception occurred in ServerSocketStart() : 'C:\Users\dkdlt\OneDrive\문서\공부자료\졸프\HotelSmartService\HotelServerProgram\HotelServer\bin\Debug\log.txt' 파일은 다른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다.
+
+[2019-11-21 오전 2:35:53]  	Client Count : 0
+
+[2019-11-21 오전 2:35:53]  	Close Socket.
+
+[2019-11-22 오후 9:04:04]  	Server Program Start.
+
+[2019-11-22 오후 9:04:04]  	Create New Socket.
+
+[2019-11-22 오후 9:04:04]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 9:04:04]  	Bind Socket.
+
+[2019-11-22 오후 9:04:04]  	Listen and Loop Start.
+
+[2019-11-22 오후 9:04:04]  	Timer for update rooms start.
+
+[2019-11-22 오후 9:04:04]  	Accept Client : 192.168.0.1:1745
+
+[2019-11-22 오후 9:04:04]  	Add Client List
+
+[2019-11-22 오후 9:04:04]  	Client Count : 1
+
+[2019-11-22 오후 9:04:04]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:04:04]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:04:04]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:04:04]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:04:04]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:04:26]  	All client closing.
+
+[2019-11-22 오후 9:04:26]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-22 오후 9:04:26]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+
+[2019-11-22 오후 9:04:26]  	Loop End
+
+[2019-11-22 오후 9:04:26]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:04:26]  	Server Closing.
+
+[2019-11-22 오후 9:04:26]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:04:26]  	Client Count : 0
+
+[2019-11-22 오후 9:10:16]  	Server Program Start.
+
+[2019-11-22 오후 9:10:16]  	Create New Socket.
+
+[2019-11-22 오후 9:10:16]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 9:10:16]  	Bind Socket.
+
+[2019-11-22 오후 9:10:16]  	Listen and Loop Start.
+
+[2019-11-22 오후 9:10:16]  	Timer for update rooms start.
+
+[2019-11-22 오후 9:10:19]  	Accept Client : 127.0.0.1:1828
+
+[2019-11-22 오후 9:10:19]  	Add Client List
+
+[2019-11-22 오후 9:10:19]  	Client Count : 1
+
+[2019-11-22 오후 9:10:19]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:10:19]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:10:29]  	Receive 11 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:10:29]  	Receive From ID[127.0.0.1]  : ARDUINO:102
+
+[2019-11-22 오후 9:10:29]  	Add new Room : 102
+
+[2019-11-22 오후 9:10:29]  	Send To 127.0.0.1 : OK
+
+[2019-11-22 오후 9:10:29]  	Send To 127.0.0.1 : ROOMINFO
+
+[2019-11-22 오후 9:10:36]  	Receive 14 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:10:36]  	Receive From ID[127.0.0.1]  : ID:01011110000
+
+[2019-11-22 오후 9:10:36]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:10:36]  	Add new dictionary key : 01011110000
+
+[2019-11-22 오후 9:10:39]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:10:39]  	Receive From ID[01011110000]  : ID:1241254
+
+[2019-11-22 오후 9:10:39]  	Remove dictionary key(IP) : 01011110000
+
+[2019-11-22 오후 9:10:39]  	Add new dictionary key : 1241254
+
+[2019-11-22 오후 9:10:42]  	Receive 19 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:10:42]  	Receive From ID[1241254]  : ID:1235123512351236
+
+[2019-11-22 오후 9:10:42]  	Remove dictionary key(IP) : 1241254
+
+[2019-11-22 오후 9:10:42]  	Add new dictionary key : 1235123512351236
+
+[2019-11-22 오후 9:10:45]  	Exception occurred in CommunicationToClient() [1235123512351236] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:10:45]  	Close Socket ID : 1235123512351236
+
+[2019-11-22 오후 9:10:45]  	Remove dictionary key : 1235123512351236
+
+[2019-11-22 오후 9:10:45]  	Client Count : 0
+
+[2019-11-22 오후 9:10:52]  	Accept Client : 127.0.0.1:1833
+
+[2019-11-22 오후 9:10:52]  	Add Client List
+
+[2019-11-22 오후 9:10:52]  	Client Count : 1
+
+[2019-11-22 오후 9:10:52]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:10:52]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:11:00]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:00]  	Receive From ID[127.0.0.1]  : ID:1
+
+[2019-11-22 오후 9:11:00]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:11:00]  	Add new dictionary key : 1
+
+[2019-11-22 오후 9:11:05]  	Accept Client : 127.0.0.1:1836
+
+[2019-11-22 오후 9:11:05]  	Add Client List
+
+[2019-11-22 오후 9:11:05]  	Client Count : 2
+
+[2019-11-22 오후 9:11:05]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:05]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:11:08]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:08]  	Receive From ID[127.0.0.1]  : ID:2
+
+[2019-11-22 오후 9:11:08]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:11:08]  	Add new dictionary key : 2
+
+[2019-11-22 오후 9:11:09]  	Accept Client : 127.0.0.1:1837
+
+[2019-11-22 오후 9:11:09]  	Add Client List
+
+[2019-11-22 오후 9:11:09]  	Client Count : 3
+
+[2019-11-22 오후 9:11:09]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:09]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:11:11]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:11]  	Receive From ID[127.0.0.1]  : ID:3
+
+[2019-11-22 오후 9:11:11]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:11:11]  	Add new dictionary key : 3
+
+[2019-11-22 오후 9:11:14]  	Accept Client : 127.0.0.1:1839
+
+[2019-11-22 오후 9:11:14]  	Add Client List
+
+[2019-11-22 오후 9:11:14]  	Client Count : 4
+
+[2019-11-22 오후 9:11:14]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:14]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:11:15]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:15]  	Receive From ID[127.0.0.1]  : ID:4
+
+[2019-11-22 오후 9:11:15]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:11:15]  	Add new dictionary key : 4
+
+[2019-11-22 오후 9:11:16]  	Accept Client : 127.0.0.1:1840
+
+[2019-11-22 오후 9:11:16]  	Add Client List
+
+[2019-11-22 오후 9:11:16]  	Client Count : 5
+
+[2019-11-22 오후 9:11:16]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:16]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:11:16]  	Update room information
+
+[2019-11-22 오후 9:11:18]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:18]  	Receive From ID[127.0.0.1]  : ID:5
+
+[2019-11-22 오후 9:11:18]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:11:18]  	Add new dictionary key : 5
+
+[2019-11-22 오후 9:11:20]  	Accept Client : 127.0.0.1:1841
+
+[2019-11-22 오후 9:11:20]  	Add Client List
+
+[2019-11-22 오후 9:11:20]  	Client Count : 6
+
+[2019-11-22 오후 9:11:20]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:20]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:11:21]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:21]  	Receive From ID[127.0.0.1]  : ID:5
+
+[2019-11-22 오후 9:11:21]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:11:21]  	Remove same dictionary key(ID) : 5
+
+[2019-11-22 오후 9:11:21]  	Exception occurred in CommunicationToClient() [5] : 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+
+[2019-11-22 오후 9:11:21]  	Close Socket ID : 5
+
+[2019-11-22 오후 9:11:21]  	Add new dictionary key : 5
+
+[2019-11-22 오후 9:11:21]  	Remove dictionary key : 5
+
+[2019-11-22 오후 9:11:21]  	Client Count : 4
+
+[2019-11-22 오후 9:11:28]  	Accept Client : 127.0.0.1:1855
+
+[2019-11-22 오후 9:11:28]  	Add Client List
+
+[2019-11-22 오후 9:11:28]  	Client Count : 5
+
+[2019-11-22 오후 9:11:28]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:28]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:11:29]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:29]  	Receive From ID[127.0.0.1]  : ID:6
+
+[2019-11-22 오후 9:11:29]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:11:29]  	Add new dictionary key : 6
+
+[2019-11-22 오후 9:11:31]  	Accept Client : 127.0.0.1:1856
+
+[2019-11-22 오후 9:11:31]  	Add Client List
+
+[2019-11-22 오후 9:11:31]  	Client Count : 6
+
+[2019-11-22 오후 9:11:31]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:31]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:11:33]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:33]  	Receive From ID[127.0.0.1]  : ID:7
+
+[2019-11-22 오후 9:11:33]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:11:33]  	Add new dictionary key : 7
+
+[2019-11-22 오후 9:11:34]  	Accept Client : 127.0.0.1:1859
+
+[2019-11-22 오후 9:11:34]  	Add Client List
+
+[2019-11-22 오후 9:11:34]  	Client Count : 7
+
+[2019-11-22 오후 9:11:34]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:34]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:11:35]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:35]  	Receive From ID[127.0.0.1]  : ID:8
+
+[2019-11-22 오후 9:11:35]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:11:35]  	Add new dictionary key : 8
+
+[2019-11-22 오후 9:11:43]  	Accept Client : 127.0.0.1:1865
+
+[2019-11-22 오후 9:11:43]  	Add Client List
+
+[2019-11-22 오후 9:11:43]  	Client Count : 8
+
+[2019-11-22 오후 9:11:43]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:43]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:11:44]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:44]  	Receive From ID[127.0.0.1]  : ID:9
+
+[2019-11-22 오후 9:11:44]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:11:44]  	Add new dictionary key : 9
+
+[2019-11-22 오후 9:11:47]  	Receive 19 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:47]  	Receive From ID[9]  : asdgasdgasdgasdgdsf
+
+[2019-11-22 오후 9:11:48]  	Receive 16 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:11:48]  	Receive From ID[1]  : asdgasdgasdgasdg
+
+[2019-11-22 오후 9:11:55]  	Exception occurred in CommunicationToClient() [3] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:11:55]  	Exception occurred in CommunicationToClient() [5] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:11:55]  	Exception occurred in CommunicationToClient() [8] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:11:55]  	Exception occurred in CommunicationToClient() [6] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:11:55]  	Close Socket ID : 3
+
+[2019-11-22 오후 9:11:55]  	Close Socket ID : 5
+
+[2019-11-22 오후 9:11:55]  	Close Socket ID : 8
+
+[2019-11-22 오후 9:11:55]  	Exception occurred in CommunicationToClient() [9] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:11:55]  	Exception occurred in CommunicationToClient() [7] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:11:55]  	Close Socket ID : 6
+
+[2019-11-22 오후 9:11:55]  	Exception occurred in CommunicationToClient() [4] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:11:55]  	Exception occurred in CommunicationToClient() [2] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:11:55]  	Client Count : 8
+
+[2019-11-22 오후 9:11:55]  	Close Socket ID : 9
+
+[2019-11-22 오후 9:11:55]  	Close Socket ID : 7
+
+[2019-11-22 오후 9:11:55]  	Close Socket ID : 4
+
+[2019-11-22 오후 9:11:55]  	Close Socket ID : 2
+
+[2019-11-22 오후 9:11:55]  	Remove dictionary key : 3
+
+[2019-11-22 오후 9:11:55]  	Remove dictionary key : 8
+
+[2019-11-22 오후 9:11:55]  	Remove dictionary key : 6
+
+[2019-11-22 오후 9:11:55]  	Client Count : 5
+
+[2019-11-22 오후 9:11:55]  	Client Count : 5
+
+[2019-11-22 오후 9:11:55]  	Remove dictionary key : 9
+
+[2019-11-22 오후 9:11:55]  	Client Count : 4
+
+[2019-11-22 오후 9:11:55]  	Remove dictionary key : 7
+
+[2019-11-22 오후 9:11:55]  	Remove dictionary key : 4
+
+[2019-11-22 오후 9:11:55]  	Remove dictionary key : 2
+
+[2019-11-22 오후 9:11:55]  	Client Count : 1
+
+[2019-11-22 오후 9:11:55]  	Client Count : 1
+
+[2019-11-22 오후 9:11:55]  	Client Count : 1
+
+[2019-11-22 오후 9:11:55]  	Client Count : 1
+
+[2019-11-22 오후 9:11:59]  	Exception occurred in CommunicationToClient() [1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:11:59]  	Close Socket ID : 1
+
+[2019-11-22 오후 9:11:59]  	Remove dictionary key : 1
+
+[2019-11-22 오후 9:11:59]  	Client Count : 0
+
+[2019-11-22 오후 9:12:04]  	All client closing.
+
+[2019-11-22 오후 9:12:04]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-22 오후 9:12:04]  	Server Closing.
+
+[2019-11-22 오후 9:12:04]  	Loop End
+
+[2019-11-22 오후 9:25:59]  	Server Program Start.
+
+[2019-11-22 오후 9:25:59]  	Create New Socket.
+
+[2019-11-22 오후 9:25:59]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 9:25:59]  	Bind Socket.
+
+[2019-11-22 오후 9:25:59]  	Listen and Loop Start.
+
+[2019-11-22 오후 9:25:59]  	Timer for update rooms start.
+
+[2019-11-22 오후 9:26:01]  	Accept Client : 192.168.0.1:2083
+
+[2019-11-22 오후 9:26:01]  	Add Client List
+
+[2019-11-22 오후 9:26:01]  	Client Count : 1
+
+[2019-11-22 오후 9:26:01]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:26:01]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:26:01]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:26:01]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:26:01]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:26:14]  	Accept Client : 127.0.0.1:2088
+
+[2019-11-22 오후 9:26:14]  	Add Client List
+
+[2019-11-22 오후 9:26:14]  	Client Count : 2
+
+[2019-11-22 오후 9:26:14]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:14]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:26:28]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:28]  	Receive From ID[127.0.0.1]  : ID:1234
+
+[2019-11-22 오후 9:26:28]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:26:28]  	Add new dictionary key : 1234
+
+[2019-11-22 오후 9:26:30]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:30]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:30]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:30]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:32]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:32]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:32]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:32]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:33]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:33]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:33]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:33]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:33]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:33]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:33]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:33]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:34]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:34]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:34]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:34]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:34]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:34]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:34]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:34]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:38]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:38]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:38]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:38]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:38]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:38]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:38]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:38]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:42]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:26:42]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:26:44]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:44]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:44]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:44]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:44]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:44]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:44]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:44]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:45]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:45]  	Receive From ID[1234]  : CHAT:HI
+
+[2019-11-22 오후 9:26:45]  	Send To 192.168.0.1 : CHAT:1234:HI
+
+[2019-11-22 오후 9:26:45]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:26:48]  	Exception occurred in CommunicationToClient() [1234] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:26:48]  	Send to 192.168.0.1 : CCLOSE:1234
+
+[2019-11-22 오후 9:26:48]  	Close Socket ID : 1234
+
+[2019-11-22 오후 9:26:48]  	Remove dictionary key : 1234
+
+[2019-11-22 오후 9:26:48]  	Client Count : 1
+
+[2019-11-22 오후 9:26:49]  	Accept Client : 127.0.0.1:2108
+
+[2019-11-22 오후 9:26:49]  	Add Client List
+
+[2019-11-22 오후 9:26:50]  	Client Count : 2
+
+[2019-11-22 오후 9:26:50]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:50]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:26:53]  	Receive 4 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:53]  	Receive From ID[127.0.0.1]  : ID:1
+
+[2019-11-22 오후 9:26:53]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:26:53]  	Add new dictionary key : 1
+
+[2019-11-22 오후 9:26:56]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:56]  	Receive From ID[1]  : CHAT:HI
+
+[2019-11-22 오후 9:26:56]  	Send To 192.168.0.1 : CHAT:1:HI
+
+[2019-11-22 오후 9:26:56]  	Send To 1 : OK
+
+[2019-11-22 오후 9:26:57]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:57]  	Receive From ID[1]  : CHAT:HI
+
+[2019-11-22 오후 9:26:57]  	Send To 192.168.0.1 : CHAT:1:HI
+
+[2019-11-22 오후 9:26:57]  	Send To 1 : OK
+
+[2019-11-22 오후 9:26:57]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:26:57]  	Receive From ID[1]  : CHAT:HI
+
+[2019-11-22 오후 9:26:57]  	Send To 192.168.0.1 : CHAT:1:HI
+
+[2019-11-22 오후 9:26:57]  	Send To 1 : OK
+
+[2019-11-22 오후 9:26:58]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:26:58]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:26:58]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:26:58]  	Client Count : 1
+
+[2019-11-22 오후 9:27:00]  	Accept Client : 192.168.0.1:2114
+
+[2019-11-22 오후 9:27:00]  	Add Client List
+
+[2019-11-22 오후 9:27:00]  	Client Count : 2
+
+[2019-11-22 오후 9:27:00]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:27:00]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:27:00]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:27:00]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:27:00]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:27:01]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:01]  	Receive From ID[1]  : CHAT:HI
+
+[2019-11-22 오후 9:27:01]  	Send To 192.168.0.1 : CHAT:1:HI
+
+[2019-11-22 오후 9:27:01]  	Send To 1 : OK
+
+[2019-11-22 오후 9:27:02]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:02]  	Receive From ID[1]  : CHAT:HI
+
+[2019-11-22 오후 9:27:02]  	Send To 192.168.0.1 : CHAT:1:HI
+
+[2019-11-22 오후 9:27:02]  	Send To 1 : OK
+
+[2019-11-22 오후 9:27:03]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:03]  	Receive From ID[1]  : CHAT:HI
+
+[2019-11-22 오후 9:27:03]  	Send To 192.168.0.1 : CHAT:1:HI
+
+[2019-11-22 오후 9:27:03]  	Send To 1 : OK
+
+[2019-11-22 오후 9:27:03]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:03]  	Receive From ID[1]  : CHAT:HI
+
+[2019-11-22 오후 9:27:03]  	Send To 192.168.0.1 : CHAT:1:HI
+
+[2019-11-22 오후 9:27:03]  	Send To 1 : OK
+
+[2019-11-22 오후 9:27:04]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:04]  	Receive From ID[1]  : CHAT:HI
+
+[2019-11-22 오후 9:27:04]  	Send To 192.168.0.1 : CHAT:1:HI
+
+[2019-11-22 오후 9:27:04]  	Send To 1 : OK
+
+[2019-11-22 오후 9:27:04]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:04]  	Receive From ID[1]  : CHAT:HI
+
+[2019-11-22 오후 9:27:04]  	Send To 192.168.0.1 : CHAT:1:HI
+
+[2019-11-22 오후 9:27:04]  	Send To 1 : OK
+
+[2019-11-22 오후 9:27:06]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:27:06]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:27:06]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:27:06]  	Client Count : 1
+
+[2019-11-22 오후 9:27:08]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:08]  	Receive From ID[1]  : CHAT:HI
+
+[2019-11-22 오후 9:27:08]  	Exception occurred in CommunicationToClient() [1] : 개체 참조가 개체의 인스턴스로 설정되지 않았습니다.
+
+[2019-11-22 오후 9:27:08]  	Send To 127.0.0.1 : FAIL
+
+[2019-11-22 오후 9:27:08]  	Close Socket ID : 1
+
+[2019-11-22 오후 9:27:08]  	Remove dictionary key : 1
+
+[2019-11-22 오후 9:27:08]  	Client Count : 0
+
+[2019-11-22 오후 9:27:11]  	Accept Client : 192.168.0.1:2118
+
+[2019-11-22 오후 9:27:11]  	Add Client List
+
+[2019-11-22 오후 9:27:11]  	Client Count : 1
+
+[2019-11-22 오후 9:27:11]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:27:11]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:27:11]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:27:11]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:27:11]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:27:27]  	Accept Client : 127.0.0.1:2122
+
+[2019-11-22 오후 9:27:27]  	Add Client List
+
+[2019-11-22 오후 9:27:27]  	Client Count : 2
+
+[2019-11-22 오후 9:27:27]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:27]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:27:32]  	Receive 6 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:32]  	Receive From ID[127.0.0.1]  : ID:010
+
+[2019-11-22 오후 9:27:32]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:27:32]  	Add new dictionary key : 010
+
+[2019-11-22 오후 9:27:34]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:34]  	Receive From ID[010]  : CHAT:HI
+
+[2019-11-22 오후 9:27:34]  	Send To 192.168.0.1 : CHAT:010:HI
+
+[2019-11-22 오후 9:27:34]  	Send To 010 : OK
+
+[2019-11-22 오후 9:27:36]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:36]  	Receive From ID[010]  : CHAT:HI
+
+[2019-11-22 오후 9:27:36]  	Send To 192.168.0.1 : CHAT:010:HI
+
+[2019-11-22 오후 9:27:36]  	Send To 010 : OK
+
+[2019-11-22 오후 9:27:37]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:37]  	Receive From ID[010]  : CHAT:HI
+
+[2019-11-22 오후 9:27:37]  	Send To 192.168.0.1 : CHAT:010:HI
+
+[2019-11-22 오후 9:27:37]  	Send To 010 : OK
+
+[2019-11-22 오후 9:27:37]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:27:37]  	Receive From ID[010]  : CHAT:HI
+
+[2019-11-22 오후 9:27:37]  	Send To 192.168.0.1 : CHAT:010:HI
+
+[2019-11-22 오후 9:27:37]  	Send To 010 : OK
+
+[2019-11-22 오후 9:27:38]  	Exception occurred in CommunicationToClient() [010] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:27:38]  	Send to 192.168.0.1 : CCLOSE:010
+
+[2019-11-22 오후 9:27:38]  	Close Socket ID : 010
+
+[2019-11-22 오후 9:27:38]  	Remove dictionary key : 010
+
+[2019-11-22 오후 9:27:38]  	Client Count : 1
+
+[2019-11-22 오후 9:27:43]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:27:43]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:27:43]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:27:43]  	Client Count : 0
+
+[2019-11-22 오후 9:27:43]  	All client closing.
+
+[2019-11-22 오후 9:27:43]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-22 오후 9:27:43]  	Server Closing.
+
+[2019-11-22 오후 9:27:43]  	Loop End
+
+[2019-11-22 오후 9:28:20]  	Server Program Start.
+
+[2019-11-22 오후 9:28:20]  	Create New Socket.
+
+[2019-11-22 오후 9:28:20]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 9:28:20]  	Bind Socket.
+
+[2019-11-22 오후 9:28:20]  	Listen and Loop Start.
+
+[2019-11-22 오후 9:28:20]  	Timer for update rooms start.
+
+[2019-11-22 오후 9:28:21]  	Accept Client : 192.168.0.1:2130
+
+[2019-11-22 오후 9:28:21]  	Add Client List
+
+[2019-11-22 오후 9:28:21]  	Client Count : 1
+
+[2019-11-22 오후 9:28:21]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:28:21]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:28:21]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:28:21]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:28:21]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:28:23]  	Accept Client : 127.0.0.1:2133
+
+[2019-11-22 오후 9:28:23]  	Add Client List
+
+[2019-11-22 오후 9:28:23]  	Client Count : 2
+
+[2019-11-22 오후 9:28:23]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:28:23]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:28:27]  	Receive 6 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:28:27]  	Receive From ID[127.0.0.1]  : ID:124
+
+[2019-11-22 오후 9:28:27]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:28:27]  	Add new dictionary key : 124
+
+[2019-11-22 오후 9:28:29]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:28:29]  	Receive From ID[124]  : CHAT:HI
+
+[2019-11-22 오후 9:28:29]  	Send To 192.168.0.1 : CHAT:124:HI
+
+[2019-11-22 오후 9:28:29]  	Send To 124 : OK
+
+[2019-11-22 오후 9:28:40]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:28:40]  	Receive From ID[124]  : CHAT:HI
+
+[2019-11-22 오후 9:28:40]  	Send To 192.168.0.1 : CHAT:124:HI
+
+[2019-11-22 오후 9:28:40]  	Send To 124 : OK
+
+[2019-11-22 오후 9:32:23]  	Exception occurred in CommunicationToClient() [124] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:32:23]  	Send to 192.168.0.1 : CCLOSE:124
+
+[2019-11-22 오후 9:32:23]  	Close Socket ID : 124
+
+[2019-11-22 오후 9:32:23]  	Remove dictionary key : 124
+
+[2019-11-22 오후 9:32:23]  	Client Count : 1
+
+[2019-11-22 오후 9:32:27]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:32:27]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:32:27]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:32:27]  	Client Count : 0
+
+[2019-11-22 오후 9:32:27]  	All client closing.
+
+[2019-11-22 오후 9:32:27]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-22 오후 9:32:27]  	Server Closing.
+
+[2019-11-22 오후 9:32:27]  	Loop End
+
+[2019-11-22 오후 9:33:15]  	Server Program Start.
+
+[2019-11-22 오후 9:33:15]  	Create New Socket.
+
+[2019-11-22 오후 9:33:15]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 9:33:15]  	Bind Socket.
+
+[2019-11-22 오후 9:33:15]  	Listen and Loop Start.
+
+[2019-11-22 오후 9:33:15]  	Timer for update rooms start.
+
+[2019-11-22 오후 9:33:16]  	Accept Client : 192.168.0.1:2187
+
+[2019-11-22 오후 9:33:16]  	Add Client List
+
+[2019-11-22 오후 9:33:16]  	Client Count : 1
+
+[2019-11-22 오후 9:33:16]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:33:16]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:33:16]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:33:16]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:33:16]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:34:00]  	Accept Client : 127.0.0.1:2199
+
+[2019-11-22 오후 9:34:00]  	Add Client List
+
+[2019-11-22 오후 9:34:00]  	Client Count : 2
+
+[2019-11-22 오후 9:34:00]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:34:00]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:34:05]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:34:05]  	Receive From ID[127.0.0.1]  : ID:1234
+
+[2019-11-22 오후 9:34:05]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:34:05]  	Add new dictionary key : 1234
+
+[2019-11-22 오후 9:34:05]  	Sand to 192.168.0.1 : CCON:1234
+
+[2019-11-22 오후 9:34:08]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:34:08]  	Receive From ID[1234]  : CHAT:hi
+
+[2019-11-22 오후 9:34:08]  	Send To 192.168.0.1 : CHAT:1234:hi
+
+[2019-11-22 오후 9:34:08]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:34:18]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:34:18]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:34:18]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:34:18]  	Client Count : 1
+
+[2019-11-22 오후 9:34:19]  	Exception occurred in CommunicationToClient() [1234] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:34:19]  	Close Socket ID : 1234
+
+[2019-11-22 오후 9:34:19]  	Remove dictionary key : 1234
+
+[2019-11-22 오후 9:34:19]  	Client Count : 0
+
+[2019-11-22 오후 9:34:19]  	All client closing.
+
+[2019-11-22 오후 9:34:19]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-22 오후 9:34:19]  	Server Closing.
+
+[2019-11-22 오후 9:34:19]  	Loop End
+
+[2019-11-22 오후 9:35:24]  	Server Program Start.
+
+[2019-11-22 오후 9:35:24]  	Create New Socket.
+
+[2019-11-22 오후 9:35:24]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 9:35:24]  	Bind Socket.
+
+[2019-11-22 오후 9:35:24]  	Listen and Loop Start.
+
+[2019-11-22 오후 9:35:24]  	Timer for update rooms start.
+
+[2019-11-22 오후 9:35:27]  	Accept Client : 192.168.0.1:2211
+
+[2019-11-22 오후 9:35:27]  	Add Client List
+
+[2019-11-22 오후 9:35:27]  	Client Count : 1
+
+[2019-11-22 오후 9:35:27]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:35:27]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:35:27]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:35:27]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:35:27]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:35:30]  	Accept Client : 127.0.0.1:2213
+
+[2019-11-22 오후 9:35:30]  	Add Client List
+
+[2019-11-22 오후 9:35:30]  	Client Count : 2
+
+[2019-11-22 오후 9:35:30]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:35:30]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:35:38]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:35:38]  	Receive From ID[127.0.0.1]  : ID:0124
+
+[2019-11-22 오후 9:35:38]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:35:38]  	Add new dictionary key : 0124
+
+[2019-11-22 오후 9:35:38]  	Sand to 192.168.0.1 : CCON:0124
+
+[2019-11-22 오후 9:35:41]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:35:41]  	Receive From ID[0124]  : CHAT:HI
+
+[2019-11-22 오후 9:35:45]  	Send To 192.168.0.1 : CHAT:0124:HI
+
+[2019-11-22 오후 9:35:45]  	Send To 0124 : OK
+
+[2019-11-22 오후 9:35:49]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:35:49]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:35:49]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:35:49]  	Client Count : 1
+
+[2019-11-22 오후 9:35:50]  	Exception occurred in CommunicationToClient() [0124] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:35:50]  	Close Socket ID : 0124
+
+[2019-11-22 오후 9:35:50]  	Remove dictionary key : 0124
+
+[2019-11-22 오후 9:35:50]  	Client Count : 0
+
+[2019-11-22 오후 9:35:51]  	All client closing.
+
+[2019-11-22 오후 9:35:51]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-22 오후 9:35:51]  	Server Closing.
+
+[2019-11-22 오후 9:35:51]  	Loop End
+
+[2019-11-22 오후 9:38:14]  	Server Program Start.
+
+[2019-11-22 오후 9:38:14]  	Create New Socket.
+
+[2019-11-22 오후 9:38:14]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 9:38:14]  	Bind Socket.
+
+[2019-11-22 오후 9:38:14]  	Listen and Loop Start.
+
+[2019-11-22 오후 9:38:14]  	Timer for update rooms start.
+
+[2019-11-22 오후 9:38:14]  	Accept Client : 192.168.0.1:2244
+
+[2019-11-22 오후 9:38:14]  	Add Client List
+
+[2019-11-22 오후 9:38:14]  	Client Count : 1
+
+[2019-11-22 오후 9:38:14]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:38:14]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:38:14]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:38:14]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:38:14]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:38:23]  	Accept Client : 127.0.0.1:2247
+
+[2019-11-22 오후 9:38:23]  	Add Client List
+
+[2019-11-22 오후 9:38:23]  	Client Count : 2
+
+[2019-11-22 오후 9:38:23]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:38:23]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:38:29]  	Receive 6 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:38:29]  	Receive From ID[127.0.0.1]  : ID:123
+
+[2019-11-22 오후 9:38:29]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:38:29]  	Add new dictionary key : 123
+
+[2019-11-22 오후 9:38:29]  	Sand to 192.168.0.1 : CCON:123
+
+[2019-11-22 오후 9:38:31]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:38:31]  	Receive From ID[123]  : CHAT:123
+
+[2019-11-22 오후 9:38:31]  	Send To 192.168.0.1 : CHAT:123:123
+
+[2019-11-22 오후 9:38:31]  	Send To 123 : OK
+
+[2019-11-22 오후 9:38:38]  	Exception occurred in CommunicationToClient() [123] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:38:38]  	Send to 192.168.0.1 : CCLOSE:123
+
+[2019-11-22 오후 9:38:38]  	Close Socket ID : 123
+
+[2019-11-22 오후 9:38:38]  	Remove dictionary key : 123
+
+[2019-11-22 오후 9:38:38]  	Client Count : 1
+
+[2019-11-22 오후 9:38:40]  	All client closing.
+
+[2019-11-22 오후 9:38:40]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-22 오후 9:38:40]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+
+[2019-11-22 오후 9:38:40]  	Loop End
+
+[2019-11-22 오후 9:38:40]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:38:40]  	Server Closing.
+
+[2019-11-22 오후 9:38:40]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:38:40]  	Client Count : 0
+
+[2019-11-22 오후 9:39:46]  	Server Program Start.
+
+[2019-11-22 오후 9:39:46]  	Create New Socket.
+
+[2019-11-22 오후 9:39:46]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 9:39:46]  	Bind Socket.
+
+[2019-11-22 오후 9:39:46]  	Listen and Loop Start.
+
+[2019-11-22 오후 9:39:46]  	Timer for update rooms start.
+
+[2019-11-22 오후 9:39:48]  	Accept Client : 192.168.0.1:2276
+
+[2019-11-22 오후 9:39:48]  	Add Client List
+
+[2019-11-22 오후 9:39:48]  	Client Count : 1
+
+[2019-11-22 오후 9:39:48]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:39:48]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:39:48]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:39:48]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:39:48]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:39:49]  	Accept Client : 127.0.0.1:2278
+
+[2019-11-22 오후 9:39:49]  	Add Client List
+
+[2019-11-22 오후 9:39:49]  	Client Count : 2
+
+[2019-11-22 오후 9:39:49]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:39:49]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:39:57]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:39:57]  	Receive From ID[127.0.0.1]  : ID:1234
+
+[2019-11-22 오후 9:39:57]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:39:57]  	Add new dictionary key : 1234
+
+[2019-11-22 오후 9:39:57]  	Sand to 192.168.0.1 : CCON:1234
+
+[2019-11-22 오후 9:39:59]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:39:59]  	Receive From ID[1234]  : CHAT:hi
+
+[2019-11-22 오후 9:39:59]  	Send to 192.168.0.1 : CHTCALL:1234
+
+[2019-11-22 오후 9:39:59]  	Send To 192.168.0.1 : CHAT:1234:hi
+
+[2019-11-22 오후 9:39:59]  	Send To 1234 : OK
+
+[2019-11-22 오후 9:40:11]  	Exception occurred in CommunicationToClient() [1234] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:40:11]  	Send to 192.168.0.1 : CCLOSE:1234
+
+[2019-11-22 오후 9:40:11]  	Close Socket ID : 1234
+
+[2019-11-22 오후 9:40:11]  	Remove dictionary key : 1234
+
+[2019-11-22 오후 9:40:11]  	Client Count : 1
+
+[2019-11-22 오후 9:40:12]  	All client closing.
+
+[2019-11-22 오후 9:40:12]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-22 오후 9:40:12]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+
+[2019-11-22 오후 9:40:12]  	Loop End
+
+[2019-11-22 오후 9:40:12]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:40:12]  	Server Closing.
+
+[2019-11-22 오후 9:40:12]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:40:12]  	Client Count : 0
+
+[2019-11-22 오후 9:41:05]  	Server Program Start.
+
+[2019-11-22 오후 9:41:05]  	Create New Socket.
+
+[2019-11-22 오후 9:41:05]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 9:41:05]  	Bind Socket.
+
+[2019-11-22 오후 9:41:05]  	Listen and Loop Start.
+
+[2019-11-22 오후 9:41:05]  	Timer for update rooms start.
+
+[2019-11-22 오후 9:41:05]  	Accept Client : 192.168.0.1:2290
+
+[2019-11-22 오후 9:41:05]  	Add Client List
+
+[2019-11-22 오후 9:41:05]  	Client Count : 1
+
+[2019-11-22 오후 9:41:05]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:41:05]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:41:05]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:41:05]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:41:05]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:41:08]  	Accept Client : 127.0.0.1:2293
+
+[2019-11-22 오후 9:41:08]  	Add Client List
+
+[2019-11-22 오후 9:41:08]  	Client Count : 2
+
+[2019-11-22 오후 9:41:08]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:41:08]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:41:14]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:41:14]  	Receive From ID[127.0.0.1]  : ID:12344
+
+[2019-11-22 오후 9:41:14]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:41:14]  	Add new dictionary key : 12344
+
+[2019-11-22 오후 9:41:14]  	Sand to 192.168.0.1 : CCON:12344
+
+[2019-11-22 오후 9:41:16]  	Receive 9 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:41:16]  	Receive From ID[12344]  : CHAT:asdf
+
+[2019-11-22 오후 9:41:16]  	Send to 192.168.0.1 : CHTCALL:12344
+
+[2019-11-22 오후 9:41:16]  	Send To 192.168.0.1 : CHAT:12344:asdf
+
+[2019-11-22 오후 9:41:16]  	Send To 12344 : OK
+
+[2019-11-22 오후 9:41:21]  	Receive 9 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:41:21]  	Receive From ID[12344]  : CHAT:asdf
+
+[2019-11-22 오후 9:41:21]  	Send to 192.168.0.1 : CHTCALL:12344
+
+[2019-11-22 오후 9:41:21]  	Send To 192.168.0.1 : CHAT:12344:asdf
+
+[2019-11-22 오후 9:41:21]  	Send To 12344 : OK
+
+[2019-11-22 오후 9:41:22]  	Receive 9 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:41:22]  	Receive From ID[12344]  : CHAT:asdf
+
+[2019-11-22 오후 9:41:22]  	Send to 192.168.0.1 : CHTCALL:12344
+
+[2019-11-22 오후 9:41:22]  	Send To 192.168.0.1 : CHAT:12344:asdf
+
+[2019-11-22 오후 9:41:22]  	Send To 12344 : OK
+
+[2019-11-22 오후 9:41:22]  	Receive 9 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:41:22]  	Receive From ID[12344]  : CHAT:asdf
+
+[2019-11-22 오후 9:41:22]  	Send to 192.168.0.1 : CHTCALL:12344
+
+[2019-11-22 오후 9:41:22]  	Send To 192.168.0.1 : CHAT:12344:asdf
+
+[2019-11-22 오후 9:41:22]  	Send To 12344 : OK
+
+[2019-11-22 오후 9:41:23]  	Receive 9 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:41:23]  	Receive From ID[12344]  : CHAT:asdf
+
+[2019-11-22 오후 9:41:23]  	Send to 192.168.0.1 : CHTCALL:12344
+
+[2019-11-22 오후 9:41:23]  	Send To 192.168.0.1 : CHAT:12344:asdf
+
+[2019-11-22 오후 9:41:23]  	Send To 12344 : OK
+
+[2019-11-22 오후 9:41:35]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 연결된 구성원으로부터 응답이 없어 연결하지 못했거나, 호스트로부터 응답이 없어 연결이 끊어졌습니다
+
+[2019-11-22 오후 9:41:35]  	Exception occurred in CommunicationToClient() : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:41:35]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:41:35]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:41:35]  	Client Count : 1
+
+[2019-11-22 오후 9:42:04]  	Accept Client : 192.168.0.1:2304
+
+[2019-11-22 오후 9:42:04]  	Add Client List
+
+[2019-11-22 오후 9:42:04]  	Client Count : 2
+
+[2019-11-22 오후 9:42:04]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:42:04]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:42:04]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:42:04]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:42:04]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:42:07]  	Receive 9 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:42:07]  	Receive From ID[12344]  : CHAT:asdf
+
+[2019-11-22 오후 9:42:07]  	Send to 192.168.0.1 : CHTCALL:12344
+
+[2019-11-22 오후 9:42:07]  	Send To 192.168.0.1 : CHAT:12344:asdf
+
+[2019-11-22 오후 9:42:07]  	Send To 12344 : OK
+
+[2019-11-22 오후 9:42:28]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:42:28]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:42:28]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:42:28]  	Client Count : 1
+
+[2019-11-22 오후 9:42:32]  	Exception occurred in CommunicationToClient() [12344] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:42:32]  	Close Socket ID : 12344
+
+[2019-11-22 오후 9:42:32]  	Remove dictionary key : 12344
+
+[2019-11-22 오후 9:42:32]  	Client Count : 0
+
+[2019-11-22 오후 9:42:33]  	All client closing.
+
+[2019-11-22 오후 9:42:33]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-22 오후 9:42:33]  	Server Closing.
+
+[2019-11-22 오후 9:42:33]  	Loop End
+
+[2019-11-22 오후 9:44:35]  	Server Program Start.
+
+[2019-11-22 오후 9:44:35]  	Create New Socket.
+
+[2019-11-22 오후 9:44:35]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 9:44:35]  	Bind Socket.
+
+[2019-11-22 오후 9:44:35]  	Listen and Loop Start.
+
+[2019-11-22 오후 9:44:35]  	Timer for update rooms start.
+
+[2019-11-22 오후 9:44:36]  	Accept Client : 192.168.0.1:2324
+
+[2019-11-22 오후 9:44:36]  	Add Client List
+
+[2019-11-22 오후 9:44:36]  	Client Count : 1
+
+[2019-11-22 오후 9:44:36]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:44:36]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:44:36]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:44:36]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:44:36]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:44:37]  	Accept Client : 127.0.0.1:2326
+
+[2019-11-22 오후 9:44:37]  	Add Client List
+
+[2019-11-22 오후 9:44:37]  	Client Count : 2
+
+[2019-11-22 오후 9:44:37]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:44:37]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:44:45]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:44:45]  	Receive From ID[127.0.0.1]  : ID:12345
+
+[2019-11-22 오후 9:44:45]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:44:45]  	Add new dictionary key : 12345
+
+[2019-11-22 오후 9:44:45]  	Sand to 192.168.0.1 : CCON:12345
+
+[2019-11-22 오후 9:44:47]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:44:47]  	Receive From ID[12345]  : CHAT:HI
+
+[2019-11-22 오후 9:44:47]  	Send to 192.168.0.1 : CHTCALL:12345
+
+[2019-11-22 오후 9:44:47]  	Send to 192.168.0.1 : CHAT:12345:HI
+
+[2019-11-22 오후 9:44:47]  	Send to 12345 : OK
+
+[2019-11-22 오후 9:45:03]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:45:03]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:45:03]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:45:03]  	Client Count : 1
+
+[2019-11-22 오후 9:45:11]  	Accept Client : 192.168.0.1:2330
+
+[2019-11-22 오후 9:45:11]  	Add Client List
+
+[2019-11-22 오후 9:45:11]  	Client Count : 2
+
+[2019-11-22 오후 9:45:11]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:45:11]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:45:12]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:45:12]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:45:12]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:45:13]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:45:13]  	Receive From ID[12345]  : CHAT:HI
+
+[2019-11-22 오후 9:45:13]  	Send to 192.168.0.1 : CHTCALL:12345
+
+[2019-11-22 오후 9:45:13]  	Send to 192.168.0.1 : CHAT:12345:HI
+
+[2019-11-22 오후 9:45:13]  	Send to 12345 : OK
+
+[2019-11-22 오후 9:45:21]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:45:21]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:45:21]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:45:21]  	Client Count : 1
+
+[2019-11-22 오후 9:45:28]  	Accept Client : 192.168.0.1:2337
+
+[2019-11-22 오후 9:45:28]  	Add Client List
+
+[2019-11-22 오후 9:45:28]  	Client Count : 2
+
+[2019-11-22 오후 9:45:28]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:45:28]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:45:28]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:45:28]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:45:28]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:45:30]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:45:30]  	Receive From ID[12345]  : CHAT:HI
+
+[2019-11-22 오후 9:45:30]  	Send to 192.168.0.1 : CHTCALL:12345
+
+[2019-11-22 오후 9:45:30]  	Send to 192.168.0.1 : CHAT:12345:HI
+
+[2019-11-22 오후 9:45:30]  	Send to 12345 : OK
+
+[2019-11-22 오후 9:45:35]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:45:35]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:45:35]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:45:35]  	Client Count : 1
+
+[2019-11-22 오후 9:46:13]  	Accept Client : 192.168.0.1:2345
+
+[2019-11-22 오후 9:46:13]  	Add Client List
+
+[2019-11-22 오후 9:46:13]  	Client Count : 2
+
+[2019-11-22 오후 9:46:13]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:13]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:46:13]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:46:13]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:13]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:46:15]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:46:15]  	Receive From ID[12345]  : CHAT:HI
+
+[2019-11-22 오후 9:46:15]  	Send to 192.168.0.1 : CHTCALL:12345
+
+[2019-11-22 오후 9:46:15]  	Send to 192.168.0.1 : CHAT:12345:HI
+
+[2019-11-22 오후 9:46:15]  	Send to 12345 : OK
+
+[2019-11-22 오후 9:46:23]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:46:23]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:46:23]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:46:23]  	Client Count : 1
+
+[2019-11-22 오후 9:46:35]  	Accept Client : 192.168.0.1:2350
+
+[2019-11-22 오후 9:46:35]  	Add Client List
+
+[2019-11-22 오후 9:46:35]  	Client Count : 2
+
+[2019-11-22 오후 9:46:35]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:35]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:46:35]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:46:35]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:35]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:46:37]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:46:37]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:46:37]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:46:37]  	Client Count : 1
+
+[2019-11-22 오후 9:46:47]  	Accept Client : 192.168.0.1:2355
+
+[2019-11-22 오후 9:46:47]  	Add Client List
+
+[2019-11-22 오후 9:46:47]  	Client Count : 2
+
+[2019-11-22 오후 9:46:47]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:47]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:46:47]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:46:47]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:47]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:46:49]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:46:49]  	Receive From ID[12345]  : CHAT:HI
+
+[2019-11-22 오후 9:46:49]  	Send to 192.168.0.1 : CHTCALL:12345
+
+[2019-11-22 오후 9:46:49]  	Send to 192.168.0.1 : CHAT:12345:HI
+
+[2019-11-22 오후 9:46:49]  	Send to 12345 : OK
+
+[2019-11-22 오후 9:46:54]  	Receive 11 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:46:54]  	Receive From ID[12345]  : CHAT:FUCK U
+
+[2019-11-22 오후 9:46:54]  	Send to 192.168.0.1 : CHTCALL:12345
+
+[2019-11-22 오후 9:46:54]  	Send to 192.168.0.1 : CHAT:12345:FUCK U
+
+[2019-11-22 오후 9:46:54]  	Send to 12345 : OK
+
+[2019-11-22 오후 9:46:57]  	Receive 16 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:57]  	Receive From ID[192.168.0.1]  : CHATTO:12345:ggg
+
+[2019-11-22 오후 9:46:57]  	Send To 127.0.0.1 : CHAT
+ggg
+
+[2019-11-22 오후 9:46:57]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:46:58]  	Receive 31 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:58]  	Receive From ID[192.168.0.1]  : CHATTO:12345:ㅎㅎㅎㅎㅎㅎ
+
+[2019-11-22 오후 9:46:58]  	Send To 127.0.0.1 : CHAT
+ㅎㅎㅎㅎㅎㅎ
+
+[2019-11-22 오후 9:46:58]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:46:58]  	Receive 31 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:58]  	Receive From ID[192.168.0.1]  : CHATTO:12345:ㅁㄴㅇㅀㅁㄴ
+
+[2019-11-22 오후 9:46:58]  	Send To 127.0.0.1 : CHAT
+ㅁㄴㅇㅀㅁㄴ
+
+[2019-11-22 오후 9:46:58]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:46:59]  	Receive 31 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:59]  	Receive From ID[192.168.0.1]  : CHATTO:12345:ㅇㅎㅁㄴㅇㅎ
+
+[2019-11-22 오후 9:46:59]  	Send To 127.0.0.1 : CHAT
+ㅇㅎㅁㄴㅇㅎ
+
+[2019-11-22 오후 9:46:59]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:46:59]  	Receive 25 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:46:59]  	Receive From ID[192.168.0.1]  : CHATTO:12345:ㅁㄴㅇㅎ
+
+[2019-11-22 오후 9:46:59]  	Send To 127.0.0.1 : CHAT
+ㅁㄴㅇㅎ
+
+[2019-11-22 오후 9:46:59]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:47:02]  	Exception occurred in CommunicationToClient() [12345] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:47:02]  	Send to 192.168.0.1 : CCLOSE:12345
+
+[2019-11-22 오후 9:47:02]  	Close Socket ID : 12345
+
+[2019-11-22 오후 9:47:02]  	Remove dictionary key : 12345
+
+[2019-11-22 오후 9:47:02]  	Client Count : 1
+
+[2019-11-22 오후 9:47:13]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:47:13]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:47:13]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:47:13]  	Client Count : 0
+
+[2019-11-22 오후 9:48:49]  	Accept Client : 192.168.0.1:2379
+
+[2019-11-22 오후 9:48:49]  	Add Client List
+
+[2019-11-22 오후 9:48:49]  	Client Count : 1
+
+[2019-11-22 오후 9:48:49]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:48:49]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 9:48:49]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:48:49]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:48:49]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
+[2019-11-22 오후 9:48:51]  	Accept Client : 127.0.0.1:2381
+
+[2019-11-22 오후 9:48:51]  	Add Client List
+
+[2019-11-22 오후 9:48:51]  	Client Count : 2
+
+[2019-11-22 오후 9:48:51]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:48:51]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:48:59]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:48:59]  	Receive From ID[127.0.0.1]  : ID:12345
+
+[2019-11-22 오후 9:48:59]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:48:59]  	Add new dictionary key : 12345
+
+[2019-11-22 오후 9:48:59]  	Sand to 192.168.0.1 : CCON:12345
+
+[2019-11-22 오후 9:49:01]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:49:01]  	Receive From ID[12345]  : CHAT:hi
+
+[2019-11-22 오후 9:49:01]  	Send to 192.168.0.1 : CHTCALL:12345
+
+[2019-11-22 오후 9:49:01]  	Send to 192.168.0.1 : CHAT:12345:hi
+
+[2019-11-22 오후 9:49:01]  	Send to 12345 : OK
+
+[2019-11-22 오후 9:49:08]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:49:08]  	Receive From ID[12345]  : CHAT:bye
+
+[2019-11-22 오후 9:49:08]  	Send to 192.168.0.1 : CHTCALL:12345
+
+[2019-11-22 오후 9:49:08]  	Send to 192.168.0.1 : CHAT:12345:bye
+
+[2019-11-22 오후 9:49:08]  	Send to 12345 : OK
+
+[2019-11-22 오후 9:49:09]  	Exception occurred in CommunicationToClient() [12345] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:49:09]  	Send to 192.168.0.1 : CCLOSE:12345
+
+[2019-11-22 오후 9:49:09]  	Close Socket ID : 12345
+
+[2019-11-22 오후 9:49:09]  	Remove dictionary key : 12345
+
+[2019-11-22 오후 9:49:09]  	Client Count : 1
+
+[2019-11-22 오후 9:49:12]  	Accept Client : 127.0.0.1:2384
+
+[2019-11-22 오후 9:49:12]  	Add Client List
+
+[2019-11-22 오후 9:49:12]  	Client Count : 2
+
+[2019-11-22 오후 9:49:12]  	Receive 10 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:49:12]  	Receive From ID[127.0.0.1]  : ARDUINP102
+
+[2019-11-22 오후 9:49:18]  	Receive 8 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:49:18]  	Receive From ID[127.0.0.1]  : ID:12345
+
+[2019-11-22 오후 9:49:18]  	Remove dictionary key(IP) : 127.0.0.1
+
+[2019-11-22 오후 9:49:18]  	Add new dictionary key : 12345
+
+[2019-11-22 오후 9:49:18]  	Sand to 192.168.0.1 : CCON:12345
+
+[2019-11-22 오후 9:49:21]  	Receive 7 Byte From 127.0.0.1
+
+[2019-11-22 오후 9:49:21]  	Receive From ID[12345]  : CHAT:HI
+
+[2019-11-22 오후 9:49:21]  	Send to 192.168.0.1 : CHTCALL:12345
+
+[2019-11-22 오후 9:49:21]  	Send to 192.168.0.1 : CHAT:12345:HI
+
+[2019-11-22 오후 9:49:21]  	Send to 12345 : OK
+
+[2019-11-22 오후 9:49:25]  	Receive 24 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:49:25]  	Receive From ID[192.168.0.1]  : CHATTO:12345:asdfasdfasd
+
+[2019-11-22 오후 9:49:25]  	Send To 127.0.0.1 : CHAT
+asdfasdfasd
+
+[2019-11-22 오후 9:49:25]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:49:25]  	Receive 18 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:49:25]  	Receive From ID[192.168.0.1]  : CHATTO:12345:fasdf
+
+[2019-11-22 오후 9:49:25]  	Send To 127.0.0.1 : CHAT
+fasdf
+
+[2019-11-22 오후 9:49:25]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:49:26]  	Receive 17 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:49:26]  	Receive From ID[192.168.0.1]  : CHATTO:12345:asdf
+
+[2019-11-22 오후 9:49:26]  	Send To 127.0.0.1 : CHAT
+asdf
+
+[2019-11-22 오후 9:49:26]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:49:26]  	Receive 17 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:49:26]  	Receive From ID[192.168.0.1]  : CHATTO:12345:asdf
+
+[2019-11-22 오후 9:49:26]  	Send To 127.0.0.1 : CHAT
+asdf
+
+[2019-11-22 오후 9:49:26]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:49:30]  	Receive 25 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:49:30]  	Receive From ID[192.168.0.1]  : CHATTO:12345:asdfasdfasdf
+
+[2019-11-22 오후 9:49:30]  	Send To 127.0.0.1 : CHAT
+asdfasdfasdf
+
+[2019-11-22 오후 9:49:30]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:49:30]  	Receive 17 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:49:30]  	Receive From ID[192.168.0.1]  : CHATTO:12345:asdf
+
+[2019-11-22 오후 9:49:30]  	Send To 127.0.0.1 : CHAT
+asdf
+
+[2019-11-22 오후 9:49:30]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:49:30]  	Receive 17 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:49:30]  	Receive From ID[192.168.0.1]  : CHATTO:12345:asdf
+
+[2019-11-22 오후 9:49:30]  	Send To 127.0.0.1 : CHAT
+asdf
+
+[2019-11-22 오후 9:49:30]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:49:30]  	Receive 17 Byte From 192.168.0.1
+
+[2019-11-22 오후 9:49:30]  	Receive From ID[192.168.0.1]  : CHATTO:12345:asdf
+
+[2019-11-22 오후 9:49:30]  	Send To 127.0.0.1 : CHAT
+asdf
+
+[2019-11-22 오후 9:49:30]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 9:49:40]  	Exception occurred in CommunicationToClient() [12345] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-11-22 오후 9:49:40]  	Send to 192.168.0.1 : CCLOSE:12345
+
+[2019-11-22 오후 9:49:40]  	Close Socket ID : 12345
+
+[2019-11-22 오후 9:49:40]  	Remove dictionary key : 12345
+
+[2019-11-22 오후 9:49:40]  	Client Count : 1
+
+[2019-11-22 오후 9:49:44]  	All client closing.
+
+[2019-11-22 오후 9:49:44]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-11-22 오후 9:49:44]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+
+[2019-11-22 오후 9:49:44]  	Loop End
+
+[2019-11-22 오후 9:49:44]  	Close Socket ID : 192.168.0.1
+
+[2019-11-22 오후 9:49:44]  	Server Closing.
+
+[2019-11-22 오후 9:49:44]  	Remove dictionary key : 192.168.0.1
+
+[2019-11-22 오후 9:49:44]  	Client Count : 0
+
+[2019-11-22 오후 11:38:47]  	Server Program Start.
+
+[2019-11-22 오후 11:38:47]  	Create New Socket.
+
+[2019-11-22 오후 11:38:47]  	Local address and port : 0.0.0.0:14334.
+
+[2019-11-22 오후 11:38:47]  	Bind Socket.
+
+[2019-11-22 오후 11:38:47]  	Listen and Loop Start.
+
+[2019-11-22 오후 11:38:47]  	Timer for update rooms start.
+
+[2019-11-22 오후 11:38:47]  	Accept Client : 192.168.0.1:4365
+
+[2019-11-22 오후 11:38:47]  	Add Client List
+
+[2019-11-22 오후 11:38:47]  	Client Count : 1
+
+[2019-11-22 오후 11:38:47]  	Receive 2 Byte From 192.168.0.1
+
+[2019-11-22 오후 11:38:47]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-11-22 오후 11:38:47]  	Send To 192.168.0.1 : OK
+
+[2019-11-22 오후 11:38:47]  	Receive 12 Byte From 192.168.0.1
+
+[2019-11-22 오후 11:38:47]  	Receive From ID[192.168.0.1]  : GET_CUSTOMER
+
