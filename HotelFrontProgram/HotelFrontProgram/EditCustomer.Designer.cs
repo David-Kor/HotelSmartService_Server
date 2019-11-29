@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txt_nid = new System.Windows.Forms.TextBox();
             this.lb_nid = new System.Windows.Forms.Label();
             this.lb_name = new System.Windows.Forms.Label();
@@ -42,6 +43,9 @@
             this.lb_room = new System.Windows.Forms.Label();
             this.btn_positive = new System.Windows.Forms.Button();
             this.btn_nagative = new System.Windows.Forms.Button();
+            this.comboBox_serialPorts = new System.Windows.Forms.ComboBox();
+            this.serialPort = new System.IO.Ports.SerialPort(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_nid
@@ -82,6 +86,7 @@
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(251, 21);
             this.txt_phone.TabIndex = 2;
+            this.txt_phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNum_Txt_KeyPress);
             // 
             // lb_phone
             // 
@@ -98,6 +103,7 @@
             this.txt_age.Name = "txt_age";
             this.txt_age.Size = new System.Drawing.Size(251, 21);
             this.txt_age.TabIndex = 3;
+            this.txt_age.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNum_Txt_KeyPress);
             // 
             // lb_age
             // 
@@ -130,6 +136,7 @@
             this.txt_room.Name = "txt_room";
             this.txt_room.Size = new System.Drawing.Size(251, 21);
             this.txt_room.TabIndex = 5;
+            this.txt_room.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNum_Txt_KeyPress);
             // 
             // lb_room
             // 
@@ -160,11 +167,36 @@
             this.btn_nagative.UseVisualStyleBackColor = true;
             this.btn_nagative.Click += new System.EventHandler(this.btn_nagative_Click);
             // 
+            // comboBox_serialPorts
+            // 
+            this.comboBox_serialPorts.FormattingEnabled = true;
+            this.comboBox_serialPorts.Location = new System.Drawing.Point(324, 215);
+            this.comboBox_serialPorts.Name = "comboBox_serialPorts";
+            this.comboBox_serialPorts.Size = new System.Drawing.Size(105, 20);
+            this.comboBox_serialPorts.TabIndex = 8;
+            this.comboBox_serialPorts.DropDown += new System.EventHandler(this.ComboBox_serialPorts_DropDown);
+            this.comboBox_serialPorts.SelectedIndexChanged += new System.EventHandler(this.ComboBox_serialPorts_SelectedIndexChanged);
+            // 
+            // serialPort
+            // 
+            this.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.SerialPort_DataReceived);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(324, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "NFC Serial Port";
+            // 
             // EditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(460, 402);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBox_serialPorts);
             this.Controls.Add(this.btn_nagative);
             this.Controls.Add(this.btn_positive);
             this.Controls.Add(this.lb_room);
@@ -181,6 +213,7 @@
             this.Controls.Add(this.txt_nid);
             this.Name = "EditCustomer";
             this.Text = "EditCustomer";
+            this.Load += new System.EventHandler(this.EditCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +235,8 @@
         private System.Windows.Forms.Label lb_room;
         private System.Windows.Forms.Button btn_positive;
         private System.Windows.Forms.Button btn_nagative;
+        private System.Windows.Forms.ComboBox comboBox_serialPorts;
+        private System.IO.Ports.SerialPort serialPort;
+        private System.Windows.Forms.Label label1;
     }
 }

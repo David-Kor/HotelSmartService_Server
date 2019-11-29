@@ -22,6 +22,8 @@ namespace HotelFrontProgram
         private LinkedList<ChattingForm> chatFromList;
         private RoomsForm roomFrom;
         private int selectedRow = 0;
+        private Mutex mutex;
+
         private class Customer
         {
             public string nid;
@@ -41,14 +43,14 @@ namespace HotelFrontProgram
         {
             InitializeComponent();
             chatFromList = new LinkedList<ChattingForm>();
+            mutex = new Mutex();    //뮤텍스 생성
             ConnectToServer();
         }
 
         //윈도우 폼을 불러올 때 이벤트
         private void Form1_Load(object sender, EventArgs e)
         {
-            SendToServer("GET_CUSTOMER");
-            SelectAllCustomers();
+            SendToServer("GETCL");
         }
 
         //서버에 연결 시도
@@ -208,9 +210,90 @@ namespace HotelFrontProgram
                             }
                             break;
                         }
-                    //고객 정보를 전송하는 명령어(CLIST:@ID:nid:@NM:name:@PN:phone:@AG:age:@AD:address:@RM:rid)
+                    //고객 정보를 전송하는 명령어(CLIST:고객수:{i}@ID:nid:{i}@NM:name:{i}@PN:phone:{i}@AG:age:{i}@AD:address:{i}@RM:rid) => {i}는 정수, 괄호는 넣지않음
                     case "CLIST":
                         {
+                            //args 부족
+                            if (strSplit.Length <= 2)
+                            {
+                                break;
+                            }
+                            //고객 수 파싱
+                            int nCount = 0;
+                            if (int.TryParse(strSplit[1], out nCount) == false)
+                            {
+                                MessageBox.Show("서버에서 고객 정보를 받아오는 데 실패하였습니다 : Failed parsing customer count");
+                                break;
+                            }
+                            //고객의 수가 0이하면 무시
+                            if (nCount <= 0) { break; }
+
+                            //Row(행)의 수를 고객 수와 동일하게 맞춤
+                            while (grid_customer_table.Rows.Count != nCount)
+                            {
+                                //테이블 행의 수가 고객 수보다 많으면 같은 수가 될 때까지 뒤에서부터 행을 제거
+                                if (grid_customer_table.Rows.Count > nCount)
+                                {
+                                    grid_customer_table.Rows.RemoveAt(grid_customer_table.Rows.Count - 1);
+                                }
+                                //테이블 행의 수가 고객 수보다 적으면 같은 수가 될 때까지 행을 추가
+                                else if (grid_customer_table.Rows.Count < nCount)
+                                {
+                                    grid_customer_table.Rows.Add();
+                                }
+                            }
+
+                            int index = 0;
+                            string[] strField = null;
+                            //i -> 콜론(:)으로 나눈 문자열들의 인덱스
+                            //index -> 고객의 인덱스
+                            for (int i = 2; i < strSplit.Length; i++)
+                            {
+                                //문자열을 @키워드를 기준으로 분리
+                                strField = strSplit[i].Split('@');
+                                //고객 인덱스를 얻어옴
+                                index = Convert.ToInt32(strField[0]);
+                                switch (strField[1])
+                                {
+                                    case "ID":
+                                        {
+                                            i++;
+                                            grid_customer_table[0, index].Value = strSplit[i];
+                                            break;
+                                        }
+                                    case "NM":
+                                        {
+                                            i++;
+                                            grid_customer_table[1, index].Value = strSplit[i];
+                                            break;
+                                        }
+                                    case "PN":
+                                        {
+                                            i++;
+                                            grid_customer_table[2, index].Value = strSplit[i];
+                                            break;
+                                        }
+                                    case "AG":
+                                        {
+                                            i++;
+                                            grid_customer_table[3, index].Value = strSplit[i];
+                                            break;
+                                        }
+                                    case "AD":
+                                        {
+                                            i++;
+                                            grid_customer_table[4, index].Value = strSplit[i];
+                                            break;
+                                        }
+                                    case "RM":
+                                        {
+                                            i++;
+                                            grid_customer_table[5, index].Value = strSplit[i];
+                                            break;
+                                        }
+                                }
+                            }
+
                             break;
                         }
                 }
@@ -220,110 +303,6 @@ namespace HotelFrontProgram
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-            }
-
-            if (false)
-            {
-                try
-                {
-                    if (cmd.StartsWith("CallChat"))
-                    {
-                        cmd = cmd.Remove(0, "CallChat".Length);
-                        ChattingForm chatForm = FindByID(cmd);
-                        if (chatForm == null)
-                        {
-                            chatForm = new ChattingForm(cmd, this);
-                            Application.Run(chatFromList.AddLast(chatForm).Value);
-                            //chatFromList.AddLast(form).Value.Show();
-                        }
-                        else
-                        {
-                            chatForm.Reconnected();
-                        }
-                    }
-                    else if (cmd.StartsWith("CHATFROM"))
-                    {
-                        string ip = cmd.Split('\n')[0].Remove(0, "CHATFROM".Length);
-                        cmd = cmd.Split('\n')[1];
-
-                        ChattingForm form = FindByID(ip);
-                        if (form != null)
-                        {
-                            form.ReceiveChat(cmd);
-                        }
-                        else
-                        {
-                            form = new ChattingForm(cmd, this);
-                            Application.Run(chatFromList.AddLast(form).Value);
-                            form.ReceiveChat(cmd);
-                        }
-                    }
-                    else if (cmd.StartsWith("CLOSECHAT"))
-                    {
-                        string ip = cmd.Remove(0, "CLOSECHAT".Length);
-                        ChattingForm form = FindByID(ip);
-                        if (form != null)
-                        {
-                            form.Disconnected();
-                        }
-                    }
-                    else if (false && cmd.StartsWith("CUSTOMERINFO"))
-                    {
-                        string[] info = cmd.Remove(0, "CUSTOMERINFO".Length + 1).Split('\n');
-                        grid_customer_table.Rows.Add(info);
-                    }
-                    else if (cmd.StartsWith("ROOMINFO"))
-                    {
-                        string[] info = cmd.Remove(0, "ROOMINFO".Length + 1).Split('\n');
-                        roomFrom.AddRows(info);
-                    }
-                    else if (cmd.EndsWith("FAIL"))
-                    {
-                        if (cmd.StartsWith("UPDATE"))
-                        {
-                            MessageBox.Show("고객 정보 수정에 실패하였습니다.\n정확한 형식에 맞게 입력했는 지 확인하여주십시오.",
-                                "UPDATE ERROR");
-                        }
-                        else if (cmd.StartsWith("INSERT"))
-                        {
-                            MessageBox.Show("고객 정보 추가에 실패하였습니다.\n정확한 형식에 맞게 입력했는 지 확인하여주십시오.",
-                                "INSERT ERROR");
-                        }
-                        else if (cmd.StartsWith("DELETE"))
-                        {
-                            MessageBox.Show("고객 정보 삭제에 실패하였습니다.\n잘못된 정보이거나 이미 삭제된 정보입니다. 새로고침을 눌러보십시오.",
-                                   "DELETE ERROR");
-                        }
-                    }
-                    else if (cmd.EndsWith("SUCCESS"))
-                    {
-                        if (cmd.StartsWith("UPDATE"))
-                        {
-                            MessageBox.Show("고객 정보를 성공적으로 수정하였습니다.",
-                                "UPDATE COMPLETE");
-                            SendToServer("GET_CUSTOMER");
-                            SelectAllCustomers();
-                        }
-                        else if (cmd.StartsWith("INSERT"))
-                        {
-                            MessageBox.Show("고객 정보를 성공적으로 추가하였습니다.",
-                                "INSERT COMPLETE");
-                            SendToServer("GET_CUSTOMER");
-                            SelectAllCustomers();
-                        }
-                        else if (cmd.StartsWith("DELETE"))
-                        {
-                            MessageBox.Show("고객 정보를 성공적으로 삭제하였습니다.",
-                                   "DELETE COMPLETE");
-                            SendToServer("GET_CUSTOMER");
-                            SelectAllCustomers();
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message, "MethodError_CommandAction");
-                }
             }
         }
 
@@ -351,7 +330,9 @@ namespace HotelFrontProgram
 
         public void CloseForm(ChattingForm form)
         {
+            mutex.WaitOne();
             chatFromList.Remove(form);
+            mutex.ReleaseMutex();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -367,8 +348,7 @@ namespace HotelFrontProgram
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            SendToServer("GET_CUSTOMER");
-            SelectAllCustomers();
+            SendToServer("GETCL");
         }
 
         private void btn_room_info_Click(object sender, EventArgs e)
@@ -456,13 +436,13 @@ namespace HotelFrontProgram
                     string nid = grid_customer_table[0, selectedRow].Value.ToString();
                     SendToServer("DELETE\n" + nid);
                     grid_customer_table.Rows.Clear();
-                    SendToServer("GET_CUSTOMER");
-                    SelectAllCustomers();
+                    SendToServer("GETCL");
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+        //미사용 메소드(예비로 남겨둠)
         private void SelectAllCustomers()
         {
             SqlConnection con = null;

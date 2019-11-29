@@ -116,10 +116,10 @@ namespace HotelServer
                     customer = new Customer();
                     //데이터를 읽어들임
                     customer.nid = rd.GetString(0);
-                    customer.name = rd.IsDBNull(1) ? "" : rd.GetString(1);
-                    customer.phone = rd.IsDBNull(2) ? "" : rd.GetString(2);
+                    customer.name = rd.IsDBNull(1) ? null : rd.GetString(1);
+                    customer.phone = rd.IsDBNull(2) ? null : rd.GetString(2);
                     customer.age = rd.IsDBNull(3) ? int.MinValue : rd.GetInt32(3);
-                    customer.address = rd.IsDBNull(4) ? "" : rd.GetString(4);
+                    customer.address = rd.IsDBNull(4) ? null : rd.GetString(4);
                     customerList.Add(customer);
                 }
 
