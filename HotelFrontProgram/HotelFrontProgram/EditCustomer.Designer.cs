@@ -54,6 +54,7 @@
             this.txt_nid.Name = "txt_nid";
             this.txt_nid.Size = new System.Drawing.Size(251, 21);
             this.txt_nid.TabIndex = 0;
+            this.txt_nid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BlockInputAtMark);
             // 
             // lb_nid
             // 
@@ -69,9 +70,9 @@
             this.lb_name.AutoSize = true;
             this.lb_name.Location = new System.Drawing.Point(24, 68);
             this.lb_name.Name = "lb_name";
-            this.lb_name.Size = new System.Drawing.Size(39, 12);
+            this.lb_name.Size = new System.Drawing.Size(29, 12);
             this.lb_name.TabIndex = 1;
-            this.lb_name.Text = "Name";
+            this.lb_name.Text = "이름";
             // 
             // txt_name
             // 
@@ -79,6 +80,7 @@
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(251, 21);
             this.txt_name.TabIndex = 1;
+            this.txt_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BlockInputAtMark);
             // 
             // txt_phone
             // 
@@ -93,9 +95,9 @@
             this.lb_phone.AutoSize = true;
             this.lb_phone.Location = new System.Drawing.Point(24, 136);
             this.lb_phone.Name = "lb_phone";
-            this.lb_phone.Size = new System.Drawing.Size(90, 12);
+            this.lb_phone.Size = new System.Drawing.Size(41, 12);
             this.lb_phone.TabIndex = 1;
-            this.lb_phone.Text = "Phone Number";
+            this.lb_phone.Text = "폰번호";
             // 
             // txt_age
             // 
@@ -110,9 +112,9 @@
             this.lb_age.AutoSize = true;
             this.lb_age.Location = new System.Drawing.Point(24, 200);
             this.lb_age.Name = "lb_age";
-            this.lb_age.Size = new System.Drawing.Size(27, 12);
+            this.lb_age.Size = new System.Drawing.Size(29, 12);
             this.lb_age.TabIndex = 1;
-            this.lb_age.Text = "Age";
+            this.lb_age.Text = "나이";
             // 
             // txt_adress
             // 
@@ -120,15 +122,16 @@
             this.txt_adress.Name = "txt_adress";
             this.txt_adress.Size = new System.Drawing.Size(251, 21);
             this.txt_adress.TabIndex = 4;
+            this.txt_adress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BlockInputAtMark);
             // 
             // lb_adress
             // 
             this.lb_adress.AutoSize = true;
             this.lb_adress.Location = new System.Drawing.Point(24, 268);
             this.lb_adress.Name = "lb_adress";
-            this.lb_adress.Size = new System.Drawing.Size(52, 12);
+            this.lb_adress.Size = new System.Drawing.Size(29, 12);
             this.lb_adress.TabIndex = 1;
-            this.lb_adress.Text = "Address";
+            this.lb_adress.Text = "주소";
             // 
             // txt_room
             // 
@@ -143,9 +146,9 @@
             this.lb_room.AutoSize = true;
             this.lb_room.Location = new System.Drawing.Point(24, 334);
             this.lb_room.Name = "lb_room";
-            this.lb_room.Size = new System.Drawing.Size(38, 12);
+            this.lb_room.Size = new System.Drawing.Size(41, 12);
             this.lb_room.TabIndex = 1;
-            this.lb_room.Text = "Room";
+            this.lb_room.Text = "방번호";
             // 
             // btn_positive
             // 
@@ -186,9 +189,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(324, 197);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 12);
+            this.label1.Size = new System.Drawing.Size(98, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "NFC Serial Port";
+            this.label1.Text = "NFC 시리얼 포트";
             // 
             // EditCustomer
             // 

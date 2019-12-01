@@ -54,14 +54,20 @@ namespace HotelFrontProgram
         //확인 버튼 클릭 시 호출
         private void btn_positive_Click(object sender, EventArgs e)
         {
-            Dictionary<int, string> contents = new Dictionary<int, string>();
+            if (txt_nid.Text.Length * txt_room.Text.Length <= 0)
+            {
+                MessageBox.Show("NFC ID 또는 방번호는 반드시 입력해야 합니다.");
+                return;
+            }
+            string[] contents = new string[7];
             int i = 0;
-            contents.Add(i++, txt_nid.Text);
-            contents.Add(i++, txt_name.Text);
-            contents.Add(i++, txt_phone.Text);
-            contents.Add(i++, txt_age.Text);
-            contents.Add(i++, txt_adress.Text);
-            contents.Add(i++, txt_room.Text);
+            contents[i++] = txt_room.ReadOnly ? "EDIT" : "NEW";
+            contents[i++] = txt_nid.Text;
+            contents[i++] = txt_name.Text;
+            contents[i++] = txt_phone.Text;
+            contents[i++] = txt_age.Text;
+            contents[i++] = txt_adress.Text;
+            contents[i++] = txt_room.Text;
             parentForm.UpdateValues(contents);
             Close();
         }
@@ -86,7 +92,6 @@ namespace HotelFrontProgram
                 mutex.WaitOne();
                 comboBox_serialPorts.Text = string.Empty;
                 comboBox_serialPorts.SelectedItem = null;
-                MessageBox.Show(comboBox_serialPorts.SelectedIndex.ToString());
                 comboBox_serialPorts.Items.Clear();
                 string[] strSerials = SerialPort.GetPortNames();
                 comboBox_serialPorts.Items.AddRange(strSerials);
@@ -108,19 +113,19 @@ namespace HotelFrontProgram
             {
                 if (m.Msg == 0x0219)
                 {
-                    //string strSelected = comboBox_serialPorts.Text;
+                    string strSelected = comboBox_serialPorts.Text;
                     RefreshCombobox();
-                    //if (comboBox_serialPorts.Items.Count > 0)
-                    //{
-                    //    if (comboBox_serialPorts.Items.Contains(strSelected))
-                    //    {
-                    //        comboBox_serialPorts.SelectedItem = strSelected;
-                    //    }
-                    //    else
-                    //    {
-                    //        comboBox_serialPorts.SelectedIndex = 0;
-                    //    }
-                    //}
+                    if (comboBox_serialPorts.Items.Count > 0)
+                    {
+                        if (comboBox_serialPorts.Items.Contains(strSelected))
+                        {
+                            comboBox_serialPorts.SelectedItem = strSelected;
+                        }
+                        else
+                        {
+                            comboBox_serialPorts.SelectedIndex = 0;
+                        }
+                    }
                 }
             }
             catch (Exception) { }
@@ -160,6 +165,15 @@ namespace HotelFrontProgram
                 txt_nid.Text = serialPort.ReadLine().Split(':')[1];
             }
             catch (Exception) { }
+        }
+
+        //특수기호 '@'를 입력하지 못하게 막음
+        private void BlockInputAtMark(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '@')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

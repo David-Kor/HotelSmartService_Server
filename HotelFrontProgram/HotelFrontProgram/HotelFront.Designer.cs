@@ -34,14 +34,14 @@
             this.btn_delete_customer = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.grid_customer_table = new System.Windows.Forms.DataGridView();
+            this.btn_room_info = new System.Windows.Forms.Button();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.cNID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cAdress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cRooms = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_room_info = new System.Windows.Forms.Button();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grid_customer_table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +91,8 @@
             // 
             // grid_customer_table
             // 
+            this.grid_customer_table.AllowUserToAddRows = false;
+            this.grid_customer_table.AllowUserToDeleteRows = false;
             this.grid_customer_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_customer_table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cNID,
@@ -107,48 +109,6 @@
             this.grid_customer_table.TabIndex = 6;
             this.grid_customer_table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_customer_table_CellClick);
             // 
-            // cNID
-            // 
-            this.cNID.Frozen = true;
-            this.cNID.HeaderText = "NFC ID";
-            this.cNID.Name = "cNID";
-            this.cNID.ReadOnly = true;
-            // 
-            // cName
-            // 
-            this.cName.Frozen = true;
-            this.cName.HeaderText = "Name";
-            this.cName.Name = "cName";
-            this.cName.ReadOnly = true;
-            // 
-            // cPhone
-            // 
-            this.cPhone.Frozen = true;
-            this.cPhone.HeaderText = "Phone Number";
-            this.cPhone.Name = "cPhone";
-            this.cPhone.ReadOnly = true;
-            // 
-            // cAge
-            // 
-            this.cAge.Frozen = true;
-            this.cAge.HeaderText = "Age";
-            this.cAge.Name = "cAge";
-            this.cAge.ReadOnly = true;
-            // 
-            // cAdress
-            // 
-            this.cAdress.Frozen = true;
-            this.cAdress.HeaderText = "Adress";
-            this.cAdress.Name = "cAdress";
-            this.cAdress.ReadOnly = true;
-            // 
-            // cRooms
-            // 
-            this.cRooms.Frozen = true;
-            this.cRooms.HeaderText = "Rooms";
-            this.cRooms.Name = "cRooms";
-            this.cRooms.ReadOnly = true;
-            // 
             // btn_room_info
             // 
             this.btn_room_info.Location = new System.Drawing.Point(176, 347);
@@ -159,6 +119,48 @@
             this.btn_room_info.Text = "객실 현황 보기";
             this.btn_room_info.UseVisualStyleBackColor = true;
             this.btn_room_info.Click += new System.EventHandler(this.btn_room_info_Click);
+            // 
+            // cNID
+            // 
+            this.cNID.Frozen = true;
+            this.cNID.HeaderText = "NFC ID";
+            this.cNID.Name = "cNID";
+            this.cNID.ReadOnly = true;
+            // 
+            // cName
+            // 
+            this.cName.Frozen = true;
+            this.cName.HeaderText = "이름";
+            this.cName.Name = "cName";
+            this.cName.ReadOnly = true;
+            // 
+            // cPhone
+            // 
+            this.cPhone.Frozen = true;
+            this.cPhone.HeaderText = "폰번호";
+            this.cPhone.Name = "cPhone";
+            this.cPhone.ReadOnly = true;
+            // 
+            // cAge
+            // 
+            this.cAge.Frozen = true;
+            this.cAge.HeaderText = "나이";
+            this.cAge.Name = "cAge";
+            this.cAge.ReadOnly = true;
+            // 
+            // cAdress
+            // 
+            this.cAdress.Frozen = true;
+            this.cAdress.HeaderText = "주소";
+            this.cAdress.Name = "cAdress";
+            this.cAdress.ReadOnly = true;
+            // 
+            // cRooms
+            // 
+            this.cRooms.Frozen = true;
+            this.cRooms.HeaderText = "방번호";
+            this.cRooms.Name = "cRooms";
+            this.cRooms.ReadOnly = true;
             // 
             // HotelFront
             // 
@@ -187,13 +189,13 @@
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.DataGridView grid_customer_table;
         private System.Windows.Forms.Button btn_room_info;
+        private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNID;
         private System.Windows.Forms.DataGridViewTextBoxColumn cName;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn cAge;
         private System.Windows.Forms.DataGridViewTextBoxColumn cAdress;
         private System.Windows.Forms.DataGridViewTextBoxColumn cRooms;
-        private System.IO.Ports.SerialPort serialPort1;
     }
 }
 

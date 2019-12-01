@@ -10,7 +10,7 @@ namespace HotelServer
     {
         public int rid;
         public string nid;
-        public Reservation() { }
+        public Reservation() { rid = -1; nid = null; }
         public Reservation(Reservation reservation)
         {
             rid = reservation.rid;

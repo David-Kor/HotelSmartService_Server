@@ -541,7 +541,14 @@ namespace HotelServer
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO Reservation VALUES (", con);
                 //Rid
-                cmd.CommandText += rid + ", ";
+                if (rid >= 0)
+                {
+                    cmd.CommandText += rid + ", ";
+                }
+                else
+                {
+                    cmd.CommandText += "NULL, ";
+                }
                 //Nid
                 if (nid != null && nid.Length > 0)
                 {
@@ -579,7 +586,7 @@ namespace HotelServer
                 }
                 if (customer.phone != null && customer.phone.Length > 0)
                 {
-                    cmd.CommandText += "phone = '" + customer.phone + "',";
+                    cmd.CommandText += "phonenumber = '" + customer.phone + "',";
                 }
                 if (customer.age >= 0)
                 {
@@ -708,7 +715,7 @@ namespace HotelServer
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("DELETE FROM Customer WHERE nid = '" + nid + "'", con);
+                    SqlCommand cmd = new SqlCommand($"DELETE FROM Customer WHERE nid = '{ nid }'", con);
                     //쿼리문 실행
                     int count = cmd.ExecuteNonQuery();
                     //DB닫기

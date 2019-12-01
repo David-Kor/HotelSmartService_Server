@@ -160,7 +160,10 @@ namespace HotelServer
                 //클라이언트들 중에 동일 IP가 존재하면 기존에 있던 IP와의 통신을 끊고 Dictionary에서 제거
                 if (mv_dicClients.ContainsKey(strClientID))
                 {
-                    mv_dicClients[strClientID].Close();
+                    if (mv_dicClients[strClientID] != sockClient)
+                    {
+                        mv_dicClients[strClientID].Close();
+                    }
                     DictionaryClientRemove(strClientID);
                 }
                 //새로운 key,value를 추가
@@ -249,6 +252,46 @@ namespace HotelServer
                                 break;
                             }
                         //클라이언트가 호텔 프런트임을 알리는 명령어
+                        case "PCGETCL":
+                            {
+                                //소켓의 타입 저장
+                                clientType = ClientType.FRONT;
+                                List<Customer> customerList = mv_db.SelectAllCustomers();
+                                if (customerList == null)
+                                {
+                                    PrintMessage("Failed select customers");
+                                }
+                                else
+                                {
+                                    try
+                                    {
+                                        strSnd = $"CLIST:{customerList.Count}";
+                                        const string STRNULL = "@NULL";
+                                        Reservation reserv = null;
+                                        List<Reservation> getRsv = null;
+                                        for (int i = 0; i < customerList.Count; i++)
+                                        {
+                                            getRsv = mv_db.SelectAllReservationsByNID(customerList[i].nid);
+                                            if (getRsv == null) { reserv = null; }
+                                            else { reserv = getRsv[0]; }
+
+                                            strSnd += $":{i}@ID:{customerList[i].nid}" +
+                                                $":{i}@NM:{(customerList[i].name == null ? STRNULL : customerList[i].name)}" +
+                                                $":{i}@PN:{(customerList[i].phone == null ? STRNULL : customerList[i].phone)}" +
+                                                $":{i}@AG:{(customerList[i].age < 0 ? STRNULL : customerList[i].age.ToString())}" +
+                                                $":{i}@AD:{(customerList[i].address == null ? STRNULL : customerList[i].address)}" +
+                                                $":{i}@RM:{(reserv == null ? STRNULL : reserv.rid.ToString())}";
+                                        }
+                                        sockClient.Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
+                                        PrintMessage($"Send to {strClientID} : {strSnd}");
+                                    }
+                                    catch (Exception except)
+                                    {
+                                        PrintMessage($"Failed select customer : {except.Message}");
+                                    }
+                                }
+                                break;
+                            }
                         case "PC":
                             {
                                 mv_addrFront = (sockClient.RemoteEndPoint as IPEndPoint).Address;
@@ -627,7 +670,10 @@ namespace HotelServer
                                     strSnd = "HEATING";
                                 }
                                 //현재 온도 == 희망 온도
-                                else { break; }
+                                else
+                                {
+                                    strSnd = "TMPSTP";
+                                }
                                 /**************************************/
 
                                 //키가 있는지 확인
@@ -720,7 +766,7 @@ namespace HotelServer
                                             }
                                             else
                                             {
-                                                break;
+                                                strSnd = "TMPSTP";
                                             }
                                             sockClient.Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
                                             PrintMessage($"Send to {strClientID} : {strSnd}");
@@ -738,6 +784,9 @@ namespace HotelServer
                                             else if (room.tempSet == room.temp)
                                             {
                                                 bCorH = 0;
+                                                strSnd = "TMPSTP";
+                                                sockClient.Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
+                                                PrintMessage($"Send to {strClientID} : {strSnd}");
                                             }
                                             break;
                                         }
@@ -753,6 +802,9 @@ namespace HotelServer
                                             else if (room.tempSet == room.temp)
                                             {
                                                 bCorH = 0;
+                                                strSnd = "TMPSTP";
+                                                sockClient.Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
+                                                PrintMessage($"Send to {strClientID} : {strSnd}");
                                             }
                                             break;
                                         }
@@ -814,24 +866,217 @@ namespace HotelServer
                                     PrintMessage("Failed select customers");
                                     break;
                                 }
-
-                                strSnd = $"CLIST:{customerList.Count}";
-                                const string STRNULL = "@NULL";
-                                Reservation reserv = null;
-                                for (int i = 0; i < customerList.Count; i++)
+                                try
                                 {
-                                    reserv = mv_db.SelectAllReservationsByNID(customerList[i].nid)[0];
+                                    strSnd = $"CLIST:{customerList.Count}";
+                                    const string STRNULL = "@NULL";
+                                    Reservation reserv = null;
+                                    List<Reservation> getRsv = null;
+                                    for (int i = 0; i < customerList.Count; i++)
+                                    {
+                                        getRsv= mv_db.SelectAllReservationsByNID(customerList[i].nid);
+                                        if (getRsv == null) { reserv = null; }
+                                        else { reserv = getRsv[0]; }
 
-                                    strSnd += $":{i}@ID:{customerList[i].nid}" +
-                                        $":{i}@NM:{(customerList[i].name == null ? STRNULL : customerList[i].name)}" +
-                                        $":{i}@PN:{(customerList[i].phone == null ? STRNULL : customerList[i].phone)}" +
-                                        $":{i}@AG:{(customerList[i].age < 0 ? STRNULL : customerList[i].age.ToString())}" +
-                                        $":{i}@AD:{(customerList[i].address == null ? STRNULL : customerList[i].address)}" +
-                                        $":{i}@RM:{(reserv == null ? STRNULL : reserv.rid.ToString())}";
+                                        strSnd += $":{i}@ID:{customerList[i].nid}" +
+                                            $":{i}@NM:{(customerList[i].name == null ? STRNULL : customerList[i].name)}" +
+                                            $":{i}@PN:{(customerList[i].phone == null ? STRNULL : customerList[i].phone)}" +
+                                            $":{i}@AG:{(customerList[i].age < 0 ? STRNULL : customerList[i].age.ToString())}" +
+                                            $":{i}@AD:{(customerList[i].address == null ? STRNULL : customerList[i].address)}" +
+                                            $":{i}@RM:{(reserv == null ? STRNULL : reserv.rid.ToString())}";
+                                    }
+                                    sockClient.Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
+                                    PrintMessage($"Send to {strClientID} : {strSnd}");
                                 }
-                                sockClient.Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
-                                PrintMessage($"Send to {strClientID} : {strSnd}");
+                                catch (Exception except)
+                                {
+                                    PrintMessage($"Failed select customer : {except.Message}");
+                                }
+                                break;
+                            }
+                        //고객 정보 수정 명령어
+                        case "CEDIT":
+                            {
+                                if (strSplit.Length <= 1)
+                                {
+                                    PrintMessage("Not enough Args.");
+                                    sockClient.Send(ConvertStringBytes(STR_FAIL) as byte[], SocketFlags.None);
+                                    PrintMessage($"Send To {strClientID} : {STR_FAIL}");
+                                    break;
+                                }
+                                try
+                                {
+                                    const string STRNULL = "@NULL";
+                                    Customer customer = new Customer();
+                                    for (int i = 1; i < strSplit.Length; i++)
+                                    {
+                                        //@로 시작하는 속성명이 아니면 무시
+                                        if (strSplit[i][0] != '@') { continue; }
 
+                                        switch (strSplit[i])
+                                        {
+                                            case "@ID":
+                                                {
+                                                    customer.nid = strSplit[i + 1];
+                                                    i++;
+                                                    break;
+                                                }
+                                            case "@NM":
+                                                {
+                                                    customer.name = (strSplit[i + 1] == STRNULL) ? "" : strSplit[i + 1];
+                                                    i++;
+                                                    break;
+                                                }
+                                            case "@PN":
+                                                {
+                                                    customer.phone = (strSplit[i + 1] == STRNULL) ? "" : strSplit[i + 1];
+                                                    i++;
+                                                    break;
+                                                }
+                                            case "@AG":
+                                                {
+                                                    if (strSplit[i + 1] == STRNULL) { break; }
+
+                                                    if (int.TryParse(strSplit[i + 1], out customer.age) == false)
+                                                    {
+                                                        customer.age = -1;
+                                                    }
+                                                    i++;
+                                                    break;
+                                                }
+                                            case "@AD":
+                                                {
+                                                    customer.address = (strSplit[i + 1] == STRNULL) ? "" : strSplit[i + 1];
+                                                    i++;
+                                                    break;
+                                                }
+                                        }//switch(strSplit[0])문 끝
+                                    }//for문 끝
+                                    if (mv_db.UpdateCustomer(customer))
+                                    {
+                                        PrintMessage("Complete update customer");
+                                    }
+                                    else
+                                    {
+                                        PrintMessage($"Failed update customer sql");
+                                    }
+                                }
+                                catch (Exception except)
+                                {
+                                    PrintMessage($"Failed update customer : {except.Message}");
+                                }
+                                break;
+                            }
+                        //고객 정보 추가 명령어
+                        case "CNEW":
+                            {
+                                if (strSplit.Length <= 1)
+                                {
+                                    PrintMessage("Not enough Args.");
+                                    sockClient.Send(ConvertStringBytes(STR_FAIL) as byte[], SocketFlags.None);
+                                    PrintMessage($"Send To {strClientID} : {STR_FAIL}");
+                                    break;
+                                }
+                                try
+                                {
+                                    const string STRNULL = "@NULL";
+                                    Customer customer = new Customer();
+                                    Reservation reservation = new Reservation();
+                                    for (int i = 1; i < strSplit.Length; i++)
+                                    {
+                                        //@로 시작하는 속성명이 아니면 무시
+                                        if (strSplit[i][0] != '@') { continue; }
+
+                                        switch (strSplit[i])
+                                        {
+                                            case "@ID":
+                                                {
+                                                    customer.nid = strSplit[i + 1];
+                                                    reservation.nid = customer.nid;
+                                                    i++;
+                                                    break;
+                                                }
+                                            case "@NM":
+                                                {
+                                                    customer.name = (strSplit[i + 1] == STRNULL) ? "" : strSplit[i + 1];
+                                                    i++;
+                                                    break;
+                                                }
+                                            case "@PN":
+                                                {
+                                                    customer.phone = (strSplit[i + 1] == STRNULL) ? "" : strSplit[i + 1];
+                                                    i++;
+                                                    break;
+                                                }
+                                            case "@AG":
+                                                {
+                                                    if (strSplit[i + 1] == STRNULL) { break; }
+
+                                                    if (int.TryParse(strSplit[i + 1], out customer.age) == false)
+                                                    {
+                                                        customer.age = -1;
+                                                    }
+                                                    i++;
+                                                    break;
+                                                }
+                                            case "@AD":
+                                                {
+                                                    customer.address = (strSplit[i + 1] == STRNULL) ? "" : strSplit[i + 1];
+                                                    i++;
+                                                    break;
+                                                }
+                                            case "@RM":
+                                                {
+                                                    if (int.TryParse(strSplit[i + 1], out reservation.rid) == false)
+                                                    {
+                                                        reservation.rid = -1;
+                                                    }
+                                                    break;
+                                                }
+                                        }//switch(strSplit[0])문 끝
+                                    }//for문 끝
+                                    if (mv_db.InsertCustomer(customer))
+                                    {
+                                        PrintMessage("Complete insert customer");
+                                        if (mv_db.InsertReservation(reservation.rid, reservation.nid))
+                                        {
+                                            PrintMessage("Complete insert reservation");
+                                        }
+                                        else
+                                        {
+                                            PrintMessage("Failed insert reservation sql");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        PrintMessage($"Failed insert customer sql");
+                                    }
+                                }
+                                catch (Exception except)
+                                {
+                                    PrintMessage($"Failed insert customer : {except.Message}");
+                                }
+                                break;
+                            }
+                        //고객 정보 삭제 명령어
+                        case "CDEL":
+                            {
+                                if (strSplit.Length <= 1)
+                                {
+                                    PrintMessage("Not enough Args.");
+                                    sockClient.Send(ConvertStringBytes(STR_FAIL) as byte[], SocketFlags.None);
+                                    PrintMessage($"Send To {strClientID} : {STR_FAIL}");
+                                    break;
+                                }
+
+                                if (mv_db.DeleteCustomer(strSplit[1]))
+                                {
+                                    PrintMessage("Complete delete customer");
+                                }
+                                else
+                                {
+                                    PrintMessage("Failed delete customer sql");
+                                }
                                 break;
                             }
                     }

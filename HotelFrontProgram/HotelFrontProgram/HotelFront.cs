@@ -56,14 +56,14 @@ namespace HotelFrontProgram
         //서버에 연결 시도
         private void ConnectToServer()
         {
-            //이미 연결된 상태인 경우
-            if (sock_sv != null && sock_sv.Connected)
-            {
-                MessageBox.Show("이미 서버와 연결되어있습니다.");
-                return;
-            }
             try
             {
+                mutex.WaitOne(5000);
+                //이미 연결된 상태인 경우
+                if (sock_sv != null && sock_sv.Connected)
+                {
+                    return;
+                }
                 byte[] r_buff = new byte[BUFF_SIZE];
                 byte[] s_buff = Encoding.UTF8.GetBytes("PC");
                 sock_sv = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -75,11 +75,13 @@ namespace HotelFrontProgram
                 sock_sv.BeginSend(s_buff, 0, s_buff.Length, SocketFlags.None, new AsyncCallback(SendMessage), s_buff);
                 //비동기 수신 시작
                 sock_sv.BeginReceive(r_buff, 0, BUFF_SIZE, SocketFlags.None, new AsyncCallback(ReceiveMessage), r_buff);
+                mutex.ReleaseMutex();
             }
             catch (Exception)
             {
                 //MessageBox.Show(except.Message, "Connect");
                 sock_sv.Close();
+                mutex.ReleaseMutex();
                 ConnectToServer();
             }
         }
@@ -121,6 +123,7 @@ namespace HotelFrontProgram
             {
                 MessageBox.Show(except.Message, "Send");
                 sock_sv.Close();
+                ConnectToServer();
             }
         }
 
@@ -253,42 +256,43 @@ namespace HotelFrontProgram
                                 strField = strSplit[i].Split('@');
                                 //고객 인덱스를 얻어옴
                                 index = Convert.ToInt32(strField[0]);
+                                //문자 @NULL은 빈 값
                                 switch (strField[1])
                                 {
                                     case "ID":
                                         {
                                             i++;
-                                            grid_customer_table[0, index].Value = strSplit[i];
+                                            grid_customer_table[0, index].Value = (strSplit[i] == "@NULL") ? string.Empty : strSplit[i];
                                             break;
                                         }
                                     case "NM":
                                         {
                                             i++;
-                                            grid_customer_table[1, index].Value = strSplit[i];
+                                            grid_customer_table[1, index].Value = (strSplit[i] == "@NULL") ? string.Empty : strSplit[i];
                                             break;
                                         }
                                     case "PN":
                                         {
                                             i++;
-                                            grid_customer_table[2, index].Value = strSplit[i];
+                                            grid_customer_table[2, index].Value = (strSplit[i] == "@NULL") ? string.Empty : strSplit[i];
                                             break;
                                         }
                                     case "AG":
                                         {
                                             i++;
-                                            grid_customer_table[3, index].Value = strSplit[i];
+                                            grid_customer_table[3, index].Value = (strSplit[i] == "@NULL") ? string.Empty : strSplit[i];
                                             break;
                                         }
                                     case "AD":
                                         {
                                             i++;
-                                            grid_customer_table[4, index].Value = strSplit[i];
+                                            grid_customer_table[4, index].Value = (strSplit[i] == "@NULL") ? string.Empty : strSplit[i];
                                             break;
                                         }
                                     case "RM":
                                         {
                                             i++;
-                                            grid_customer_table[5, index].Value = strSplit[i];
+                                            grid_customer_table[5, index].Value = (strSplit[i] == "@NULL") ? string.Empty : strSplit[i];
                                             break;
                                         }
                                 }
@@ -387,35 +391,25 @@ namespace HotelFrontProgram
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        public void UpdateValues(Dictionary<int, string> contents)
+        public void UpdateValues(string[] contents)
         {
             try
             {
-                string cmd = "";
-                for (int i = 0; i < grid_customer_table.RowCount - 1; i++)
-                {
-                    if (grid_customer_table[0, i].Value.ToString() == contents[0])
-                    {
-                        cmd = "UPDATE\n";
-                        for (int j = 0; j < grid_customer_table.ColumnCount; j++)
-                        {
-                            cmd += contents[j] + "\n";
-                            grid_customer_table[j, i].Value = contents[j];
-                        }
-                        cmd = cmd.Remove(cmd.Length - 1, 1);
-                        break;
-                    }
-                }
-                if (cmd == "")
-                {
-                    cmd = "INSERT\n";
-                    for (int i = 0; i < grid_customer_table.ColumnCount; i++)
-                    {
-                        cmd += contents[i] + "\n";
-                    }
-                    cmd = cmd.Remove(cmd.Length - 1, 1);
-                }
+                const string STRNULL = "@NULL";
+                string cmd = string.Empty;
+                if (contents[0] == "EDIT") { cmd = "CEDIT"; }
+                else if (contents[0] == "NEW") { cmd = "CNEW"; }
+                else { return; }
+
+                cmd +=
+                    $":@ID:{contents[1]}" +
+                    $":@NM:{(contents[2].Length <= 0 ? STRNULL : contents[2])}" +
+                    $":@PN:{(contents[3].Length <= 0 ? STRNULL : contents[3])}" +
+                    $":@AG:{(contents[4].Length <= 0 ? STRNULL : contents[4])}" +
+                    $":@AD:{(contents[5].Length <= 0 ? STRNULL : contents[5])}" +
+                    $":@RM:{contents[6]}";
                 SendToServer(cmd);
+                SendToServer("GETCL");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -434,8 +428,7 @@ namespace HotelFrontProgram
                     "Customer Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     string nid = grid_customer_table[0, selectedRow].Value.ToString();
-                    SendToServer("DELETE\n" + nid);
-                    grid_customer_table.Rows.Clear();
+                    SendToServer("CDEL:" + nid);
                     SendToServer("GETCL");
                 }
             }
