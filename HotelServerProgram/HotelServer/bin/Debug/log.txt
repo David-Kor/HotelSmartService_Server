@@ -21715,3 +21715,125 @@ testtt
 
 [2019-12-02 오전 12:54:59]  	Loop End
 
+[2019-12-02 오전 1:05:48]  	Server Program Start.
+
+[2019-12-02 오전 1:05:48]  	Create New Socket.
+
+[2019-12-02 오전 1:05:48]  	Local address and port : 0.0.0.0:14334.
+
+[2019-12-02 오전 1:05:48]  	Bind Socket.
+
+[2019-12-02 오전 1:05:48]  	Listen and Loop Start.
+
+[2019-12-02 오전 1:05:48]  	Timer for update rooms start.
+
+[2019-12-02 오전 1:05:49]  	Accept Client : 192.168.0.1:4957
+
+[2019-12-02 오전 1:05:49]  	Add Client List
+
+[2019-12-02 오전 1:05:49]  	Client Count : 1
+
+[2019-12-02 오전 1:05:49]  	Receive 2 Byte From 192.168.0.1
+
+[2019-12-02 오전 1:05:49]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-12-02 오전 1:05:49]  	Send To 192.168.0.1 : OK
+
+[2019-12-02 오전 1:05:49]  	Receive 5 Byte From 192.168.0.1
+
+[2019-12-02 오전 1:05:49]  	Receive From ID[192.168.0.1]  : GETCL
+
+[2019-12-02 오전 1:05:49]  	Send to 192.168.0.1 : CLIST:3:0@ID:115.4.144.94:0@NM:최지호:0@PN:01054808207:0@AG:25:0@AD:경기도 수원시:0@RM:102:1@ID:123456:1@NM:tester:1@PN:01012345678:1@AG:20:1@AD:testaddr:1@RM:@NULL:2@ID:54321:2@NM:Choi:2@PN:01011110000:2@AG:25:2@AD:address:2@RM:102
+
+[2019-12-02 오전 1:05:51]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-12-02 오전 1:05:51]  	Close Socket ID : 192.168.0.1
+
+[2019-12-02 오전 1:05:51]  	Remove dictionary key : 192.168.0.1
+
+[2019-12-02 오전 1:05:51]  	Client Count : 0
+
+[2019-12-02 오전 1:05:59]  	Accept Client : 192.168.0.1:4959
+
+[2019-12-02 오전 1:05:59]  	Add Client List
+
+[2019-12-02 오전 1:05:59]  	Client Count : 1
+
+[2019-12-02 오전 1:05:59]  	Receive 2 Byte From 192.168.0.1
+
+[2019-12-02 오전 1:05:59]  	Receive From ID[192.168.0.1]  : PC
+
+[2019-12-02 오전 1:05:59]  	Send To 192.168.0.1 : OK
+
+[2019-12-02 오전 1:05:59]  	Receive 5 Byte From 192.168.0.1
+
+[2019-12-02 오전 1:05:59]  	Receive From ID[192.168.0.1]  : GETCL
+
+[2019-12-02 오전 1:05:59]  	Send to 192.168.0.1 : CLIST:3:0@ID:115.4.144.94:0@NM:최지호:0@PN:01054808207:0@AG:25:0@AD:경기도 수원시:0@RM:102:1@ID:123456:1@NM:tester:1@PN:01012345678:1@AG:20:1@AD:testaddr:1@RM:@NULL:2@ID:54321:2@NM:Choi:2@PN:01011110000:2@AG:25:2@AD:address:2@RM:102
+
+[2019-12-02 오전 1:06:03]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-12-02 오전 1:06:03]  	Close Socket ID : 192.168.0.1
+
+[2019-12-02 오전 1:06:03]  	Remove dictionary key : 192.168.0.1
+
+[2019-12-02 오전 1:06:03]  	Client Count : 0
+
+[2019-12-02 오전 1:06:23]  	Accept Client : 192.168.0.1:4963
+
+[2019-12-02 오전 1:06:23]  	Add Client List
+
+[2019-12-02 오전 1:06:23]  	Client Count : 1
+
+[2019-12-02 오전 1:06:23]  	Receive 7 Byte From 192.168.0.1
+
+[2019-12-02 오전 1:06:23]  	Receive From ID[192.168.0.1]  : PCGETCL
+
+[2019-12-02 오전 1:06:23]  	Send to 192.168.0.1 : CLIST:3:0@ID:115.4.144.94:0@NM:최지호:0@PN:01054808207:0@AG:25:0@AD:경기도 수원시:0@RM:102:1@ID:123456:1@NM:tester:1@PN:01012345678:1@AG:20:1@AD:testaddr:1@RM:@NULL:2@ID:54321:2@NM:Choi:2@PN:01011110000:2@AG:25:2@AD:address:2@RM:102
+
+[2019-12-02 오전 1:06:25]  	Receive 5 Byte From 192.168.0.1
+
+[2019-12-02 오전 1:06:25]  	Receive From ID[192.168.0.1]  : GETCL
+
+[2019-12-02 오전 1:06:25]  	Send to 192.168.0.1 : CLIST:3:0@ID:115.4.144.94:0@NM:최지호:0@PN:01054808207:0@AG:25:0@AD:경기도 수원시:0@RM:102:1@ID:123456:1@NM:tester:1@PN:01012345678:1@AG:20:1@AD:testaddr:1@RM:@NULL:2@ID:54321:2@NM:Choi:2@PN:01011110000:2@AG:25:2@AD:address:2@RM:102
+
+[2019-12-02 오전 1:06:29]  	Receive 5 Byte From 192.168.0.1
+
+[2019-12-02 오전 1:06:29]  	Receive From ID[192.168.0.1]  : GETCL
+
+[2019-12-02 오전 1:06:29]  	Send to 192.168.0.1 : CLIST:3:0@ID:115.4.144.94:0@NM:최지호:0@PN:01054808207:0@AG:25:0@AD:경기도 수원시:0@RM:102:1@ID:123456:1@NM:tester:1@PN:01012345678:1@AG:20:1@AD:testaddr:1@RM:@NULL:2@ID:54321:2@NM:Choi:2@PN:01011110000:2@AG:25:2@AD:address:2@RM:102
+
+[2019-12-02 오전 1:06:34]  	Receive 11 Byte From 192.168.0.1
+
+[2019-12-02 오전 1:06:34]  	Receive From ID[192.168.0.1]  : CDEL:123456
+
+[2019-12-02 오전 1:06:34]  	Complete delete customer
+
+[2019-12-02 오전 1:06:34]  	Receive 5 Byte From 192.168.0.1
+
+[2019-12-02 오전 1:06:34]  	Receive From ID[192.168.0.1]  : GETCL
+
+[2019-12-02 오전 1:06:34]  	Send to 192.168.0.1 : CLIST:2:0@ID:115.4.144.94:0@NM:최지호:0@PN:01054808207:0@AG:25:0@AD:경기도 수원시:0@RM:102:1@ID:54321:1@NM:Choi:1@PN:01011110000:1@AG:25:1@AD:address:1@RM:102
+
+[2019-12-02 오전 1:06:35]  	Receive 5 Byte From 192.168.0.1
+
+[2019-12-02 오전 1:06:35]  	Receive From ID[192.168.0.1]  : GETCL
+
+[2019-12-02 오전 1:06:35]  	Send to 192.168.0.1 : CLIST:2:0@ID:115.4.144.94:0@NM:최지호:0@PN:01054808207:0@AG:25:0@AD:경기도 수원시:0@RM:102:1@ID:54321:1@NM:Choi:1@PN:01011110000:1@AG:25:1@AD:address:1@RM:102
+
+[2019-12-02 오전 1:06:38]  	Exception occurred in CommunicationToClient() [192.168.0.1] : 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+
+[2019-12-02 오전 1:06:38]  	Close Socket ID : 192.168.0.1
+
+[2019-12-02 오전 1:06:38]  	Remove dictionary key : 192.168.0.1
+
+[2019-12-02 오전 1:06:38]  	Client Count : 0
+
+[2019-12-02 오전 1:06:38]  	All client closing.
+
+[2019-12-02 오전 1:06:38]  	Exception occurred in ServerSocketStart() while Accept() : WSACancelBlockingCall를 호출하여 차단 작업이 중단되었습니다
+
+[2019-12-02 오전 1:06:38]  	Server Closing.
+
+[2019-12-02 오전 1:06:38]  	Loop End
+

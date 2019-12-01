@@ -32,7 +32,6 @@
             this.rid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rUsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rHumid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rDust = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,12 +40,13 @@
             // 
             // grid_room_table
             // 
+            this.grid_room_table.AllowUserToAddRows = false;
+            this.grid_room_table.AllowUserToDeleteRows = false;
             this.grid_room_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_room_table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rid,
             this.rStartDate,
             this.rEndDate,
-            this.rUsable,
             this.rTemp,
             this.rHumid,
             this.rDust});
@@ -60,49 +60,42 @@
             // rid
             // 
             this.rid.Frozen = true;
-            this.rid.HeaderText = "Room Number";
+            this.rid.HeaderText = "방번호";
             this.rid.Name = "rid";
             this.rid.ReadOnly = true;
             // 
             // rStartDate
             // 
             this.rStartDate.Frozen = true;
-            this.rStartDate.HeaderText = "Check In Date";
+            this.rStartDate.HeaderText = "체크인";
             this.rStartDate.Name = "rStartDate";
             this.rStartDate.ReadOnly = true;
             // 
             // rEndDate
             // 
             this.rEndDate.Frozen = true;
-            this.rEndDate.HeaderText = "Due Date";
+            this.rEndDate.HeaderText = "체크아웃";
             this.rEndDate.Name = "rEndDate";
             this.rEndDate.ReadOnly = true;
-            // 
-            // rUsable
-            // 
-            this.rUsable.Frozen = true;
-            this.rUsable.HeaderText = "Available";
-            this.rUsable.Name = "rUsable";
-            this.rUsable.ReadOnly = true;
             // 
             // rTemp
             // 
             this.rTemp.Frozen = true;
-            this.rTemp.HeaderText = "Temperature";
+            this.rTemp.HeaderText = "온도";
             this.rTemp.Name = "rTemp";
             this.rTemp.ReadOnly = true;
             // 
             // rHumid
             // 
             this.rHumid.Frozen = true;
-            this.rHumid.HeaderText = "Humidity";
+            this.rHumid.HeaderText = "습도";
             this.rHumid.Name = "rHumid";
             this.rHumid.ReadOnly = true;
             // 
             // rDust
             // 
             this.rDust.Frozen = true;
-            this.rDust.HeaderText = "Dust concentration";
+            this.rDust.HeaderText = "먼지농도";
             this.rDust.Name = "rDust";
             this.rDust.ReadOnly = true;
             // 
@@ -125,7 +118,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rid;
         private System.Windows.Forms.DataGridViewTextBoxColumn rStartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn rEndDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rUsable;
         private System.Windows.Forms.DataGridViewTextBoxColumn rTemp;
         private System.Windows.Forms.DataGridViewTextBoxColumn rHumid;
         private System.Windows.Forms.DataGridViewTextBoxColumn rDust;

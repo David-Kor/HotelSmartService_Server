@@ -34,20 +34,20 @@
             this.btn_delete_customer = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.grid_customer_table = new System.Windows.Forms.DataGridView();
-            this.btn_room_info = new System.Windows.Forms.Button();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.cNID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cAdress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cRooms = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_room_info = new System.Windows.Forms.Button();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grid_customer_table)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_append_customer
             // 
-            this.btn_append_customer.Location = new System.Drawing.Point(12, 291);
+            this.btn_append_customer.Location = new System.Drawing.Point(12, 323);
             this.btn_append_customer.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_append_customer.Name = "btn_append_customer";
             this.btn_append_customer.Size = new System.Drawing.Size(158, 46);
@@ -58,7 +58,7 @@
             // 
             // btn_refresh
             // 
-            this.btn_refresh.Location = new System.Drawing.Point(428, 291);
+            this.btn_refresh.Location = new System.Drawing.Point(552, 323);
             this.btn_refresh.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(158, 46);
@@ -69,7 +69,7 @@
             // 
             // btn_delete_customer
             // 
-            this.btn_delete_customer.Location = new System.Drawing.Point(12, 347);
+            this.btn_delete_customer.Location = new System.Drawing.Point(340, 323);
             this.btn_delete_customer.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_delete_customer.Name = "btn_delete_customer";
             this.btn_delete_customer.Size = new System.Drawing.Size(158, 46);
@@ -80,7 +80,7 @@
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(176, 291);
+            this.btn_edit.Location = new System.Drawing.Point(176, 323);
             this.btn_edit.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(158, 46);
@@ -108,17 +108,6 @@
             this.grid_customer_table.Size = new System.Drawing.Size(698, 266);
             this.grid_customer_table.TabIndex = 6;
             this.grid_customer_table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_customer_table_CellClick);
-            // 
-            // btn_room_info
-            // 
-            this.btn_room_info.Location = new System.Drawing.Point(176, 347);
-            this.btn_room_info.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btn_room_info.Name = "btn_room_info";
-            this.btn_room_info.Size = new System.Drawing.Size(158, 46);
-            this.btn_room_info.TabIndex = 5;
-            this.btn_room_info.Text = "객실 현황 보기";
-            this.btn_room_info.UseVisualStyleBackColor = true;
-            this.btn_room_info.Click += new System.EventHandler(this.btn_room_info_Click);
             // 
             // cNID
             // 
@@ -161,6 +150,19 @@
             this.cRooms.HeaderText = "방번호";
             this.cRooms.Name = "cRooms";
             this.cRooms.ReadOnly = true;
+            // 
+            // btn_room_info
+            // 
+            this.btn_room_info.Enabled = false;
+            this.btn_room_info.Location = new System.Drawing.Point(552, 290);
+            this.btn_room_info.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btn_room_info.Name = "btn_room_info";
+            this.btn_room_info.Size = new System.Drawing.Size(158, 46);
+            this.btn_room_info.TabIndex = 5;
+            this.btn_room_info.Text = "객실 현황 보기";
+            this.btn_room_info.UseVisualStyleBackColor = true;
+            this.btn_room_info.Visible = false;
+            this.btn_room_info.Click += new System.EventHandler(this.btn_room_info_Click);
             // 
             // HotelFront
             // 
