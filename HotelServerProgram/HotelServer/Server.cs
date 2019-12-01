@@ -255,7 +255,10 @@ namespace HotelServer
                         case "PCGETCL":
                             {
                                 //소켓의 타입 저장
+                                mv_addrFront = (sockClient.RemoteEndPoint as IPEndPoint).Address;
                                 clientType = ClientType.FRONT;
+                                sockClient.Send(ConvertStringBytes(STR_OK) as byte[], SocketFlags.None);
+                                PrintMessage($"Send To {strClientID} : {STR_OK}");
                                 List<Customer> customerList = mv_db.SelectAllCustomers();
                                 if (customerList == null)
                                 {
@@ -351,14 +354,54 @@ namespace HotelServer
                                 mv_mutex.ReleaseMutex();
                                 break;
                             }
+                        //룸 서비스 주문 요청
+                        case "ORDER":
+                            {
+                                if (strSplit.Length <= 1)
+                                {
+                                    PrintMessage("Not enough Args.");
+                                    break;
+                                }
+                                //프런트의 소켓이 없는 경우
+                                if (mv_addrFront == null)
+                                {
+                                    PrintMessage($"Cannot found Front socket.");
+                                    break;
+                                }
+
+                                string strNID = mv_db.SelectNIDByPhone(strClientID);
+                                List<Reservation> reservList = mv_db.SelectAllReservationsByNID(strNID);
+                                //nid를 통한 rid검색 실패
+                                if (reservList == null)
+                                {
+                                    PrintMessage($"Not found reserved room by nid:{strNID}");
+                                    break;
+                                }
+
+                                strSnd = $"CHAT:SYSTEM_SERVER:{reservList[0].rid}호실에서 룸서비스를 주문하셨습니다.\n===============";
+                                string[] strOrderInfo = null;
+                                for (int i = 1; i < strSplit.Length; i++)
+                                {
+                                    strOrderInfo = strSplit[i].Split(',');
+                                    if (strOrderInfo.Length != 3)
+                                    {
+                                        continue;
+                                    }
+                                    strSnd += $"\n상품명 : {strOrderInfo[0]}\n수량 : {strOrderInfo[1]}\n가격 : {strOrderInfo[2]}\n";
+                                }
+                                strSnd += "===============\n";
+                                string strFrontAddr = mv_addrFront.ToString();
+                                mv_dicClients[strFrontAddr].Send(ConvertStringBytes("CHTCALL:SYSTEM_SERVER") as byte[], SocketFlags.None);
+                                mv_dicClients[strFrontAddr].Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
+                                PrintMessage($"Send To {strFrontAddr} : {strSnd}");
+                                break;
+                            }
                         //클라이언트가 호텔 프런트에 채팅을 전송하겠다는 명령어 (CHAT:내용)
                         case "CHAT":
                             {
                                 if (strSplit.Length <= 1)
                                 {
                                     PrintMessage("Not enough Args.");
-                                    sockClient.Send(ConvertStringBytes(STR_FAIL) as byte[], SocketFlags.None);
-                                    PrintMessage($"Send To {strClientID} : {STR_FAIL}");
                                     break;
                                 }
 
@@ -377,16 +420,11 @@ namespace HotelServer
                                     PrintMessage($"Send to {strFrontAddr} : CHTCALL:{strClientID}");
                                     mv_dicClients[strFrontAddr].Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
                                     PrintMessage($"Send to {strFrontAddr} : {strSnd}");
-                                    //클라이언트에게 채팅 메시지의 전송에 성공을 알림
-                                    sockClient.Send(ConvertStringBytes(STR_OK) as byte[], SocketFlags.None);
-                                    PrintMessage($"Send to {strClientID} : {STR_OK}");
                                 }
                                 //프런트 ip정보가 없는 경우
                                 else
                                 {
                                     PrintMessage($"Cannot found Front socket.");
-                                    sockClient.Send(ConvertStringBytes(STR_FAIL) as byte[], SocketFlags.None);
-                                    PrintMessage($"Send To {strClientID} : {STR_FAIL}");
                                 }
                                 break;
                             }

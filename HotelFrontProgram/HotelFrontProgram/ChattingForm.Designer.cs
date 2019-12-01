@@ -71,7 +71,6 @@
             this.Controls.Add(this.btn_send);
             this.Controls.Add(this.txtbx_input);
             this.Name = "ChattingForm";
-            this.Text = "ChattingForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChattingForm_FormClosing);
             this.Load += new System.EventHandler(this.ChattingForm_Load);
             this.ResumeLayout(false);

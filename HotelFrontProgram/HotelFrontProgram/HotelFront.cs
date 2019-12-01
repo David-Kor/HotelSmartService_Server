@@ -173,6 +173,7 @@ namespace HotelFrontProgram
 
                             //현재 열려있는 chattingForm 중에서 ID가 같은 폼을 탐색
                             ChattingForm chattingForm = FindByID(strSplit[1]);
+                            if (chattingForm == null) { break; }
 
                             for (int i = 3; i < strSplit.Length; i++)
                             {

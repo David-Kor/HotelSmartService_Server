@@ -47,7 +47,7 @@ namespace HotelFrontProgram
 
         public void ReceiveChat(string txt)
         {
-            PrintMessage("[받음]  " + txt);
+            PrintMessage($"[{mv_strID}]  {txt}");
             if ((txtbx_input.Enabled || btn_send.Enabled) == false)
             {
                 Reconnected();
@@ -75,7 +75,7 @@ namespace HotelFrontProgram
                 txtbx_input.Clear();
                 //입력한 채팅 전송
                 mv_mainForm.SendToServer($"CHATTO:{mv_strID}:{input}");
-                PrintMessage("[보냄]  " + input);
+                PrintMessage("[전송]  " + input);
             }
         }
 
@@ -91,7 +91,8 @@ namespace HotelFrontProgram
 
         private void ChattingForm_Load(object sender, EventArgs e)
         {
-
+            //제목표시줄
+            Text = mv_strID;
         }
 
         private void txt_chat_display_TextChanged(object sender, EventArgs e)
