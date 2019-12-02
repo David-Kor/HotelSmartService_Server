@@ -35,16 +35,16 @@
             // 
             // txtbx_input
             // 
-            this.txtbx_input.Location = new System.Drawing.Point(36, 390);
+            this.txtbx_input.Location = new System.Drawing.Point(32, 390);
             this.txtbx_input.MaxLength = 1000;
             this.txtbx_input.Name = "txtbx_input";
-            this.txtbx_input.Size = new System.Drawing.Size(577, 21);
+            this.txtbx_input.Size = new System.Drawing.Size(630, 21);
             this.txtbx_input.TabIndex = 0;
             this.txtbx_input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbx_input_KeyDown);
             // 
             // btn_send
             // 
-            this.btn_send.Location = new System.Drawing.Point(638, 390);
+            this.btn_send.Location = new System.Drawing.Point(693, 390);
             this.btn_send.Name = "btn_send";
             this.btn_send.Size = new System.Drawing.Size(75, 21);
             this.btn_send.TabIndex = 1;
@@ -54,10 +54,10 @@
             // 
             // txt_chat_display
             // 
-            this.txt_chat_display.Location = new System.Drawing.Point(36, 26);
+            this.txt_chat_display.Location = new System.Drawing.Point(32, 28);
             this.txt_chat_display.Name = "txt_chat_display";
             this.txt_chat_display.ReadOnly = true;
-            this.txt_chat_display.Size = new System.Drawing.Size(577, 339);
+            this.txt_chat_display.Size = new System.Drawing.Size(736, 323);
             this.txt_chat_display.TabIndex = 2;
             this.txt_chat_display.Text = "";
             this.txt_chat_display.TextChanged += new System.EventHandler(this.txt_chat_display_TextChanged);

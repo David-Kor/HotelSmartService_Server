@@ -492,7 +492,7 @@ namespace HotelServer
                                     break;
                                 }
                                 //저장된 센서 감지값 전송
-                                strSnd = $"{myRoom.temp}\n{myRoom.humid}\n{myRoom.dust}";
+                                strSnd = $"RoomInfo\n{myRoom.temp}\n{myRoom.humid}\n{myRoom.dust}";
                                 sockClient.Send(ConvertStringBytes(strSnd) as byte[], SocketFlags.None);
                                 PrintMessage($"Send To {strClientID} : {strSnd}");
                                 break;

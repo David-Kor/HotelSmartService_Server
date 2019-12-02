@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,30 @@ namespace HotelFrontProgram
             mv_strID = strID;
             mv_mainForm = form;
             mv_isConnected = true;
+            if (mv_strID == "SYSTEM_SERVER")
+            {
+                txtbx_input.Enabled = txtbx_input.Visible = false;
+                btn_send.Enabled = btn_send.Visible = false;
+            }
+            try
+            {
+                using (StreamWriter file = new StreamWriter(Application.StartupPath + $@"\chtlg_{mv_strID.Replace("\r","")}", true))
+                {
+                    file.Write("");
+                }
+                using (StreamReader file = new StreamReader(Application.StartupPath + $@"\chtlg_{mv_strID.Replace("\r", "")}", true))
+                {
+                    if (file.EndOfStream)
+                    {
+                        return;
+                    }
+                    txt_chat_display.AppendText(file.ReadToEnd());
+                }
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message, mv_strID);
+            }
         }
 
         public bool IsConnected() { return mv_isConnected; }
@@ -82,6 +107,17 @@ namespace HotelFrontProgram
         private void PrintMessage(string msg)
         {
             txt_chat_display.AppendText(msg + "\n");
+            try
+            {
+                using (StreamWriter file = new StreamWriter(Application.StartupPath + $@"\chtlg_{mv_strID.Replace("\r", "")}", true))
+                {
+                    file.WriteLine(msg);
+                }
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message, "Chat Err");
+            }
         }
 
         private void ChattingForm_FormClosing(object sender, FormClosingEventArgs e)

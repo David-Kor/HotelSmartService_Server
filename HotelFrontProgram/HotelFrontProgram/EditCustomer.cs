@@ -56,7 +56,7 @@ namespace HotelFrontProgram
         {
             if (txt_nid.Text.Length * txt_room.Text.Length <= 0)
             {
-                MessageBox.Show("NFC ID 또는 방번호는 반드시 입력해야 합니다.");
+                MessageBox.Show("NFC ID 그리고 방번호는 반드시 입력해야 합니다.");
                 return;
             }
             string[] contents = new string[7];
@@ -162,7 +162,7 @@ namespace HotelFrontProgram
         {
             try
             {
-                txt_nid.Text = serialPort.ReadLine().Split(':')[1];
+                txt_nid.Text = serialPort.ReadLine().Split(':')[1].Replace("\n", "");
             }
             catch (Exception) { }
         }

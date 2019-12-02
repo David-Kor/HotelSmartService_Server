@@ -19,7 +19,7 @@ namespace HotelFrontProgram
     {
         private Socket sock_sv;
         private const int BUFF_SIZE = 1024;
-        private LinkedList<ChattingForm> chatFromList;
+        private LinkedList<ChattingForm> chatFormList;
         private RoomsForm roomFrom;
         private int selectedRow = 0;
         private Mutex mutex;
@@ -42,7 +42,8 @@ namespace HotelFrontProgram
         public HotelFront()
         {
             InitializeComponent();
-            chatFromList = new LinkedList<ChattingForm>();
+            CheckForIllegalCrossThreadCalls = false;
+            chatFormList = new LinkedList<ChattingForm>();
             mutex = new Mutex();    //뮤텍스 생성
             ConnectToServer();
         }
@@ -153,7 +154,7 @@ namespace HotelFrontProgram
                             if (chattingForm == null)
                             {
                                 chattingForm = new ChattingForm(strSplit[1], this);
-                                Application.Run(chatFromList.AddLast(chattingForm).Value);
+                                Application.Run(chatFormList.AddLast(chattingForm).Value);
                             }
                             //ID가 존재하고 연결 상태가 끊김이면 상태를 변경
                             else if (chattingForm.IsConnected() == false)
@@ -313,7 +314,7 @@ namespace HotelFrontProgram
 
         private ChattingForm FindByID(string id)
         {
-            LinkedListNode<ChattingForm> node = chatFromList.First;
+            LinkedListNode<ChattingForm> node = chatFormList.First;
             if (node == null) { return null; }
 
             while (node != null)
@@ -336,13 +337,13 @@ namespace HotelFrontProgram
         public void CloseForm(ChattingForm form)
         {
             mutex.WaitOne();
-            chatFromList.Remove(form);
+            chatFormList.Remove(form);
             mutex.ReleaseMutex();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            LinkedListNode<ChattingForm> form = chatFromList.First;
+            LinkedListNode<ChattingForm> form = chatFormList.First;
             if (form == null) { return; }
             while (form != null)
             {
@@ -516,5 +517,43 @@ namespace HotelFrontProgram
             }
         }
 
+        private void Btn_chat_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (grid_customer_table[2, selectedRow].Value.ToString() == "") { return; }
+                //현재 열려있는 chattingForm 중에서 ID가 같은 폼을 탐색
+                ChattingForm chattingForm = FindByID(grid_customer_table[2, selectedRow].Value.ToString());
+                //ID가 존재하지 않으면 새로운 폼 생성
+                if (chattingForm == null)
+                {
+                    chattingForm = new ChattingForm(grid_customer_table[2, selectedRow].Value.ToString(), this);
+                    chatFormList.AddLast(chattingForm).Value.ShowDialog();
+                }
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message, "Open chat form Err");
+            }
+        }
+
+        private void Btn_ordered_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //현재 열려있는 chattingForm 중에서 ID가 같은 폼을 탐색
+                ChattingForm chattingForm = FindByID("SYSTEM_SERVER");
+                //ID가 존재하지 않으면 새로운 폼 생성
+                if (chattingForm == null)
+                {
+                    chattingForm = new ChattingForm("SYSTEM_SERVER", this);
+                    chatFormList.AddLast(chattingForm).Value.ShowDialog();
+                }
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message, "Open order log Err");
+            }
+        }
     }
 }
